@@ -9,7 +9,6 @@
         "src": "./src"
       }
     }],
-    ["transform-define", "./env-config.js"],
     ["import", {
       "libraryName": "antd"
     }],
