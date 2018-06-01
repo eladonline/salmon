@@ -1,0 +1,5 @@
+export default {
+  NAVIGATE: 'NAVIGATE',
+  REPLACE_TAB: 'REPLACE_TAB',
+  TOGGLE_DRAWER: 'TOGGLE_DRAWER',
+};

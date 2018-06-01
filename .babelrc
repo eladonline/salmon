@@ -6,7 +6,9 @@
     ["module-resolver", {
       "root": ["./"],
       "alias": {
-        "src": "./src"
+        "src": "./src",
+        "containers": "./containers",
+        "components": "./components"
       }
     }],
     ["import", {

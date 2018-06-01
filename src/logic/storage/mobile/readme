@@ -1,0 +1,3 @@
+We are using 'react-native-simple-store'
+You can you can use it by import storage from logic:
+import { storage } from 'src/logic';

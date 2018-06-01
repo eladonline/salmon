@@ -3,8 +3,8 @@ import withRedux from 'next-redux-wrapper';
 import nextReduxSaga from 'next-redux-saga';
 import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
-import reducers from './reducers';
-import rootSaga from './rootSaga';
+import reducers from 'src/logic/redux/reducer/web/rootReducerSsr';
+import rootSaga from 'src/logic/redux/saga/web/rootSagaSsr';
 
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [thunk, sagaMiddleware];
@@ -12,10 +12,7 @@ const middlewares = [thunk, sagaMiddleware];
 export function configureStore(initialState) {
   const store = createStore(reducers, applyMiddleware(...middlewares));
 
-  store.runSagaTask = () => {
-    store.sagaTask = sagaMiddleware.run(rootSaga)
-  }
-  store.runSagaTask()
+  store.sagaTask = sagaMiddleware.run(rootSaga);
   return store;
 }
 

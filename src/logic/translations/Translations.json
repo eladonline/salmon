@@ -1,0 +1,26 @@
+{
+    "en": {
+        "_comment": "WRITE ALL YOU TRANSLATES IN LOWER CASE",
+        "common": {
+            "missing": "missing props.118",
+            "screenNameIs": "screenNameIs:",
+            "componentNameIs": "componentNameIs:",
+            "search": "search",
+            "username": "username",
+            "email": "email",
+            "password": "password",
+            "welcome": "welcome",
+            "login": "login",
+            "forgotPassword": "forgot Password?",
+            "youUpper": "you_upper",
+            "checkIn": "check in",
+            "checkinYourTicket": "check in your ticket",
+            "checkInNow": "check in now",
+            "remindMeLater": "remind me later",
+            "activate": "activate",
+            "activateYourTicket": "activate your ticket",
+            "activateNow": "activate now",
+            "ok": "OK"
+        }
+    }
+}
