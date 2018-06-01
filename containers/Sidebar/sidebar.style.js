@@ -9,13 +9,18 @@ const SidebarWrapper = styled.div`
 		background: ${palette('secondary', 0)};
 		width: 280px;
 		flex: 0 0 280px;
-
+		width: 280px !important;
+		max-width: none !important;
+		flex: 0 0 280 !important;
 		@media only screen and (max-width: 767px) {
 			width: 240px !important;
 			flex: 0 0 240px !important;
 		}
 
 		&.ant-layout-sider-collapsed {
+			width: 80px !important;
+			max-width: 80px !important;
+			flex: 0 0 80 !important;
 			@media only screen and (max-width: 767px) {
 				width: 0;
 				min-width: 0 !important;
