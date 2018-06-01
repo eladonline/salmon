@@ -1,5 +1,5 @@
 import { Map } from "immutable";
-import fakeData from "../../containers/Contacts/fakeData";
+import fakeData from "containers//Contacts/fakeData";
 import contactActions from "./actions";
 
 const contacts = new fakeData(10).getAll();

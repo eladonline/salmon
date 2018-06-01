@@ -9,7 +9,7 @@ import IntlMessages from '../../components/utility/intlMessages';
 import notification from '../../components/notification';
 import GitResult from './githubResult';
 import basicStyle from '../../config/basicStyle';
-import actions from '../../redux/githubSearch/actions';
+import actions from 'src/logic/redux/isomorphic/githubSearch/actions';
 
 const { gitSearch, onPageChange } = actions;
 

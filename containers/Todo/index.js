@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
 import Input from '../../components/uielements/input';
-import todoAction from '../../redux/todos/actions.js';
+import todoAction from 'src/logic/redux/isomorphic/todos/actions.js';
 import TodoList from './todoList';
 import { TodoWrapper } from './todo.style';
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import clone from 'clone';
 import notification from '../../components/notification';
 import ModalEvents from './modalEvents';
-import calendarActions from '../../redux/calendar/actions';
+import calendarActions from 'src/logic/redux/isomorphic/calendar/actions';
 import { CalendarStyleWrapper } from './calendar.style';
 import DnDCalendar from './DnDCalendar';
 const { changeView, changeEvents } = calendarActions;

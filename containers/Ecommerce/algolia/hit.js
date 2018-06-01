@@ -4,7 +4,7 @@ import { Highlight, Snippet } from 'react-instantsearch/dom';
 import Rate from '../../../components/uielements/rate';
 import Button from '../../../components/uielements/button';
 import { GridListViewWrapper } from '../../../components/algolia/algoliaComponent.style';
-import ecommerceActions from '../../../redux/ecommerce/actions';
+import ecommerceActions from 'src/logic/redux/isomorphic/ecommerce/actions';
 
 const { addToCart, changeViewTopbarCart } = ecommerceActions;
 

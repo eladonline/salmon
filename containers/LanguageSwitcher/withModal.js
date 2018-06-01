@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Modal from '../../components/feedback/modal';
 import Button from '../../components/uielements/button';
-import actions from '../../redux/languageSwitcher/actions';
+import actions from 'src/logic/redux/isomorphic/languageSwitcher/actions';
 import config from './config';
 
 const { switchActivation, changeLanguage } = actions;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { connect } from 'react-redux';
-import noteActions from '../../redux/notes/actions';
+import noteActions from 'src/logic/redux/isomorphic/notes/actions';
 import NoteList from './noteList';
 import { ColorChoser } from '../../components/';
 import Button from '../../components/uielements/button';

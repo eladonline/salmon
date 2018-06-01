@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 
-import { configureStore } from '../redux/store'
+import { configureStore } from 'src/logic/redux/store/web/createStoreSsr'
 
 class MyApp extends App {
   static async getInitialProps ({ Component, ctx }) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Popover from '../../components/uielements/popover';
-import authAction from '../../redux/auth/actions';
+import authAction from 'src/logic/redux/isomorphic/auth/actions';
 import TopbarDropdownWrapper from './topbarDropdown.style';
 
 const { logout } = authAction;

@@ -2,7 +2,7 @@ import React from 'react';
 import Loader from '../../components/utility/loader';
 import HelperText from '../../components/utility/helper-text';
 import Pagination from '../../components/uielements/pagination';
-import { per_page } from '../../redux/githubSearch/sagas';
+import { per_page } from 'src/logic/redux/isomorphic/githubSearch/sagas';
 import {
   GithubResultListStyleWrapper,
   GithubResultStyleWrapper

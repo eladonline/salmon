@@ -9,10 +9,10 @@ import mailTags from '../../components/mail/mailTags';
 import singleMail from '../../components/mail/singleMail';
 import ComposeBtn from '../../components/mail/mailComposeBtn';
 import ComposeMail from '../../components/mail/composeMail';
-import mailActions from '../../redux/mail/actions';
+import mailActions from 'src/logic/redux/isomorphic/mail/actions';
 import PaginationControl from '../../components/mail/mailPagination';
 import IntlMessages from '../../components/utility/intlMessages';
-import mailSelector from '../../redux/mail/selector';
+import mailSelector from 'src/logic/redux/isomorphic/mail/selector';
 import MailDrawer from './mailDrawer.style';
 import MailBox from './mailBox.style';
 

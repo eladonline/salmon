@@ -11,8 +11,8 @@ import ThemeSwitcher from '../ThemeSwitcher';
 import Topbar from '../Topbar/Topbar';
 import themes from '../../config/themes';
 import { siteConfig } from '../../config/index';
-import authAction from '../../redux/auth/actions';
-import appActions from '../../redux/app/actions';
+import authAction from 'src/logic/redux/isomorphic/auth/actions';
+import appActions from 'src/logic/redux/isomorphic/app/actions';
 import AppLocale from '../../languageProvider';
 import AppHolder from './commonStyle';
 

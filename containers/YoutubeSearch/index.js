@@ -9,7 +9,7 @@ import IntlMessages from '../../components/utility/intlMessages';
 import notification from '../../components/notification';
 import YoutubeResult from '../../components/youtubeSearch/result';
 import basicStyle from '../../config/basicStyle';
-import actions from '../../redux/youtubeSearch/actions';
+import actions from 'src/logic/redux/isomorphic/youtubeSearch/actions';
 
 const { youtubeSearch, onPageChange } = actions;
 

@@ -3,7 +3,7 @@ import Link  from 'next/link';
 import { connect } from 'react-redux';
 import Input from '../../../components/uielements/input';
 import Button from '../../../components/uielements/button';
-import ecommerceActions from '../../../redux/ecommerce/actions';
+import ecommerceActions from 'src/logic/redux/isomorphic/ecommerce/actions';
 import SingleCart from '../../../components/cart/singleCart';
 import ProductsTable from './cartTable.style';
 import { rtl } from '../../../config/withDirection';

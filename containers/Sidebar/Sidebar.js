@@ -8,8 +8,7 @@ import Menu from '../../components/uielements/menu';
 import IntlMessages from '../../components/utility/intlMessages';
 // import getDevSidebar from '../../customApp/sidebar';
 import SidebarWrapper from './sidebar.style';
-import TestMe from 'src/logic/TestMe'
-import appActions from '../../redux/app/actions';
+import appActions from 'src/logic/redux/isomorphic/app/actions';
 import Logo from '../../components/utility/logo';
 import { rtl } from '../../config/withDirection';
 import { siteConfig } from '../../config';
@@ -115,7 +114,6 @@ class Sidebar extends Component {
           style={styling}
         >
           <Logo collapsed={collapsed} />
-          <TestMe />
           <Scrollbars
             style={{ height: scrollheight - 70 }}
           >

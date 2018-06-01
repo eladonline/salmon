@@ -7,8 +7,8 @@ import { ThemeProvider } from 'styled-components';
 import { initGA, logPageView } from '../helpers/analytics';
 import themes from '../config/themes';
 import { siteConfig } from '../config/index';
-import authAction from '../redux/auth/actions';
-import appActions from '../redux/app/actions';
+import authAction from 'src/logic/redux/isomorphic/auth/actions';
+import appActions from 'src/logic/redux/isomorphic/app/actions';
 import AppLocale from '../languageProvider';
 
 const { logout } = authAction;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Actions from '../../redux/themeSwitcher/actions.js';
+import Actions from 'src/logic/redux/isomorphic/themeSwitcher/actions.js';
 import Switcher from '../../components/themeSwitcher/themeSwitcher';
 import LanguageSwitcher from '../LanguageSwitcher';
 import Themes from './config';

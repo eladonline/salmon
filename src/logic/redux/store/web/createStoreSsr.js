@@ -12,7 +12,10 @@ const middlewares = [thunk, sagaMiddleware];
 export function configureStore(initialState) {
   const store = createStore(reducers, applyMiddleware(...middlewares));
 
-  store.sagaTask = sagaMiddleware.run(rootSaga);
+  store.runSagaTask = () => {
+    store.sagaTask = sagaMiddleware.run(rootSaga)
+  }
+  store.runSagaTask()
   return store;
 }
 

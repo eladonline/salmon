@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactEcharts from 'echarts-for-react';
-import { updateOption } from '../../../redux/dynamicEchart/reducer';
+import { updateOption } from 'src/logic/redux/isomorphic/dynamicEchart/reducer';
 
 class DynamicChartComponent extends Component {
   constructor(props) {

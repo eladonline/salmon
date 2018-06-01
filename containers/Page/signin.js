@@ -5,7 +5,7 @@ import Input from '../../components/uielements/input';
 import Checkbox from '../../components/uielements/checkbox';
 import Button from '../../components/uielements/button';
 import { jwtConfig } from '../../config';
-import AuthAction from '../../redux/auth/actions';
+import AuthAction from 'src/logic/redux/isomorphic/auth/actions';
 import Auth0 from '../../helpers/auth0';
 import Firebase from '../../helpers/firebase';
 import FirebaseLogin from '../../components/firebase';

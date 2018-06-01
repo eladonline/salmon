@@ -8,7 +8,7 @@ import Box from '../../../components/utility/box';
 import LayoutWrapper from '../../../components/utility/layoutWrapper';
 import Card from '../../../components/card';
 import basicStyle from '../../../config/basicStyle';
-import cardActions from '../../../redux/card/actions';
+import cardActions from 'src/logic/redux/isomorphic/card/actions';
 import { createColumns } from './config';
 import { ButtonWrapper } from '../../../components/card/cardModal.style';
 import SimpleTable from '../../Tables/antTables/tableViews/simpleView';

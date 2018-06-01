@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { connect } from 'react-redux';
 import Popover from '../../components/uielements/popover';
 import SingleCart from '../../components/cart/singleCartModal';
-import ecommerceAction from '../../redux/ecommerce/actions';
+import ecommerceAction from 'src/logic/redux/isomorphic/ecommerce/actions';
 import TopbarDropdownWrapper from './topbarDropdown.style';
 
 const { changeViewTopbarCart, changeProductQuantity } = ecommerceAction;

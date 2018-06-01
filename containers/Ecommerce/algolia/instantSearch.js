@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ecommerceActions from '../../../redux/ecommerce/actions';
+import ecommerceActions from 'src/logic/redux/isomorphic/ecommerce/actions';
 import DesktopView from './desktopView';
 import MobileView from './mobileView';
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import contactAction from '../../redux/contacts/actions';
+import contactAction from 'src/logic/redux/isomorphic/contacts/actions';
 import { Layout, Icon } from 'antd';
 import Button from '../../components/uielements/button';
 import ContactList from '../../components/contacts/contactList';
