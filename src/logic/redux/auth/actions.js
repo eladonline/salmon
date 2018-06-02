@@ -15,3 +15,4 @@ export const setAuthForm = payload => ({ type: types.SET_AUTH_FORM, payload });
 export const clearAuthForm = () => ({ type: types.CLEAR_AUTH_FORM });
 export const setLastUser = payload => ({ type: types.SET_LAST_USER_IN_STORE, payload });
 export const cleanLastUser = () => ({ type: types.CLEAN_LAST_USER });
+export const setUserFromCookies = payload => ({ type: types.SET_USER_FROM_COOKIES, payload });

@@ -28,7 +28,8 @@ class SignIn extends Component {
   };
   render() {
     const from = { pathname: '/dashboard' };
-    const { isLoggedIn } = this.props;
+    const { isLoggedIn, userFromCookies, state } = this.props;
+    console.log('userFromCookies', userFromCookies)
     return (
       <SignInStyleWrapper className="isoSignInPage">
         <div className="isoLoginContentWrapper">
@@ -116,7 +117,8 @@ class SignIn extends Component {
 export default connect(
   state => ({
     state,
-    isLoggedIn: state.Auth.get('idToken') !== null ? true : false
+    isLoggedIn: state.Auth.get('idToken') !== null ? true : false,
+    userFromCookies: state.auth.get('userFromCookies')
   }),
   { ...AuthAction }
 )(SignIn);

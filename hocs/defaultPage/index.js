@@ -1,7 +1,7 @@
 import { compose } from 'redux';
-import { createStore as withReduxSaga } from 'src/logic';
 import WithData from './withData';
 import WithLang from '../withLang';
 import WithLayout from './withLayout';
+import withAuth from './withAuth';
 
-export default compose(withReduxSaga, WithData, WithLayout, WithLang);
+export default compose(withAuth, WithData, WithLayout, WithLang);

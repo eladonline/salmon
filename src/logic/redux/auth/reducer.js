@@ -49,6 +49,9 @@ export default function authReducer(state = initialState, action) {
     case types.ON_APP_LOAD_FINISHED: {
       return state.set('isOnAppLoadFinished', true);
     }
+    case types.SET_USER_FROM_COOKIES: {
+      return state.set('userFromCookies', action.payload);
+    }
     default:
       return state;
   }

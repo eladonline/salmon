@@ -9,7 +9,7 @@ import rootSaga from 'src/logic/redux/saga/web/rootSagaSsr';
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [thunk, sagaMiddleware];
 
-export function configureStore(initialState) {
+export function configureStore() {
   const store = createStore(reducers, applyMiddleware(...middlewares));
 
   store.runSagaTask = () => {
@@ -20,5 +20,5 @@ export function configureStore(initialState) {
 }
 
 export function withReduxSaga(BaseComponent) {
-  return withRedux(configureStore)(nextReduxSaga(BaseComponent));
+  return withRedux(configureStore)(nextReduxSaga({ async: true })(BaseComponent))
 }
