@@ -5,35 +5,30 @@ import {withReduxSaga} from 'src/logic/redux/store/web/createStoreSsr'
 import withLang from 'hocs/withLang';
 import {appConfig} from 'src/logic';
 import {setUserFromCookies} from 'src/logic/redux/auth/actions'
-import {getCookieFromServer, getCookieFromBrowser} from '../helpers/session'
+import {getCookie} from '../helpers/session'
+
 class MyApp extends App {
-  static async getInitialProps ({ Component, ctx }) {
+  static async getInitialProps (context) {
+    const { Component, ctx } = context
     let pageProps = {}
-    let token
+    let userCookie
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps({ ctx })
     }
-    if (ctx.isServer) {
-      // happens on page first load
-      token = getCookieFromServer(appConfig.userCooliesKey, ctx.req)
-    } else {
-      // happens on client side navigation
-      token = getCookieFromBrowser(appConfig.userCooliesKey)
+    userCookie = getCookie(appConfig.userCooliesKey, ctx.req)
+    if(userCookie){
+      ctx.store.dispatch(setUserFromCookies(userCookie))
     }
-
-    if(token){
-      ctx.store.dispatch(setUserFromCookies(token))
-    }
-    return { pageProps, token }
+    return { pageProps, userCookie }
   }
 
   render () {
-    const { Component, pageProps, store, token } = this.props
-    console.log('userFromCookies', token)
+    const { Component, pageProps, store, userCookie } = this.props
+    console.log('userFromCookies', userCookie)
     return (
       <Container>
         <Provider store={store}>
-          <Component {...pageProps} token={token} dispatch={store.dispatch} />
+          <Component {...pageProps} userCookie={userCookie} dispatch={store.dispatch} />
         </Provider>
       </Container>
     )

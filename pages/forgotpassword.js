@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet';
-import Page from '../hocs/defaultPage';
+import Page from '../hocs/publicPage';
 import ForgotPassword from '../containers/Page/forgotPassword.js';
 
 export default Page(() => (

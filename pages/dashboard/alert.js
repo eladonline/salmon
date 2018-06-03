@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet';
-import Page from '../../hocs/securedPage';
+import Page from '../../hocs/privatePage';
 import Alert from '../../containers/Feedback/Alert';
 
 export default Page(() => (

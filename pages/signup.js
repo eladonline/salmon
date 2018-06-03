@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet';
-import Page from '../hocs/defaultPage';
+import Page from '../hocs/publicPage';
 import SignUp from '../containers/Page/signup.js';
 
 export default Page(() => (

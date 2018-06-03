@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import Page from '../../hocs/securedPage';
+import Page from '../../hocs/privatePage';
 ;
 import App from '../../containers/App';
 

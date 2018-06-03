@@ -13,6 +13,11 @@ import IntlMessages from '../../components/utility/intlMessages';
 import SignInStyleWrapper from './signin.style';
 
 class SignIn extends Component {
+  static getPageConfig = function(){
+    return {
+      test: 'work'
+    }
+  }
   handleLogin = () => {
     const { login, history } = this.props;
     login(history);

@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet';
-import Page from '../../hocs/securedPage';
+import Page from '../../hocs/privatePage';
 ;
 import Shop from '../../containers/Ecommerce/algolia/instantSearch';
 
