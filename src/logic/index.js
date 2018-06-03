@@ -127,6 +127,7 @@ import * as helpers from 'src/logic/helpers';
 import notificationService from 'src/logic/notification/web';
 import notification from 'src/logic/notification';
 
+const isPrivate = false;
 const isMobile = false;
 const navigator = {
   navigate: (screen, props) => {
@@ -143,6 +144,7 @@ const screens = {
 }
 
 export {
+  isPrivate,
   isMobile,
   storage,
   keychain,
