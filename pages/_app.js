@@ -6,6 +6,11 @@ import withLang from 'hocs/withLang';
 import {appConfig} from 'src/logic';
 import {setUserFromCookies} from 'src/logic/redux/auth/actions'
 import {getCookie} from '../helpers/session'
+import {api, envConfig} from 'src/logic'
+import {config as reactParseConfig, setReactParseDispatch} from 'react-parse'
+const apiConfig = { baseURL: envConfig.SERVER_URL, appId: envConfig.PARSE_ID }
+api.init(apiConfig);
+reactParseConfig.init(apiConfig);
 
 class MyApp extends App {
   static async getInitialProps (context) {
@@ -24,6 +29,7 @@ class MyApp extends App {
 
   render () {
     const { Component, pageProps, store, userCookie } = this.props
+    setReactParseDispatch(store.dispatch)
     console.log('userFromCookies', userCookie)
     return (
       <Container>

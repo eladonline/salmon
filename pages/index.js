@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
+import Link from 'next/link'
 import Page from '../hocs/publicPage';
-import Signin from '../containers/Page/signin';
 
-export default Page(() => <Signin />, true);
+class Home extends Component {
+  render(){
+    return (
+      <div>
+      Click{' '}
+      <Link href="/dashboard">
+        <a>dashboard</a>
+      </Link>{' '}
+      to read more
+    </div>
+    )
+  }
+}
+export default Page(() => <Home />, true);
 
 /*
 import React, { Component } from 'react';

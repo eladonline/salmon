@@ -11,7 +11,8 @@ export default function authReducer(state = initialState, action) {
   let nextState;
   switch (action.type) {
     case LOGOUT_FINISHED:
-      return initialState;
+      // We want to keep this initUrl and isOnAppLoadFinished parameters after logout
+      return initialState.set('initUrl', state.get('initUrl')).set('isOnAppLoadFinished', true)
     case types.SET_AUTH_PARAMETERS: {
       nextState = state;
       if ('status' in payload) {
@@ -41,7 +42,18 @@ export default function authReducer(state = initialState, action) {
       return state.set('lastUser', Map());
     }
     case types.SET_INIT_URL: {
-      return state.set('initUrl', action.payload);
+      const newRoute = action.payload
+      if(newRoute === '/signin' || newRoute === '/signup') {
+        return state
+      }
+      return state.set('initUrl', newRoute);
+    }
+    case '@@router/LOCATION_CHANGE': { // react-router change route
+      const newRoute = action.payload.pathname
+      if(newRoute === '/signin' || newRoute === '/signup') {
+        return state
+      }
+      return state.set('initUrl', newRoute)
     }
     case types.SET_TOKEN_VALIDATIONS_STATUS: {
       return state.set('isTokenValid', action.payload);

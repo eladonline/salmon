@@ -1,5 +1,6 @@
 import { put, select } from 'redux-saga/effects';
 import { appConfig, api, httpRequest, screens, navigator } from 'src/logic';
+import {config as reactParseConfig} from 'react-parse'
 import { logoutFinished, setLastUser } from 'src/logic/redux/auth/actions';
 import { getUserData } from 'src/logic/redux/auth/selectors';
 import { clearUserInStorage, setLastUserInStorage } from './persist';
@@ -19,6 +20,7 @@ export default function* logoutWorker() {
     yield parseLogout();
   }
   api.removeSessionToken();
+  reactParseConfig.removeSessionToken();
   yield clearUserInStorage();
   yield put(logoutFinished());
   if (appConfig.persistLastUser) {

@@ -7,8 +7,9 @@
       "root": ["./"],
       "alias": {
         "src": "./src",
-        "containers": "./containers",
-        "components": "./components"
+        "themContainers": "./containers",
+        "themComponents": "./components",
+        "components": "./src/components"
       }
     }],
     ["import", {

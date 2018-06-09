@@ -104,14 +104,16 @@ import { NotificationContainer } from 'react-notifications';
 and add <NotificationContainer /> to your root component;
 */
 
-import keychain from 'src/logic/keychain/web/keychain';
+// import keychain from 'src/logic/keychain/web/keychain';
+import keychain from 'src/logic/keychain/web/ssr/keychain';
 //import createStore, { history } from 'src/logic/redux/store/web/createStore';
 import {withReduxSaga as createStore} from 'src/logic/redux/store/web/createStoreSsr';
-const history = {
-  push(){
-    console.warn('CREATE PUSH NAVIGETOR')
-  }
-}
+// const history = {
+//   push(){
+//     console.warn('CREATE PUSH NAVIGETOR')
+//   }
+// }
+const history = null // ssr
 import appConfig from 'src/logic/appConfig/web/appConfig';
 import logger from 'src/logic/logger/logger';
 import { api, httpRequest } from 'src/logic/backend';
@@ -120,28 +122,47 @@ import {
   Configuration as RollBarConfiguration,
 } from 'src/logic/logger/web/rollbar';
 import deviceInfo from 'src/logic/logger/web/deviceInfo';
-import storage from 'src/logic/storage/web/storage';
+// import storage from 'src/logic/storage/web/storage';
+import storage from 'src/logic/storage/web/ssr/cookiesHelper'; // ssr
 import envConfig from 'src/logic/envConfig/web/config';
 import Auth0 from 'src/logic/auth0/web/Auth0';
 import * as helpers from 'src/logic/helpers';
-import notificationService from 'src/logic/notification/web';
+import notificationService from 'src/logic/notification/web/ssr';
 import notification from 'src/logic/notification';
 
 const isPrivate = null;
 const isMobile = false;
+// const navigator = {
+//   navigate: (screen, props) => {
+//     if(screen !== history.location.pathname) {
+//       history.push(screen)
+//     }
+//   }
+// }
+//Ssr
+import Router from 'next/router'
 const navigator = {
   navigate: (screen, props) => {
-    if(screen !== history.location.pathname) {
-      history.push(screen)
-    }
+    debugger;
+    Router.push({
+      pathname: screen,
+      query: props
+    })
   }
 }
+//ssr
 const screens = {
   APP_INTRO: '/signup',
   LOGIN: '/signin',
   REGISTER: '/signin',
-  MAIN: '/app/sample-page'
+  MAIN: '/dashboard'
 }
+// const screens = {
+//   APP_INTRO: '/signup',
+//   LOGIN: '/signin',
+//   REGISTER: '/signin',
+//   MAIN: '/app/sample-page'
+// }
 
 export {
   isPrivate,

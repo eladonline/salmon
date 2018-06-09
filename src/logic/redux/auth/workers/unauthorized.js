@@ -1,13 +1,13 @@
-import { put, call } from 'redux-saga/effects';
+import { put, call, select } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import { setLastUser } from 'src/logic/redux/auth/actions';
-import { appConfig, storage, screens, navigator, isMobile, isPrivate } from 'src/logic';
+import { isMobile, appConfig, storage, screens, navigator, isPrivate } from 'src/logic';
 import { getLastUserFromStorage } from './persist';
 import {getInitUrl} from 'src/logic/redux/auth/selectors'
 
 export default function* unauthorized(timestamp) {
   let isUserSignUpInThePast;
-  let initUrl;
+  let initUrl
   if (!appConfig.alwaysNavigateToAppIntro) {
     isUserSignUpInThePast = yield storage.get(appConfig.userSignUpToAppFlagKey);
   }

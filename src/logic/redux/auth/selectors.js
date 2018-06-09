@@ -33,9 +33,10 @@ export const isAuthUser = createSelector([getUserData, getMemberData, getTokenVa
 const isOnAppLoadFinished = createSelector(getAuthState, authState => authState.get('isOnAppLoadFinished'));
 
 export const onLoadFinished = createSelector([isAuthUser, isOnAppLoadFinished], (authUser, isOnAppLoadFinished) => {
-  if(appConfig.openAppAfterOnAppLoad) {
-    return isOnAppLoadFinished
-  }else{
-    return isAuthUser || isOnAppLoadFinished
-  }
+  return isOnAppLoadFinished
+  // if(appConfig.openAppAfterOnAppLoad) {
+  //   return isOnAppLoadFinished
+  // }else{
+  //   return isAuthUser || isOnAppLoadFinished
+  // }
 });

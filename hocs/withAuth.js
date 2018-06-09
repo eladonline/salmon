@@ -12,11 +12,13 @@ export default ChildComponent =>
   
     static async getInitialProps (context) {
       const {ctx} = context;
+      debugger
+      const req = ctx ? ctx.req : null
       let initUrl = null;
       let pageProps = {};
-      let userCookie = getCookie(appConfig.userCooliesKey, ctx.req)
+      let userCookie = getCookie(appConfig.userStorageKey, req)
       if(!userCookie){
-        redirect(context, 'login', true)
+        redirect(context, 'signin', true)
         initUrl = ctx.isServer ? req.originalUrl : context.asPath
       }
 

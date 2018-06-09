@@ -13,7 +13,7 @@ export default function* navigateToMain(timestamp) {
   if(appConfig.navToInitUrlAfterAuthSucces) {
     const initUrl = yield select(getInitUrl);
     let isEmpty = helpers.isEmptyString(initUrl);
-    let isAuthScreen = initUrl === screens.APP_INTRO || initUrl === screens.LOGIN || screens.REGISTER
+    let isAuthScreen = (initUrl === screens.APP_INTRO) || (initUrl === screens.LOGIN) || (initUrl === screens.REGISTER)
     if(!isEmpty && !isAuthScreen) {
       screenTarget = initUrl
     }
