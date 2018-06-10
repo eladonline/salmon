@@ -20,7 +20,7 @@ class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps({ ctx })
     }
-    userCookie = getCookie(appConfig.userCooliesKey, ctx.req)
+    userCookie = getCookie(appConfig.userStorageKey, ctx.req)
     if(userCookie){
       ctx.store.dispatch(setUserFromCookies(userCookie))
     }
