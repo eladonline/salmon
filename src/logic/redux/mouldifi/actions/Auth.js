@@ -18,7 +18,7 @@ import {
   SIGNOUT_USER_SUCCESS,
   SIGNUP_USER,
   SIGNUP_USER_SUCCESS
-} from 'constants/ActionTypes';
+} from 'src/logic/redux/mouldifi/constants/ActionTypes';
 
 export const userSignUp = (user) => {
   return {

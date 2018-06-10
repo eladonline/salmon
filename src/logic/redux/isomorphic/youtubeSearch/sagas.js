@@ -38,3 +38,5 @@ function* searchRequest({ payload }) {
 export default function* rootSaga() {
   yield all([takeEvery(actions.YOUTUBE_SEARCH, searchRequest)]);
 }
+/* eslint camelcase: 'off' */
+/* eslint no-return-await: 'off' */

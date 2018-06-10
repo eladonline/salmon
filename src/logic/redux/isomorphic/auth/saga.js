@@ -6,7 +6,7 @@ import actions from './actions';
 
 const fakeApiCall = true;
 export function* loginRequest() {
-  yield takeEvery(actions.LOGIN_REQUEST, function*({ payload }) {
+  yield takeEvery(actions.LOGIN_REQUEST, function* ({ payload }) {
     if (fakeApiCall) {
       yield put({
         type: actions.LOGIN_SUCCESS,
@@ -20,7 +20,7 @@ export function* loginRequest() {
 }
 
 export function* jwtLoginRequest() {
-  yield takeEvery(actions.JWT_LOGIN_REQUEST, function*({ payload }) {
+  yield takeEvery(actions.JWT_LOGIN_REQUEST, function* ({ payload }) {
     const result = yield call(JwtAuthentication.login, payload.userInfo);
     if (result.error) {
       notification('error', result.error);
@@ -37,18 +37,18 @@ export function* jwtLoginRequest() {
 }
 
 export function* loginSuccess() {
-  yield takeEvery(actions.LOGIN_SUCCESS, function*(payload) {
+  yield takeEvery(actions.LOGIN_SUCCESS, function* (payload) {
     setCookie('login_saga', payload.token);
     yield setCookie('id_token', payload.token);
   });
 }
 
 export function* loginError() {
-  yield takeEvery(actions.LOGIN_ERROR, function*() {});
+  yield takeEvery(actions.LOGIN_ERROR, function* () {});
 }
 
 export function* logout() {
-  yield takeEvery(actions.LOGOUT, function*() {
+  yield takeEvery(actions.LOGOUT, function* () {
     removeCookie('id_token');
   });
 }
@@ -61,3 +61,4 @@ export default function* rootSaga() {
     fork(logout),
   ]);
 }
+/* eslint require-yield:'off' */

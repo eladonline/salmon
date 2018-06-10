@@ -31,3 +31,5 @@ function* searchRequest({ payload }) {
 export default function* rootSaga() {
   yield all([takeEvery(actions.GIT_SEARCH, searchRequest)]);
 }
+/* eslint camelcase:'off' */
+/* eslint no-return-await: 'off' */

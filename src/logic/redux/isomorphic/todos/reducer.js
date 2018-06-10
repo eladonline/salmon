@@ -33,3 +33,4 @@ export default function todoReducer(state = initState, action) {
       return state;
   }
 }
+/* eslint new-cap:'off' */

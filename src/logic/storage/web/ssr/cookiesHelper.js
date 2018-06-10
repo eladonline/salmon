@@ -1,5 +1,5 @@
 // Need to follow react native simple store stactore
-import {getCookie, setCookie} from '../../../../../helpers/session'
+import { setCookie } from '../../../../../helpers/session';
 
 export default class storage {
   static async save(key, value) {

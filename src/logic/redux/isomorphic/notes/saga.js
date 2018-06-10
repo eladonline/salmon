@@ -1,4 +1,4 @@
-import { all, takeEvery, put } from 'redux-saga/effects';
+import { all, takeEvery } from 'redux-saga/effects';
 import actions from './actions';
 
 export function* changeColor() {}

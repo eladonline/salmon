@@ -129,6 +129,49 @@ const Api = {
     return _api.get(`${endpoints.classPath}${className}`, _p);
   },
   /**
+   * @param {object} params
+   * @param {string} params.className
+   * @param {string} params.query
+   * @param {number} params.limit
+   * @param {number} params.skip
+   * @param {boolean} params.Count
+   * @param {string} params.keys
+   * @param {string} params.include
+   * @param {string} params.order
+   * @param {string} nameInStore
+   */
+  queryRequest(params, nameInStore) {
+    //  className, query, limit, skip, Count = true, keys, include, order
+    const _p = { params: {} };
+    if (params.query) {
+      _p.params.where = params.query;
+    } else {
+      _p.params.where = {}
+    }
+
+    if (params.limit) {
+      _p.params.limit = params.limit;
+    }
+    if (params.skip) {
+      _p.params.skip = params.skip;
+    }
+    if (params.Count === false) {
+      _p.params.count = 0;
+    } else { // Count by default
+      _p.params.count = 1;
+    }
+    if (params.keys) {
+      _p.params.keys = params.keys;
+    }
+    if (params.include) {
+      _p.params.include = params.include;
+    }
+    if (params.order) {
+      _p.params.order = params.order;
+    }
+    return _api.get(`${endpoints.classPath}${params.className}`, _p, nameInStore);
+  },
+  /**
    * ### getCloudFunction
    * call function on parse cloudCode
    *

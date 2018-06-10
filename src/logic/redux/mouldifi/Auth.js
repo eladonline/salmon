@@ -11,7 +11,7 @@ import {
   SIGNIN_USER_SUCCESS,
   SIGNOUT_USER_SUCCESS,
   SIGNUP_USER_SUCCESS
-} from 'constants/ActionTypes';
+} from 'src/logic/redux/mouldifi/constants/ActionTypes';
 
 const INIT_STATE = {
   loader: false,

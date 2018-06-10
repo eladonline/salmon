@@ -61,6 +61,7 @@ const contactActions = {
       const newContacts = [];
       contacts.forEach(contact => {
         if (contact.id === id) {
+          console.log('')
         } else {
           newContacts.push(contact);
         }
