@@ -1,7 +1,6 @@
 import Helmet from 'react-helmet';
 import Page from '../hocs/publicPage';
-import SignUp from '../containers/Page/signup.js';
-
+import SignUp from 'src/screens/auth/signup';
 export default Page(() => (
   <div>
     <Helmet>
