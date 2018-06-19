@@ -9,7 +9,8 @@
         "src": "./src",
         "themContainers": "./containers",
         "themComponents": "./components",
-        "components": "./src/components"
+        "components": "./src/components",
+        "hocs": "./hocs"
       }
     }],
     ["import", {
