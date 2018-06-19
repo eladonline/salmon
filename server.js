@@ -3,6 +3,8 @@ const next = require('next');
 const LRUCache = require('lru-cache');
 const cookieParser = require('cookie-parser');
 
+console.log(process.env.NODE_ENV, process.env.PORT);
+
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev, dir: process.cwd() });
 const handle = app.getRequestHandler();

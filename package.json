@@ -84,7 +84,7 @@
   "scripts": {
     "start": "node server.js -p $PORT",
     "build": "next build",
-    "prod": "next build && cross-env NODE_ENV=production node server.js",
+    "prod": "next build && cross-env NODE_ENV=production PORT=80 node server.js",
     "analyze": "cross-env ANALYZE=1 next build",
     "heroku-postbuild": "npm run build"
   },
