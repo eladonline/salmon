@@ -8,7 +8,7 @@ import {
   THEME_COLOR,
   TOGGLE_COLLAPSED_NAV,
   WINDOW_WIDTH, HORIZONTAL_MENU_POSITION
-} from 'constants/ActionTypes';
+} from 'src/logic/redux/mouldifi/constants/ActionTypes';
 
 export function toggleCollapsedNav(isNavCollapsed) {
   return {type: TOGGLE_COLLAPSED_NAV, isNavCollapsed};

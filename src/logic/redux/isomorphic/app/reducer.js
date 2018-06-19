@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { getDefaultPath } from '../../../../../helpers/urlSync';
+// import { getDefaultPath } from '../../../../../helpers/urlSync';
 import actions, { getView } from './actions';
 
 const preKeys = []; //getDefaultPath();

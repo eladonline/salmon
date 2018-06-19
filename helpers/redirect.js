@@ -1,11 +1,14 @@
 import Router from 'next/router';
 
 export default (context = {}, target) => {
-  console.log(context, target);
-  if (context.res) {
-    context.res.writeHead(303, { Location: target });
-    context.res.end();
+  const { isServer, req, res } = context.ctx
+  let next
+  if (isServer) {
+    next = req && req.originalUrl
+    res.writeHead(303, { Location: `/${target}${(next && next.length) ? `?next=${next}`: ''}` })
+    res.end()
   } else {
-    Router.replace(target);
+    next = context && context.asPath
+    Router.push(`/${target}${(next && next.length) ? `?next=${next}`: ''}`)
   }
 };

@@ -8,7 +8,7 @@ export default {
   products: {
     '4494000': {
       name: 'Amazon - Case for Amazon Fire HD 8 Tablets - Black',
-      description: "Take your Amazon Fire HD 8 tablet on the go with this Amazon B00XM5W2WE case, which features a folio cover that guards your device's display and automatically wakes up your device when opened. The built-in stand offers comfortable hands-free viewing.",
+      description: 'Take your Amazon Fire HD 8 tablet on the go with this Amazon B00XM5W2WE case, which features a folio cover that guards your device\'s display and automatically wakes up your device when opened. The built-in stand offers comfortable hands-free viewing.',
       brand: 'Amazon',
       categories: ['Computers & Tablets', 'iPad & Tablet Accessories', 'Cases'],
       hierarchicalCategories: {
@@ -35,7 +35,7 @@ export default {
           matchedWords: [],
         },
         description: {
-          value: "Take your Amazon Fire HD 8 tablet on the go with this Amazon B00XM5W2WE case, which features a folio cover that guards your device's display and automatically wakes up your device when opened. The built-in stand offers comfortable hands-free viewing.",
+          value: 'Take your Amazon Fire HD 8 tablet on the go with this Amazon B00XM5W2WE case, which features a folio cover that guards your device\'s display and automatically wakes up your device when opened. The built-in stand offers comfortable hands-free viewing.',
           matchLevel: 'none',
           matchedWords: [],
         },

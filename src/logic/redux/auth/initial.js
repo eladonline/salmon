@@ -12,7 +12,6 @@ const InitialState = Map({
   initUrl: '',
   isTokenValid: false,
   isOnAppLoadFinished: false,
-  userFromCookies: null
 });
 
 export default InitialState;

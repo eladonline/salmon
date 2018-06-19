@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet';
-import Page from '../../hocs/securedPage';
+import Page from '../../hocs/privatePage';
 ;
 import Pagination from '../../containers/Uielements/Pagination/pagination.js';
 

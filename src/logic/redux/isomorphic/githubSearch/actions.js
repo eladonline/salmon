@@ -21,3 +21,4 @@ const actions = {
   })
 };
 export default actions;
+/* eslint camelcase: 'off' */

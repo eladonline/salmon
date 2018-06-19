@@ -10,6 +10,7 @@ import resetPassword from './workers/resetPassword';
 import logout from './workers/logout';
 import cleanLastUser from './workers/cleanLastUser';
 import validateToken from './workers/validateToken';
+import userRegisterThirdParty from './workers/userRegisterThirdParty';
 
 function* authWatcher() {
   yield takeEvery(types.ON_APP_LOAD, onAppLoad);
@@ -21,6 +22,6 @@ function* authWatcher() {
   yield takeEvery(types.LOGOUT, logout);
   yield takeEvery(types.CLEAN_LAST_USER, cleanLastUser);
   yield takeEvery(types.IS_TOKEN_VALID, validateToken);
-  // yield takeEvery(types.LOGOUT, logout)
+  yield takeEvery(types.USER_REGISTER_WITH_THIRD_PARTY, userRegisterThirdParty);
 }
 export default authWatcher;

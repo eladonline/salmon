@@ -22,7 +22,6 @@ const appConfig = {
   renderOnlyActiveTab: true,
   useAuthO: false,
   userStorageKey: 'USER_KEY_IN_STORAGE',
-  userCooliesKey: 'USER_KEY_IN_Cookies',
   lastUserStorageKey: 'LAST_USER_KEY_IN_STORAGE',
   userSignUpToAppFlagKey: 'USER_IS_SIGN_UP_TO_APP',
   emailKeyInUserData: 'username',

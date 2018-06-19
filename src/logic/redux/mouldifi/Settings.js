@@ -11,8 +11,8 @@ import {
   TOGGLE_COLLAPSED_NAV,
   VERTICAL_NAVIGATION,
   WINDOW_WIDTH,
-} from 'constants/ActionTypes';
-import { INDIGO } from 'constants/ThemeColors';
+} from 'src/logic/redux/mouldifi/constants/ActionTypes';
+import { INDIGO } from 'src/logic/redux/mouldifi/constants/ThemeColors';
 
 const rltLocale = ['ar'];
 const initialSettings = {

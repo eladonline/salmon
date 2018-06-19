@@ -14,7 +14,7 @@ import {
   SIGNIN_USER,
   SIGNOUT_USER,
   SIGNUP_USER
-} from 'constants/ActionTypes';
+} from 'src/logic/redux/mouldifi/constants/ActionTypes';
 import {
   showAuthMessage, userSignInSuccess, userSignOutSuccess, userSignUpSuccess,
   userFacebookSignInSuccess,

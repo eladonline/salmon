@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
-import Page from '../hocs/defaultPage';
-import Signin from '../containers/Page/signin';
+import Link from 'next/link'
+import Page from '../hocs/publicPage';
 
-export default Page(() => <Signin />, true);
+class Home extends Component {
+  render(){
+    return (
+      <div>
+      Click{' '}
+      <Link href="/dashboard">
+        <a>dashboard</a>
+      </Link>{' '}
+      to read more
+    </div>
+    )
+  }
+}
+export default Page(() => <Home />, true);
 
 /*
 import React, { Component } from 'react';
-import Page from '../hocs/defaultPage';
+import Page from '../hocs/publicPage';
 import Signin from '../containers/Page/signin';
 import MyTest from '../containers/MyTest';
 import {setUserFromCookies} from 'src/logic/redux/auth/actions'

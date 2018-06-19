@@ -3,11 +3,10 @@
       "allowSyntheticDefaultImports": true,
       "baseUrl": ".",
       "paths": {
-          "*": [
-              "*",
-              "src/*",
-              "containers/*",
-          ]
+        "src/*": ["./src/*"],
+        "themContainers/*": ["./containers/*"],
+        "themComponents/*": ["./components/*"],
+        "components/*": ["./src/components/*"]
       }
   },
   "exclude": [

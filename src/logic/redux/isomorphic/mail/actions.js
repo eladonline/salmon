@@ -21,7 +21,7 @@ const mailActions = {
       });
     };
   },
-  selectMail: (selectedMail) =>{
+  selectMail: (selectedMail) => {
     return (dispatch, getState) => {
       const allMails = getState().Mails.get('allMails');
       allMails[allMails.findIndex(mail => mail.id === selectedMail)].read = true;
