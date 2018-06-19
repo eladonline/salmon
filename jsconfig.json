@@ -7,7 +7,7 @@
         "themContainers/*": ["./containers/*"],
         "themComponents/*": ["./components/*"],
         "components/*": ["./src/components/*"],
-        "hocs": ["./hocs/*"]
+        "hocs/*": ["./hocs/*"]
       }
   },
   "exclude": [
