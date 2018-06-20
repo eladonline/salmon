@@ -1,0 +1,150 @@
+// @import "./styleTools.scss";
+/////////////////////
+//                //
+//    Auth        //
+//    Layout      //
+////////////////////
+#Auth-main {
+    @include flex-column(center);
+    height: 100vh;
+    width: 100vw;
+    section {
+        width: 70vw;
+        height: 40vh;
+        min-width: 200px;
+        max-width: 900px;
+        min-height: 500px;
+        background: black;
+        margin: auto;
+        overflow: hidden;
+        @include flex-row();
+        main {
+            width: 100%;
+            header {
+                @include flex-row(space-around);
+                height: 80px;
+                align-self: right;
+                padding: 1.5em;
+                text-align: center;
+                span {
+                    cursor: pointer;
+                    &[data-toggle='true'] {
+                        font: {
+                            weight: bold;
+                            size: 1.5em;
+                        }
+                    }
+                }
+            }
+        }
+        div {
+            width: 80%;
+            height: 100%;
+            img {
+                position: relative;
+                width: 110%;
+                height: 100%;
+            }
+            ;
+        }
+    }
+    dl {
+        width: 70%;
+        margin: auto;
+        background: rgb(255, 191, 107);
+        border-radius: 7px;
+        dt {
+            background: $mainColor;
+            padding: 5px;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        dd {
+            margin-bottom: 1em;
+            padding: .5em;
+        }
+        div {
+            width: 100%;
+            text-align: center;
+            padding: .3em;
+            cursor: pointer;
+        }
+    }
+}
+
+/////////////////////
+//                //
+//   Register     //
+//                //
+////////////////////
+.form-group {
+    @include flex-row();
+}
+
+#register-from {
+    @include flex-column(center);
+    align-items: center;
+    input:not(#Terms) {
+        background: black;
+        border: none;
+        border-bottom: 1px solid rgb(206, 202, 202);
+        max-width: 600px;
+        min-width: 210px;
+        height: 2em;
+        margin: 1em;
+        &:focus {
+            outline: none;
+        }
+    }
+    ;
+    .authInfo {
+        min-width: 130px;
+    }
+    .forgotPaswword {
+        position: relative;
+        width: 80%;
+        font-size: .8em;
+        text-decoration: underline;
+        margin-right: 0;
+    }
+    ;
+    .form-button-con {
+        max-width: 600px;
+        min-width: 210px;
+        width: 30%;
+        @include flex-row(flex-end);
+        padding-left: 1em;
+        button {
+            margin-top: 1em;
+            margin-right: 1em;
+            padding: .3em;
+            width: 120px;
+            border-radius: 1.2em;
+            background: linear-gradient(to left, $MainGradienA, $MainGradienB);
+            border: none;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    a {
+        margin-right: 1em;
+        cursor: pointer;
+        color: rgb(206, 202, 202);
+        font-weight: lighter;
+    }
+    .err,
+    .warn {
+        width: 70px;
+        font-size: .7em;
+    }
+    #Terms {
+        margin: .8em 1em 0 0;
+    }
+}
+
+@media screen and (max-width:780px) {
+    #Auth-main section {
+        min-width: 380px;
+    }
+}

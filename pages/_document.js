@@ -53,6 +53,7 @@ export default class MyDocument extends Document {
           />
           <link rel="stylesheet" href="/static/css/ionicons.min.css" />
           <link rel="stylesheet" href="/static/css/global.css" />
+          <link rel="stylesheet" href="/_next/static/style.css" />
           <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet" async />          
           <link rel="stylesheet" href="https://unpkg.com/react-instantsearch-theme-algolia@4.0.0/style.min.css" />          
           <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"

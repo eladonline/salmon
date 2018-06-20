@@ -8,6 +8,10 @@ import auth from 'src/logic/redux/auth/reducer';
 import member from 'src/logic/redux/member/reducer';
 import members from 'src/logic/redux/members/reducer';
 import { parseReducer } from 'react-parse';
+import { reducer as formReducer } from 'redux-form'
+import {reducer as burgerMenu} from 'redux-burger-menu';
+import videoCurrDisplay from './video/reducer';
+import apiData from './api_request/reducer';
 
 const reducers = combineReducers({
   routing: routerReducer,
@@ -15,7 +19,11 @@ const reducers = combineReducers({
   auth,
   member,
   members,
-  parse: parseReducer
+  parse: parseReducer,
+  form: formReducer,
+  burgerMenu,
+  videoCurrDisplay,
+  apiData,
 
 });
 
