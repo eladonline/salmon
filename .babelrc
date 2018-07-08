@@ -10,7 +10,8 @@
         "themContainers": "./containers",
         "themComponents": "./components",
         "components": "./src/components",
-        "hocs": "./hocs"
+        "hocs": "./hocs",
+        "style": "./style"
       }
     }],
     ["import", {
@@ -19,7 +20,7 @@
     [
       "inline-import",
       {
-        "extensions": [".css", ".scss", ".png", ".jpg"]
+        "extensions": [".css", ".png", ".jpg"]
       }
     ],
     ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ]

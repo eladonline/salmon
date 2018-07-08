@@ -2,11 +2,13 @@
   "version": "0.2.0",
   "configurations": [
       {
-          "type": "chrome",
-          "request": "launch",
-          "name": "Next: Chrome",
-          "url": "http://localhost:3000",
-          "webRoot": "${workspaceFolder}"
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome Home",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}",
+        "runtimeExecutable":"C:/Users/elad/AppData/Local/Google/Chrome SxS/Application/chrome.exe",
+        "smartStep": true
       },
       {
           "type": "node",
@@ -21,9 +23,9 @@
       }
   ],
   "compounds": [
-      {
-          "name": "Next: Full",
-          "configurations": ["Next: Node", "Next: Chrome"]
-      }
+    //   {
+    //       "name": "Next: Full",
+    //       "configurations": ["Next: Node", "Next: Chrome"]
+    //   }
   ]
 }

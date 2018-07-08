@@ -1,0 +1,78 @@
+//////////////////////
+// bullets & labels
+//////////////////////
+.bullet {
+    width: 10px;
+    height: 10px;
+    border: 1px solid $bullets;
+    &[data-active='true'] {
+        background: $bullets;
+    }
+}
+
+.pageLabel {
+    background: $pageLabel;
+    color: $mainText;
+}
+
+.pageLabelInverse {
+    background: $mainText;
+    color: $pageLabel;
+}
+
+////////////
+// bar
+///////////
+.navbar {
+    z-index: 15550;
+    margin-bottom: 0;
+    top: 0;
+    position: sticky;
+    width: 100%;
+    background: transparent;
+    .container {
+        margin: 0;
+        width: 100%;
+    }
+    .navbar-brand {
+        width: 100;
+        height: 50px;
+        ;
+    }
+    .navbar-collapse {
+        width: 100%;
+        // the dropdown open box menu
+        .dropdown-menu {
+            li a {
+                color: black;
+            }
+        }
+        // the title of the dropdown
+        >ul li {
+            #basic-nav-dropdown {
+                background: transparent !important;
+            }
+            a {
+                &:hover,
+                &:focus {
+                    color: ghostwhite !important;
+                }
+                color: white;
+            }
+        } // .navbar-form {
+        //     width: 70%;
+        //     @media screen and (max-width: 1560px) {
+        //         width:55%;
+        //     }
+        //     @media screen and (max-width:1075px) {
+        //         width: 48%;
+        //     }
+        //     .form-group {
+        //         width: 100%;
+        //         .form-control {
+        //             width: 100%
+        //         }
+        //     }
+        // }
+    }
+}

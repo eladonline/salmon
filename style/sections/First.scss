@@ -1,0 +1,19 @@
+.startTrading {
+    position: relative;
+    margin: 0 0 0em 7em;
+    background:transparent;
+    border: 1px solid white;
+    bottom:15px;
+}
+#sectionFirstHeader {
+    position: relative;;
+    padding-left:20vw;
+    // width: 50vw;
+}
+.firstSection-spaceDiv {
+    height:20vh;
+    @include sm {
+        height:40vh;
+    }
+}
+

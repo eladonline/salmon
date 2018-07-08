@@ -8,6 +8,8 @@ import {setUserFromCookies} from 'src/logic/redux/auth/actions'
 import {getCookie} from '../helpers/session'
 import {api, envConfig} from 'src/logic'
 import {config as reactParseConfig, setReactParseDispatch} from 'react-parse'
+import "style/core.scss"
+
 const apiConfig = { baseURL: envConfig.SERVER_URL, appId: envConfig.PARSE_ID }
 api.init(apiConfig);
 reactParseConfig.init(apiConfig);

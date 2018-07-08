@@ -1,0 +1,11 @@
+@import './styleTools.scss';
+@import './fixed/fixed.scss';
+@import './sections/promo.scss';
+@import './sections/shared.scss';
+@import './sections/first.scss';
+
+body {
+    line-height: 17px;
+    color: $mainText
+}
+

@@ -1,14 +1,31 @@
 //App
-$mainColor:#04A7F3;
-$bodyMainColor:#221f1f;
-$MainGradienA:#23E7A9;
-$MainGradienB:#04A7F3;
-//card
-$CardHeight:170px;
-$CardPadHeight:140px;
-
-$cardContentHeight:90vh;
-
+//////////////////////
+// general app colors
+//////////////////////
+$mainText: white;
+$mainBtn:#0f64f2;
+$mainHeader: #36404b;
+$headerText: #7b7d82;
+$positiveMoney:#6ae1af;
+$mainHighlight:#0a5ff2;
+$subHighlight:#86baff;
+$alerts:#ee6f7d;
+///////////////////////
+// page indicator (bullets on right side of page)
+/////////////////////
+$bullets:#1e5bff;
+$pageLabel: #7fb4ff;
+///////////////////
+// diagram colors
+//////////////////
+$diagPos:#2cce9f;
+$diagNeg: #ee6f7d;
+//////////////
+// responsive
+//////////////
+/////////////////
+// Mixins
+/////////////////
 @mixin flex-row($justify:flex-start) {
     display: flex;
     flex-direction: row;
@@ -21,49 +38,62 @@ $cardContentHeight:90vh;
     justify-content: $justify;
 }
 
-.warn {
-    position: absolute;
-    color: rgb(93, 236, 93);
-    font: {
-        weight: bold;
+@mixin xs {
+    @media (min-width: 576px) {
+        @content;
     }
-    z-index:15;
 }
 
-.err {
-    position: relative;
-    color: rgb(255, 255, 255);
-    font: {
-        weight: bold;
+@mixin sm {
+    @media (min-width: 768px) {
+        @content;
     }
-    z-index:15;
-    left:0;
+}
+
+@mixin lg {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+///////////////
+// common Classes
+/////////////////
+.bigText {
+    font: {
+        size: 20px;
+    }
+    line-height: 20px;
+    @include sm {
+        font: {
+            size: 60px;
+        }
+        line-height: 60px;
+    }
+}
+
+.btn-def {
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    font-size: 50%;
 }
 
 .modal {
-  position: absolute;
-  width: 100%;
-  height:100vh;
-  background:rgba(255, 255, 255, 0.3);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .invisible {
     transition: .5s ease-in;
-    opacity: 0;
-    // visibility: hidden;
+    opacity: 0; // visibility: hidden;
 }
-
-
-@font-face {
-    font-family: 'Osans-bold';
-    src: url('./fonts/OpenSansHebrew-Bold.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'Osans-regular';
-    src: url('./fonts/OpenSansHebrew-regular.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'Osans-light';
-    src: url('./fonts/OpenSansHebrew-light.ttf') format('truetype');
-}
-

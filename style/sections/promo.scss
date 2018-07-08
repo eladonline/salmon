@@ -1,0 +1,22 @@
+
+
+    #promoVid {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+
+/////////////////////////////
+// currency strip bottom page
+/////////////////////////////
+
+.curr-strip-Con {
+    position: absolute;
+    bottom:0;
+    width:100%;
+    height: 80px;
+    border: 1px solid black;
+}
