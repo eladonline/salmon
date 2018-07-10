@@ -14,14 +14,14 @@ export default class FirstSection extends Component {
               Trade Brighter. <br /> Invest in the <br /> Future of Finance
             </span>
           </p>
-          <p>
-            <span>
+          <p className='d-flex flex-wrap'>
+            <div>
               Start creating a brighter investment future with <br />
               INX's secure and efficient platform
-            </span>
-            <span>
-              <button className="startTrading btn-def">Start Trading</button>
-            </span>
+            </div>
+            <div>
+              <button className="startTrading">Start Trading</button>
+            </div>
           </p>
         </header>
       </div>

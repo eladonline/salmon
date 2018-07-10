@@ -1,19 +1,64 @@
+// button on page
 .startTrading {
-    position: relative;
-    margin: 0 0 0em 7em;
+    margin: 0 0 0 34px;
     background:transparent;
     border: 1px solid white;
-    bottom:15px;
+    @extend %btn-base;
+    width: 153px;
+    height: 48px;
+    margin:1em;
+    @include sm {
+        margin-top:.5em;
+    }
 }
+
 #sectionFirstHeader {
     position: relative;;
-    padding-left:20vw;
-    // width: 50vw;
-}
-.firstSection-spaceDiv {
-    height:20vh;
-    @include sm {
-        height:40vh;
+    padding-left:3em;
+    @include lg {
+        padding-left:200px;
     }
+    @include xl {
+        padding-left:367px;
+    }
+
+    p > div {
+        font-size: 16px;
+        @extend %Lato-Bold;
+        font-weight: normal;
+        line-height: 1.2;
+        @include sm {
+            font-size:22px;
+        }
+    }
+    // 'currency exchange'
+    p:first-child{
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 2;
+    }
+    p > span {
+        @extend %Raleway-Bold;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+
+}
+// // space from top
+.firstSection-spaceDiv {
+    height:5vh;
+    @include sm {
+        height:250px;
+    }
+    @include lg {
+        height:150px;
+    }
+    @include laptop {
+        height:150px;
+    }
+    @include xl {
+        height:350px;
+    }
+
 }
 

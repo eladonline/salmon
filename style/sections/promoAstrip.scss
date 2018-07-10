@@ -1,0 +1,96 @@
+#promoVid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/////////////////////////////
+// currency strip bottom page
+/////////////////////////////
+.curr-strip-Con {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 72px;
+    box-shadow: 0 -1px 1px rgba(255, 255, 255, .27); // @include flex-row( space-between, center);
+    overflow: hidden;
+    flex-wrap: nowrap;
+}
+
+.rotator {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    display: inline-block;
+    padding-top: 29px;
+}
+
+$marqueeTime:70s; //70
+$marqueeDelay:calc(#{$marqueeTime} / 2);
+.marquee1,
+.marquee2 {
+    display: inline-block;
+    width: 200vw;
+    @include sm {
+        width: 100vw;
+    }
+    will-change: transform;
+    transition: transform;
+    >div {
+        @include flex-row(space-between);
+    }
+}
+
+.marquee1 {
+    animation: marquee #{$marqueeTime} linear infinite;
+}
+
+.marquee2 {
+    animation: marquee2 #{$marqueeTime} linear infinite;
+    animation-delay: $marqueeDelay;
+}
+//animation for mobile
+@keyframes marquee {
+    from {
+        transform: translate3d( 100%, 0, 0);
+    }
+    to {
+        transform: translate3d(-110%, 0, 0);
+    }
+
+}
+@keyframes marquee2 {
+    from {
+        transform: translate3d(0%, 0, 0);
+    }
+    to {
+        transform: translate3d(-210%, 0, 0);
+    }
+}
+
+// animation for tablets and up
+@include sm {
+    @keyframes marquee {
+        from {
+            transform: translate3d(100%, 0, 0);
+        }
+        to {
+            transform: translate3d(-115%, 0, 0);
+        }
+    }
+    @keyframes marquee2 {
+        from {
+            transform: translate3d(0%, 0, 0);
+        }
+        to {
+            transform: translate3d(-215%, 0, 0);
+        }
+    }
+}
+
+
+.curencyText {
+    font-size: 28px
+}

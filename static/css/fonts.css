@@ -1,0 +1,22 @@
+
+/* Raleway*/
+@font-face {
+    font-family: Raleway-Regular;
+    src: url("../fonts/fonts/raleway/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: Raleway-Bold;
+    src: url("../fonts/fonts/raleway/Raleway-Bold.ttf");
+}
+
+/* Lato*/
+@font-face {
+    font-family: Lato-regular;
+    src: url("../fonts/fonts/Lato/Lato-Regular.ttf")
+}
+
+@font-face {
+    font-family: Lato-Bold;
+    src: url("../fonts/fonts/Lato/Lato-Bold.ttf")
+}
