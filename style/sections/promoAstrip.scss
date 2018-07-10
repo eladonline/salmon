@@ -51,6 +51,7 @@ $marqueeDelay:calc(#{$marqueeTime} / 2);
     animation: marquee2 #{$marqueeTime} linear infinite;
     animation-delay: $marqueeDelay;
 }
+
 //animation for mobile
 @keyframes marquee {
     from {
@@ -59,8 +60,8 @@ $marqueeDelay:calc(#{$marqueeTime} / 2);
     to {
         transform: translate3d(-110%, 0, 0);
     }
-
 }
+
 @keyframes marquee2 {
     from {
         transform: translate3d(0%, 0, 0);
@@ -90,7 +91,19 @@ $marqueeDelay:calc(#{$marqueeTime} / 2);
     }
 }
 
-
-.curencyText {
-    font-size: 28px
+.currencyMain {
+    // currency text
+    font-size: 14px;
+    .currencyText {
+        @extend %Lato-Heavy;
+    }
+    // caret
+    .currencyCaret {
+        position: relative;
+        top:-3px;
+    }
+    // currency number
+    .currencynumber {
+        @extend %Lato;
+    }
 }

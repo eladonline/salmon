@@ -1,6 +1,7 @@
-import React, { Component  } from "react";
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
+const [caretDown , caretUp] = [<i className="fas fa-caret-down"/>,<i className="fas fa-caret-up"/>]
 
 const aCurrencys = [
   { type: "ETH/USD", drop: 1.48, raise: null },
@@ -11,38 +12,34 @@ const aCurrencys = [
   { type: "BCH/BTC", drop: null, raise: 3.5 }
 ];
 
-const CurrencyList = () => (
-  <div>
-    <span>elad</span>
-    <span>tome</span>
-    <span>yariv</span>
-    <span>lorem</span>
-    <span>ipsum</span>
-    <span>torell</span>
-    <span>travados</span>
-    <span>angela</span>
-    <span>rihana</span>
-    <span>AKON</span>
-    <span>troveny</span>
-    <span>Arnold</span>
-  </div>
-);
+const CurrencyList = p => (
+    <span className='currencyMain'> 
+      <span className='currencyText'>{p.data.type}</span> &nbsp;
+      <span className='currencyCaret'>{p.data.drop !== null ?caretDown : caretUp}</span> &nbsp;
+      <span className='currencynumber'>{p.data.drop !== null ?p.data.drop : p.data.raise}</span>
+     </span>
+  );
 
 export default class Homepage extends Component {
   listStriper(aProps) {
-    return aProps.map(item => {
-      return <div className="ci">item</div>;
-    });
+    return (
+      <div>
+        {aProps.map( (oCurrencyData,i) => {
+          return <CurrencyList key={`CurrencyList__${i}`} data={oCurrencyData}/>;
+        })}
+      </div>
+    );
   }
   render() {
+    console.log(this.props)
     return (
       <div className="curr-strip-Con">
         <div className="rotator" ref={e => (this.rotator = e)}>
           <div className="marquee1" ref={e => (this.marquee1 = e)}>
-            <CurrencyList />
+            {this.listStriper(this.props.aCurrencys)}
           </div>
           <div className="marquee2" ref={e => (this.marquee2 = e)}>
-            <CurrencyList />
+            {this.listStriper(this.props.aCurrencys)}
           </div>
           {/* <div className="marquee3" ref={e => (this.marquee3 = e)}>
             <CurrencyList />
@@ -53,10 +50,9 @@ export default class Homepage extends Component {
   }
 }
 
-
 Homepage.defaultProps = {
   aCurrencys: aCurrencys
-}
-Homepage.PropTypes = {
+};
+Homepage.propTypes = {
   aCurrencys: PropTypes.array
-}
+};
