@@ -3,10 +3,10 @@
 //////////////////////
 // general app colors
 //////////////////////
-$mainText: white;
+$mainTextBright: white;
 $mainBtn:#0f64f2;
-$mainHeader: #36404b;
-$headerText: #7b7d82;
+$mainHeaderDark: #36404b;
+$headerTextLessDark: #7b7d82;
 $positiveMoney:#6ae1af;
 $mainHighlight:#0a5ff2;
 $subHighlight:#86baff;
@@ -57,14 +57,14 @@ $diagNeg: #ee6f7d;
 }
 
 // small desktop laptops
-@mixin lg {
+@mixin md {
     @media (min-width: 992px) {
         @content;
     }
 }
 
 // wide screens
-@mixin laptop {
+@mixin lg {
     @media (min-width: 1200px) {
         @content;
     }
@@ -127,6 +127,9 @@ $diagNeg: #ee6f7d;
 
 %Raleway-Bold {
     font-family: Raleway-Bold, sans-serif;
+}
+%Raleway-SemiBold {
+    font-family: Raleway-SemiBold, sans-serif;
 }
 
 //////////////////

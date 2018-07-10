@@ -1,0 +1,40 @@
+$contentBoundries:841.5px;
+#second-mainCon {
+    @include flex-column(flex-start, center);
+    h1 {
+        @extend %Raleway-SemiBold;
+        color: $mainHeaderDark;
+        width: 90%;
+        margin: 50px 0 87px 0;
+        font: {
+            size: 15px;
+            weight: 600;
+        }
+        ; // tablets and up
+        @include sm {
+            font: {
+                size: 30px;
+                weight: 600;
+            }
+            width: 80%
+        }
+        ; // laptops and up
+        @include md {
+            margin: 155px 0 87px 0;
+            width: 841.5px;
+        }
+        ;
+    }
+    section {
+        color: green;
+        @include flex-column(flex-start, center);
+        width: 90%; // tablets and up
+        @include sm {
+            width: 80%;
+            @include flex-row(space-between);
+        } // laptops and up
+        @include md {
+            width: 1125px;
+        }
+    }
+}

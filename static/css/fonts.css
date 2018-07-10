@@ -9,6 +9,10 @@
     font-family: Raleway-Bold;
     src: url("../fonts/fonts/raleway/Raleway-Bold.ttf");
 }
+@font-face {
+    font-family: Raleway-SemiBold;
+    src: url("../fonts/fonts/raleway/Raleway-SemiBold.ttf");
+}
 
 /* Lato*/
 @font-face {

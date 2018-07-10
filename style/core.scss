@@ -3,9 +3,10 @@
 @import './sections/promoAstrip.scss';
 @import './sections/shared.scss';
 @import './sections/first.scss';
+@import './sections/Second.scss';
 
 body {
     line-height: 17px;
-    color: $mainText
+    color: $mainTextBright;
 }
 

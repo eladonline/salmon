@@ -3,7 +3,8 @@ import React, { Component } from "react";
 export default class FirstSection extends Component {
   render() {
     return (
-      <div className="main-container">
+      <div className="main-container" id='first-mainCon'>
+      {/* {this.props.promo} */}
         <div className="firstSection-spaceDiv" />
         <header id="sectionFirstHeader">
           <p>
@@ -15,13 +16,13 @@ export default class FirstSection extends Component {
             </span>
           </p>
           <p className='d-flex flex-wrap'>
-            <div>
+            <span className='firstSection-umami'>
               Start creating a brighter investment future with <br />
               INX's secure and efficient platform
-            </div>
-            <div>
+            </span>
+            <span>
               <button className="startTrading">Start Trading</button>
-            </div>
+            </span>
           </p>
         </header>
       </div>

@@ -12,11 +12,11 @@
 
 .pageLabel {
     background: $pageLabel;
-    color: $mainText;
+    color: $mainTextBright;
 }
 
 .pageLabelInverse {
-    background: $mainText;
+    background: $mainTextBright;
     color: $pageLabel;
 }
 
@@ -27,7 +27,7 @@
     z-index: 15550;
     margin-bottom: 0;
     top: 0;
-    position: sticky;
+    position: fixed;
     width: 100%;
     background: transparent;
     .container {
