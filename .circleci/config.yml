@@ -1,0 +1,59 @@
+version: 2
+jobs: 
+  build: 
+    working_directory: ~/server
+    docker:
+      - image: circleci/node:8.2
+    steps: 
+      - checkout
+      - run:
+          name: install-npm
+          command: npm install
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/server
+
+  deploy_test: 
+    working_directory: ~/server
+    docker:
+      - image: circleci/node:8.2
+        environment:
+          AWS_CODE_DEPLOY_REGION: eu-west-1
+          AWS_CODE_DEPLOY_APPLICATION_NAME: "FrontDev"
+          AWS_CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: "FrontDevDeploymentGroup"
+          AWS_CODE_DEPLOY_SERVICE_ROLE_ARN: "arn:aws:iam::168411776127:role/codeDeployRole"
+          AWS_CODE_DEPLOY_APP_SOURCE: ./
+          # AWS_CODE_DEPLOY_S3_FILENAME: "${CIRCLE_BUILD_NUM}#${CIRCLE_SHA1:0:7}.zip"
+          # AWS_CODE_DEPLOY_S3_BUCKET: footies-server-test-deploy
+          AWS_CODE_DEPLOY_REVISION_DESCRIPTION: "${CIRCLE_BRANCH} (#${CIRCLE_SHA1:0:7})"
+          AWS_CODE_DEPLOY_DEPLOYMENT_DESCRIPTION: "Deployed via CircleCI on $(date)"
+          DEPLOY_FILE_PATH: "$HOME/inx-front"
+    steps:
+      - restore_cache:
+          keys: 
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - run: bash .circleci/install_dependencies.sh
+      - run: echo 'export AWS_CODE_DEPLOY_KEY=$AWS_CODE_DEPLOY_KEY_DEV' >> $BASH_ENV
+      - run: echo 'export AWS_CODE_DEPLOY_SECRET=$AWS_CODE_DEPLOY_SECRET_DEV' >> $BASH_ENV
+      - run: bash .circleci/replace_variables.sh
+      - run: bash ./node_modules/aws-code-deploy/bin/aws-code-deploy.sh
+
+workflows:
+  version: 2
+  build-deploy-test:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+            tags:
+              ignore: /v[0-9]+(\.[0-9]+)*/
+      - deploy_test:
+          requires:
+            - build 
+          filters:
+            branches:
+              only: master
+            tags:
+              ignore: /v[0-9]+(\.[0-9]+)*/
