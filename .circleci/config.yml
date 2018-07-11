@@ -24,8 +24,8 @@ jobs:
           AWS_CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: "FrontDevDeploymentGroup"
           AWS_CODE_DEPLOY_SERVICE_ROLE_ARN: "arn:aws:iam::168411776127:role/codeDeployRole"
           AWS_CODE_DEPLOY_APP_SOURCE: ./
-          # AWS_CODE_DEPLOY_S3_FILENAME: "${CIRCLE_BUILD_NUM}#${CIRCLE_SHA1:0:7}.zip"
-          # AWS_CODE_DEPLOY_S3_BUCKET: footies-server-test-deploy
+          AWS_CODE_DEPLOY_S3_FILENAME: "${CIRCLE_BUILD_NUM}#${CIRCLE_SHA1:0:7}.zip"
+          AWS_CODE_DEPLOY_S3_BUCKET: front-dev-deploy
           AWS_CODE_DEPLOY_REVISION_DESCRIPTION: "${CIRCLE_BRANCH} (#${CIRCLE_SHA1:0:7})"
           AWS_CODE_DEPLOY_DEPLOYMENT_DESCRIPTION: "Deployed via CircleCI on $(date)"
           DEPLOY_FILE_PATH: "$HOME/inx-front"
