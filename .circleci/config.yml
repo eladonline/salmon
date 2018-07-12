@@ -3,7 +3,7 @@ jobs:
   build: 
     working_directory: ~/server
     docker:
-      - image: circleci/node:8.2
+      - image: circleci/node:8.11
     steps: 
       - checkout
       - run:
@@ -20,7 +20,7 @@ jobs:
   deploy_test: 
     working_directory: ~/server
     docker:
-      - image: circleci/node:8.2
+      - image: circleci/node:8.11
         environment:
           AWS_CODE_DEPLOY_REGION: eu-west-1
           AWS_CODE_DEPLOY_APPLICATION_NAME: "FrontDev"
