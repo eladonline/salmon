@@ -9,6 +9,9 @@ jobs:
       - run:
           name: install-npm
           command: npm install
+      - run:
+          name: build-npm
+          command: npm run build
       - save_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
