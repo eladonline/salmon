@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 sleep 20
-nc -zv 127.0.0.1 3000
+nmap 127.0.0.1 -p 3000
