@@ -5,4 +5,4 @@
 
 cd ${DEPLOY_FILE_PATH}
 
-pm2 start server.js -n www -i 0 -f
+pm2 start ecosystem.config.js -f
