@@ -9,16 +9,16 @@ const brandImgBlue = "static/icons/logoBlue.png";
 const brandImgDarkBlue = "static/icons/logoDarkBlue.png";
 
 export default class MainNavbar extends Component {
-  state = {source:brandImgWhite}
+  state = {brand:brandImgWhite}
   isLoggedIn(user) {
     // "Unsigned" Linked to private Layout
     return user ? <LoggedIn user={user} /> : <Login />;
   }
   render() {
     return (
-      <Navbar collapseOnSelect onMouseOver={()=>{console.log('over')}}>
+      <Navbar collapseOnSelect onMouseOver={()=>{console.log('over')}} onMouseOut={()=>{console.log('out')}}>
         <Navbar.Header>
-          <Brand image={this.state.source} />
+          <Brand image={this.state.brand} />
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse >
@@ -32,3 +32,7 @@ export default class MainNavbar extends Component {
 MainNavbar.defaultProps = {
   login: true
 };
+
+const onWhiteBackground = () => {
+
+}

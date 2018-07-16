@@ -1,4 +1,4 @@
-// @import "./styleTools.scss";
+@import "./styleTools.scss";
 /////////////////////
 //                //
 //    Auth        //
@@ -54,7 +54,7 @@
         background: rgb(255, 191, 107);
         border-radius: 7px;
         dt {
-            background: $mainColor;
+            // background: $mainColor;
             padding: 5px;
             text-align: center;
             margin-bottom: 1em;
@@ -120,7 +120,7 @@
             padding: .3em;
             width: 120px;
             border-radius: 1.2em;
-            background: linear-gradient(to left, $MainGradienA, $MainGradienB);
+            // background: linear-gradient(to left, $MainGradienA, $MainGradienB);
             border: none;
             &:focus {
                 outline: none;

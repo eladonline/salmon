@@ -10,7 +10,7 @@ import resetAnimation from "src/components/helpers/resetAnimation";
 export default class Homepage extends Component {
   constructor(props) {
     super(props);
-    this.state = { background: "white", offset: 0, canScroll: true };
+    this.state = { offset: 0, canScroll: true };
     this.overallPages = 3;
     this.initialParallaxConfig = {
       tension: 180,
@@ -39,6 +39,7 @@ export default class Homepage extends Component {
         const scrollPos = e.target.scrollTop;
         if (scrollPos > this.lastScrollPos && !this.ticking) {
           const offset = Math.min(this.state.offset + 1, this.overallPages - 1);
+          // reset last page animation
           setTimeout(() => {
             resetAnimation(this.state.offset -1 , "none", paralax);
           }, 1500);
@@ -47,7 +48,6 @@ export default class Homepage extends Component {
           this.setState({ offset: this.state.offset + 1 });
           this.scrollLock(scrollPos);
           this.scrollUnlock();
-          // reset last page animation
         } else if (
           this.lastScrollPos &&
           scrollPos < this.lastScrollPos &&
@@ -55,6 +55,7 @@ export default class Homepage extends Component {
         ) {
           const offset = Math.max(this.state.offset - 1, 0);
           this.parallax.scrollTo(offset);
+          // reset next page animation
           resetAnimation(offset, "block", paralax);
           this.setState({ offset: this.state.offset - 1 });
           this.scrollLock(scrollPos);
@@ -104,7 +105,7 @@ export default class Homepage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar background={this.state.background} />
+        <Navbar background={this.state.offset} />
         <Parallax
           className="container-parallax"
           ref={ref => (this.parallax = ref)}

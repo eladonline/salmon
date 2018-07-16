@@ -1,3 +1,5 @@
+@import "./styleTools.scss";
+$contentBoundries:841.5px;
 #second-mainCon {
     @include flex-column(flex-start, center);
     background:red;
