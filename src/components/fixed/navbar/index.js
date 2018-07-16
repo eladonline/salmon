@@ -4,16 +4,21 @@ import Brand from "./Brand/Brand";
 import Login from "./Collapse/login";
 import LoggedIn from "./Collapse/loggedIn";
 
+const brandImgWhite = "static/icons/logoWhite.png";
+const brandImgBlue = "static/icons/logoBlue.png";
+const brandImgDarkBlue = "static/icons/logoDarkBlue.png";
+
 export default class MainNavbar extends Component {
+  state = {source:brandImgWhite}
   isLoggedIn(user) {
     // "Unsigned" Linked to private Layout
     return user ? <LoggedIn user={user} /> : <Login />;
   }
   render() {
     return (
-      <Navbar collapseOnSelect>
+      <Navbar collapseOnSelect onMouseOver={()=>{console.log('over')}}>
         <Navbar.Header>
-          <Brand />
+          <Brand image={this.state.source} />
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse >

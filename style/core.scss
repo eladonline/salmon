@@ -4,9 +4,24 @@
 @import './sections/shared.scss';
 @import './sections/first.scss';
 @import './sections/Second.scss';
-
+@import './sections/Third.scss';
 body {
     line-height: 17px;
     color: $mainTextBright;
 }
 
+////////////////////
+// Page scroll
+///////////////////
+/* width */
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+// .container-parallax > div > div  {
+//     @include flex-column(flex-start);
+//     transition: transform;
+//     // transition:  .3s ease-in;
+// }

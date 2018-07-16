@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-export default class SecondSection extends Component {
+export default class ThirdSection extends Component {
   render() {
     return (
-      <div className="main-container" id="second-mainCon">
+      <div className="main-container" id="third-mainCon">
         <h1>
           Introducing The New Regulation Standard For Cryptocurrency Exchange
         </h1>

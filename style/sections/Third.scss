@@ -1,6 +1,7 @@
-#second-mainCon {
+$contentBoundries:841.5px;
+#third-mainCon {
     @include flex-column(flex-start, center);
-    background:red;
+    background:green;
     h1 {
         @extend %Raleway-SemiBold;
         color: $mainHeaderDark;

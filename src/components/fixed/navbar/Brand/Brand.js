@@ -1,11 +1,10 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
 
-const brandImg = "static/icons/logo.png";
 
-const BrandFunc = () => (
+const BrandFunc = (p) => (
   <Navbar.Brand>
-    <img src={brandImg} alt="brand" />
+    <img src={p.image} alt="brand" />
   </Navbar.Brand>
 );
 

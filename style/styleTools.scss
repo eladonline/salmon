@@ -44,7 +44,7 @@ $diagNeg: #ee6f7d;
 
 // lanscape phone
 @mixin xs {
-    @media (min-width: 576px) {
+    @media (min-width: 566px) {
         @content;
     }
 }
@@ -56,7 +56,7 @@ $diagNeg: #ee6f7d;
     }
 }
 
-// small desktop laptops
+// small desktop laptops lanscape tablets
 @mixin md {
     @media (min-width: 992px) {
         @content;
@@ -85,6 +85,12 @@ $diagNeg: #ee6f7d;
         size: 40px;
     }
     line-height: 20px;
+    @include xs {
+        font: {
+            size: 20px;
+        }
+        line-height: 25px;
+    }
     @include sm {
         font: {
             size: 60px;
