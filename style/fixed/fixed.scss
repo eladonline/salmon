@@ -1,25 +1,3 @@
-//////////////////////
-// bullets & labels
-//////////////////////
-.bullet {
-    width: 10px;
-    height: 10px;
-    border: 1px solid $bullets;
-    &[data-active='true'] {
-        background: $bullets;
-    }
-}
-
-.pageLabel {
-    background: $pageLabel;
-    color: $mainTextBright;
-}
-
-.pageLabelInverse {
-    background: $mainTextBright;
-    color: $pageLabel;
-}
-
 ////////////
 // bar
 ///////////
@@ -30,7 +8,7 @@
     position: fixed;
     width: 100%;
     background: transparent;
-    border:none;
+    border: none;
     .container {
         margin: 0;
         width: 100%;
@@ -41,24 +19,63 @@
         ;
     }
     .navbar-collapse {
-        width: 100%;
-        // the dropdown open box menu
+        width: 100%; // the dropdown open box menu
         .dropdown-menu {
             li a {
-                color: black;
+                color: $mainHeaderDark;
             }
-        }
-        // the title of the dropdown
-        >ul li {
-            #basic-nav-dropdown {
-                background: transparent !important;
-            }
-            a {
-                &:hover,
-                &:focus {
-                    color: ghostwhite !important;
+        } // the title of the dropdown
+        >ul {
+            padding-top: .8em;
+            .startTradingNav a {
+                height: 38px;
+                width: 135px;
+                border: 2px solid $bulletsAnavbarItem;
+                border-radius: 23px;
+                color: $bulletsAnavbarItem;
+                @extend %Lato-Bold;
+                @include flex-row(center, center);
+                &:hover {
+                    background: $bulletsAnavbarItem;
+                    color: white;
                 }
-                color: white;
+                &[data-invers='true'] {
+                    color:white;
+                    border-color:white;
+                    &:hover {
+                        color:$bulletsAnavbarItem;
+                        background:white;
+                    }
+                }
+            }
+            .loginNav a {
+                color: $mainHeaderDark;
+                width: 80px;
+                height: 38px;
+                font-size: 14px;
+                @extend %Lato;
+                @include flex-row(center, center);
+                &:hover {
+                    font-weight: 900;
+                }
+                &[data-invers='true'] {
+                    color:white;
+                }
+            }
+            li {
+                #basic-nav-dropdown {
+                    position: relative;
+                    bottom:2px;
+                    width: 50px;
+                    height: 45px;
+                    @include flex-row(center, flex-end);
+                    background: transparent !important;
+                    img {
+                        // object-fit: contein;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
             }
         } // .navbar-form {
         //     width: 70%;
@@ -76,4 +93,26 @@
         //     }
         // }
     }
+}
+
+//////////////////////
+// bullets & labels
+//////////////////////
+.bullet {
+    width: 10px;
+    height: 10px;
+    border: 1px solid $bulletsAnavbarItem;
+    &[data-active='true'] {
+        background: $bulletsAnavbarItem;
+    }
+}
+
+.pageLabel {
+    background: $pageLabel;
+    color: $mainTextBright;
+}
+
+.pageLabelInverse {
+    background: $mainTextBright;
+    color: $pageLabel;
 }

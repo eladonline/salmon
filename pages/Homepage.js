@@ -105,7 +105,7 @@ export default class Homepage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar background={this.state.offset} />
+        <Navbar offset={this.state.offset} />
         <Parallax
           className="container-parallax"
           ref={ref => (this.parallax = ref)}

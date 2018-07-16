@@ -49,7 +49,7 @@
 
 $marqueeTime:70s; //70
 $responsiveMarqueeTime: 20s;
-$marqueeDelay:calc(#{$marqueeTime} - 34s);
+$marqueeDelay:calc(#{$marqueeTime} - 35s);
 $responsiveMarqueeDelay:calc(#{$responsiveMarqueeTime} / 2);
 .marquee1,
 .marquee2 {

@@ -23,7 +23,6 @@ const resetAnimation = (section, display, Node) => {
   switch (section) {
     case 0: // First section
       reset(namesToReAnimate.first, display, Node);
-      debugger
       break;
     case 1: // Second section
       reset(namesToReAnimate.second, display, Node);
