@@ -28,7 +28,7 @@ class DynamicChartComponent extends Component {
     return (
       <div className="examples">
         <ReactEcharts
-          ref="echarts_react"
+          ref="echarts_react" //  eslint-disable-line
           option={option}
           style={{ height: 300 }}
         />

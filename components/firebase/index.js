@@ -68,14 +68,14 @@ export default class extends Component {
   resetPassword = () => {
     const { email } = this.state;
     if (!email) {
-      notification('error', `Please fill in email.`);
+      notification('error', 'Please fill in email.');
       return;
     }
     Firebase.resetPassword(email)
       .then(() =>
         notification('success', `Password reset email sent to ${email}.`)
       )
-      .catch(error => notification('error', 'Email address not found.'));
+      .catch(() => notification('error', 'Email address not found.'));
   };
   render() {
     return (

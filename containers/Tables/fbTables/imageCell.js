@@ -54,7 +54,7 @@ export default class ImageCell extends Component {
   }
   render() {
     const style = this.state.src ? {
-      backgroundImage : `url(${this.state.src})`,
+      backgroundImage: `url(${this.state.src})`,
       width: '80%',
       height: '80%',
       backgroundSize: 'cover',

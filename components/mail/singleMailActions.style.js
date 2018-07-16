@@ -35,13 +35,13 @@ const WDSingleMailActions = styled.div`
     outline: 0;
     border: 1px solid ${palette('border', 0)};
     margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 -1px 0 15px' : '0 15px 0 -1px'};
+    props['data-rtl'] === 'rtl' ? '0 -1px 0 15px' : '0 15px 0 -1px'};
     cursor: pointer;
     ${transition()};
 
     @media only screen and (max-width: 479px) {
       margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 -1px 0 5px' : '0 5px 0 -1px'};
+    props['data-rtl'] === 'rtl' ? '0 -1px 0 5px' : '0 5px 0 -1px'};
     }
 
     i {
@@ -92,7 +92,7 @@ const WDMailActionsWrapper = styled.div`
     outline: 0;
     border: 1px solid ${palette('border', 0)};
     margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px'};
+    props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px'};
     cursor: pointer;
     ${transition()};
 
@@ -105,7 +105,7 @@ const WDMailActionsWrapper = styled.div`
 
     &:first-child {
       margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 0 0 -1px' : '0 -1px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 -1px' : '0 -1px 0 0'};
     }
 
     &:hover {
@@ -131,12 +131,12 @@ const WDMailCategoryWrapper = WDMailActionsWrapper.extend`
 
   @media only screen and (max-width: 767px) {
     margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 auto 0 10px' : '0 10px 0 auto'};
+    props['data-rtl'] === 'rtl' ? '0 auto 0 10px' : '0 10px 0 auto'};
   }
 
   @media only screen and (max-width: 479px) {
     margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 0 0 5px' : '0 5px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 5px' : '0 5px 0 0'};
   }
 `;
 

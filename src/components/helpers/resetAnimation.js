@@ -1,19 +1,22 @@
 const namesToReAnimate = {
-first: [["#sectionFirstHeader", /*"#promoVid"*/], []],
-  second: [[""], []],
-  third: [[""], []],
-  forth: [[""], []]
+  first: [[
+    '#sectionFirstHeader',
+    /*"#promoVid"*/
+  ], []],
+  second: [[''], []],
+  third: [[''], []],
+  forth: [[''], []]
 };
 
 const reset = (aClassAids, display, domNode) => {
   aClassAids.map((aList, i) => {
-      aList.map(elementClassOrId => {
+    aList.map(elementClassOrId => {
       if (elementClassOrId) {
-          let el =
+        let el =
           i === 0
-          ? domNode.querySelector(`${elementClassOrId}`)
-          : domNode.querySelector(`${elementClassOrId}`);
-          if (el) el.style.display = display;
+            ? domNode.querySelector(`${elementClassOrId}`)
+            : domNode.querySelector(`${elementClassOrId}`);
+        if (el) el.style.display = display;
       }
     });
   });
@@ -23,7 +26,7 @@ const resetAnimation = (section, display, Node) => {
   switch (section) {
     case 0: // First section
       reset(namesToReAnimate.first, display, Node);
-      debugger
+
       break;
     case 1: // Second section
       reset(namesToReAnimate.second, display, Node);

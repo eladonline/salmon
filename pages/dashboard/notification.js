@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import Notification from '../../containers/Feedback/Notification';
+;
 
 export default Page(() => (
   <div>

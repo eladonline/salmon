@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import Input from 'themComponents/uielements/input';
+// import Input from 'themComponents/uielements/input';
 import Checkbox from 'themComponents/uielements/checkbox';
 import Button from 'themComponents/uielements/button';
 import IntlMessages from 'themComponents/utility/intlMessages';
@@ -9,7 +9,7 @@ import {Email, Password} from 'components/authForm'
 import connect from './store'
 
 class SignIn extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.handleLogin = this.handleLogin.bind(this);
   }
@@ -18,8 +18,13 @@ class SignIn extends Component {
   };
 
   render() {
-    const from = { pathname: '/dashboard' };
-    const { isLoggedIn, userFromCookies, state, isLoading } = this.props;
+    // const from = { pathname: '/dashboard' };
+    const {
+      // isLoggedIn,
+      // userFromCookies,
+      // state,
+      isLoading
+    } = this.props;
     return (
       <SignInStyleWrapper className="isoSignInPage">
         <div className="isoLoginContentWrapper">

@@ -1,7 +1,7 @@
 const width = 350;
 const height = 350;
-const  colors = ['#BAA6CA', '#B7DCFA', '#FFE69A', '#788195'];
-const datas =  [
+const colors = ['#BAA6CA', '#B7DCFA', '#FFE69A', '#788195'];
+const datas = [
   {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
   {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
   {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
@@ -115,7 +115,7 @@ const CustomActiveShapePieChart = {
   height,
   colors,
   dataKey: 'value',
-  datas:[
+  datas: [
     {name: 'Group A', value: 400},
     {name: 'Group B', value: 300},
     {name: 'Group C', value: 300},
@@ -134,7 +134,7 @@ const SpecifiedDomainRadarChart = {
   cx: 300,
   cy: 250,
   outerRadius: 150,
-  datas:[
+  datas: [
     { subject: 'Math', A: 120, B: 110, fullMark: 150 },
     { subject: 'Chinese', A: 98, B: 130, fullMark: 150 },
     { subject: 'English', A: 86, B: 130, fullMark: 150 },
@@ -149,7 +149,7 @@ const SimpleRadialBarChart = {
   title: 'Simple Radial Bar Chart',
   width: 600,
   height: 300,
-  datas:[
+  datas: [
     { name: '18-24', uv: 31.47, pv: 2400, fill: '#8884d8' },
     { name: '25-29', uv: 26.69, pv: 4567, fill: '#83a6ed' },
     { name: '30-34', uv: 15.69, pv: 1398, fill: '#8dd1e1' },

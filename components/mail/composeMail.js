@@ -89,7 +89,7 @@ export default class extends Component {
 
           <Button
             type="primary"
-            onClick={e => notification('success', `Mail has been sent`, '')}
+            onClick={e => notification('success', 'Mail has been sent', '')}
             className="isoSendMailBtn"
           >
             <IntlMessages id="email.send" />

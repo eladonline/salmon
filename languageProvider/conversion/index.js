@@ -8,11 +8,11 @@ import english from './raw/eng.js';
 export function getKeys(object) {
   let keys = [];
   let variables = [];
-  let text = '';
+  // let text = '';
   Object.keys(object).forEach(key => {
     keys.push(key);
     variables.push(object[key]);
-    text += object[key] + '\n';
+    // text += object[key] + '\n';
   });
   // getValues(keys);
   return {
@@ -21,7 +21,7 @@ export function getKeys(object) {
   };
 }
 export function getValues(enMessages) {
-  const { keys, variables } = getKeys(enMessages);
+  const { keys } = getKeys(enMessages);
   const langs = [english, ch, fr, ital, span, arab];
   const langsNm = ['eng', 'ch', 'fr', 'ital', 'span', 'arab'];
   langs.forEach((lang, ii) => {

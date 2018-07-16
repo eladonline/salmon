@@ -6,7 +6,7 @@ const valid =
 
 try {
   firebase.initializeApp(firebaseConfig);
-} catch (e) {}
+} catch (e) { console.log(e); }
 const firebaseAuth = firebase.auth;
 class FirebaseHelper {
   isValid = valid;
@@ -44,7 +44,7 @@ class FirebaseHelper {
 
   isAuthenticated() {
     firebaseAuth().onAuthStateChanged(user => {
-      return user ? true : false;
+      return !!user;
     });
   }
   resetPassword(email) {

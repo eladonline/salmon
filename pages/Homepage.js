@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import FirstSection from "src/components/sections/first/First";
-import SecondSection from "src/components/sections/second/Second";
-import ThirdSection from "src/components/sections/third/Third";
-import Promo from "src/components/sections/first/Promo";
-import Navbar from "src/components/fixed/navbar/";
-import { Parallax, ParallaxLayer } from "react-spring";
-import resetAnimation from "src/components/helpers/resetAnimation";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import FirstSection from 'src/components/sections/first/First';
+import SecondSection from 'src/components/sections/second/Second';
+import ThirdSection from 'src/components/sections/third/Third';
+import Promo from 'src/components/sections/first/Promo';
+import Navbar from 'src/components/fixed/navbar/';
+import { Parallax, ParallaxLayer } from 'react-spring';
+import resetAnimation from 'src/components/helpers/resetAnimation';
 export default class Homepage extends Component {
   constructor(props) {
     super(props);
@@ -33,15 +33,15 @@ export default class Homepage extends Component {
    * @summary lock the scroll for some time for the parallax scroll to finish
    */
   componentDidMount() {
-    if (ReactDOM.findDOMNode(this.parallax)) {
-      const paralax = ReactDOM.findDOMNode(this.parallax);
+    if (ReactDOM.findDOMNode(this.parallax)) { // eslint-disable-line
+      const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
       paralax.onscroll = e => {
         const scrollPos = e.target.scrollTop;
         if (scrollPos > this.lastScrollPos && !this.ticking) {
           const offset = Math.min(this.state.offset + 1, this.overallPages - 1);
           // reset last page animation
           setTimeout(() => {
-            resetAnimation(this.state.offset -1 , "none", paralax);
+            resetAnimation(this.state.offset - 1, 'none', paralax);
           }, 1500);
 
           this.parallax.scrollTo(offset);
@@ -56,7 +56,7 @@ export default class Homepage extends Component {
           const offset = Math.max(this.state.offset - 1, 0);
           this.parallax.scrollTo(offset);
           // reset next page animation
-          resetAnimation(offset, "block", paralax);
+          resetAnimation(offset, 'block', paralax);
           this.setState({ offset: this.state.offset - 1 });
           this.scrollLock(scrollPos);
           this.scrollUnlock();

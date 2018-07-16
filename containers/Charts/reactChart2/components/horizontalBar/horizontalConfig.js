@@ -12,7 +12,7 @@ const data = {
     }
   ],
   options: {
-      defaultFontColor: '#788195'
+    defaultFontColor: '#788195'
   }
 };
 

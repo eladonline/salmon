@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import CodeMirror from '../../containers/AdvancedUI/codeMirror';
+;
 
 export default Page(() => (
   <div>

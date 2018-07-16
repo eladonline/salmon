@@ -128,7 +128,7 @@ const WDYoutubeSearchListStyleWrapper = styled.div`
 
           @media only screen and (max-width: 420px) {
             padding: ${props =>
-              props['data-rtl'] === 'rtl' ? '0 13px 0 0' : '0 0 0 13px'};
+    props['data-rtl'] === 'rtl' ? '0 13px 0 0' : '0 0 0 13px'};
 
             &:before {
               left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '0')};

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Popconfirm from '../../../components/feedback/popconfirm';
 
-class DeleteCell extends Component {
+export default class DeleteCell extends Component {
   render() {
     const { index, onDeleteCell } = this.props;
     return (

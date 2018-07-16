@@ -8,7 +8,7 @@
 import types from './types';
 import InitialState from './InitialState';
 
-const { Map } = require('immutable');
+// const { Map } = require('immutable');
 // Import TEMPLATE InitialState
 
 const initialState = new InitialState();

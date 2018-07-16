@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
-import { fontSize, transition, borderRadius } from '../../../config/style-util';
+import { borderRadius } from '../../../config/style-util';
 
 const VCardWidgetWrapper = styled.div`
 	width: 100%;

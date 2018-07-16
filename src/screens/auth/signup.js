@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Input from 'themComponents/uielements/input';
 import Checkbox from 'themComponents/uielements/checkbox';
 import Button from 'themComponents/uielements/button';
-import FirebaseLogin from 'themComponents/firebase';
+// import FirebaseLogin from 'themComponents/firebase';
 import IntlMessages from 'themComponents/utility/intlMessages';
 import SignUpStyleWrapper from 'themContainers/Page/signup.style';
 import {Email, Password} from 'components/authForm'
@@ -13,15 +13,19 @@ import {notification} from 'src/logic'
 class SignUp extends React.Component {
   handleSignup = () => {
     const passwordAgain = document.getElementById('inputConfirmPassword').value || '';
-    if(passwordAgain === this.props.form.password){
+    if(passwordAgain === this.props.form.password) {
       this.props.actions.register(this.props.form)
     }else{
       notification.error('password not equale')
     }
-
   };
   render() {
-    const { isLoggedIn, userFromCookies, state, isLoading } = this.props;
+    const {
+      // isLoggedIn,
+      // userFromCookies,
+      // state,
+      isLoading
+    } = this.props;
     return (
       <SignUpStyleWrapper className="isoSignUpPage">
         <div className="isoSignUpContentWrapper">
@@ -39,11 +43,11 @@ class SignUp extends React.Component {
               </div>
 
               <div className="isoInputWrapper">
-              <Email />
+                <Email />
               </div>
 
               <div className="isoInputWrapper">
-              <Password />
+                <Password />
               </div>
 
               <div className="isoInputWrapper">
@@ -63,7 +67,7 @@ class SignUp extends React.Component {
 
               <div className="isoInputWrapper">
                 <Button type="primary"
-                 onClick={ isLoading ? null : this.handleSignup }
+                  onClick={ isLoading ? null : this.handleSignup }
                 >
                   <IntlMessages id="page.signUpButton" />
                 </Button>

@@ -13,7 +13,7 @@ import IntlMessages from '../../components/utility/intlMessages';
 import SignInStyleWrapper from './signin.style';
 
 class SignIn extends Component {
-  static getPageConfig = function(){
+  static getPageConfig = function() {
     return {
       test: 'work'
     }
@@ -24,16 +24,20 @@ class SignIn extends Component {
   };
 
   handleJWTLogin = () => {
-    const { jwtLogin, history } = this.props;
-    const userInfo = {
-      username: document.getElementById('inputUserName').value || '',
-      password: document.getElementById('inpuPassword').value || ''
-    };
+    // const { jwtLogin, history } = this.props;
+    // const userInfo = {
+    //   username: document.getElementById('inputUserName').value || '',
+    //   password: document.getElementById('inpuPassword').value || ''
+    // };
     // jwtLogin(history, userInfo);
   };
   render() {
-    const from = { pathname: '/dashboard' };
-    const { isLoggedIn, userFromCookies, state } = this.props;
+    // const from = { pathname: '/dashboard' };
+    const {
+      // isLoggedIn,
+      userFromCookies,
+      // state
+    } = this.props;
     console.log('userFromCookies', userFromCookies)
     return (
       <SignInStyleWrapper className="isoSignInPage">
@@ -122,7 +126,7 @@ class SignIn extends Component {
 export default connect(
   state => ({
     state,
-    isLoggedIn: state.Auth.get('idToken') !== null ? true : false,
+    isLoggedIn: state.Auth.get('idToken') !== null,
     userFromCookies: state.auth.get('userFromCookies')
   }),
   { ...AuthAction }

@@ -13,7 +13,7 @@ const WDCheckoutContents = styled.div`
       color: ${palette('text', 0)};
       line-height: 1.2;
       padding: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 30px 0 0' : '0 0 0 30px'};
+    props['data-rtl'] === 'rtl' ? '0 30px 0 0' : '0 0 0 30px'};
       margin: 20px 0 35px;
     }
 
@@ -87,7 +87,7 @@ const WDBillingFormWrapper = styled.div`
       display: flex;
       flex-direction: column;
       margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 0 0 35px' : '0 35px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 35px' : '0 35px 0 0'};
 
       &:last-child {
         margin: 0;
@@ -149,7 +149,7 @@ const WDInputBoxWrapper = styled.div`
         color: ${palette('color', 0)};
         line-height: 1.2;
         margin: ${props =>
-          props['data-rtl'] === 'rtl' ? '0 3px 0 0' : '0 0 0 3px'};
+    props['data-rtl'] === 'rtl' ? '0 3px 0 0' : '0 0 0 3px'};
       }
     }
 
@@ -209,7 +209,7 @@ const WDOrderTable = styled.div`
 
         p {
           padding-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 0 0 35px' : '0 35px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 35px' : '0 35px 0 0'};
           span {
             font-size: 13px;
             font-weight: 400;

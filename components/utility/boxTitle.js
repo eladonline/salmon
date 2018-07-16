@@ -6,13 +6,13 @@ export default props => {
     <div>
       {props.title
         ? <BoxTitle className="isoBoxTitle">
-            {' '}{props.title}{' '}
-          </BoxTitle>
+          {' '}{props.title}{' '}
+        </BoxTitle>
         : ''}
       {props.subtitle
         ? <BoxSubTitle className="isoBoxSubTitle">
-            {' '}{props.subtitle}{' '}
-          </BoxSubTitle>
+          {' '}{props.subtitle}{' '}
+        </BoxSubTitle>
         : ''}
     </div>
   );

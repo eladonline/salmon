@@ -7,7 +7,7 @@ const AntTimeline = ComponentName => styled(ComponentName)`
       font-size: 13px;
       color: ${palette('text', 3)};
       padding: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 24px 10px 0' : '0 0 10px 24px'};
+    props['data-rtl'] === 'rtl' ? '0 24px 10px 0' : '0 0 10px 24px'};
     }
     .ant-timeline-item-tail {
       left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '5px')};

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
-import Popconfirm from '../../../components/feedback/popconfirm';
+// import Popconfirm from '../../../components/feedback/popconfirm';
 import Input from '../../../components/uielements/input';
 
-class EditableCell extends Component {
+export default class EditableCell extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);

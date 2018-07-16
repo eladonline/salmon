@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link  from 'next/link';
+import Link from 'next/link';
 import { connect } from 'react-redux';
 import Input from '../../../components/uielements/input';
 import Button from '../../../components/uielements/button';

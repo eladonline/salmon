@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
-import { fontSize, transition } from '../../../config/style-util';
+// import { fontSize, transition } from '../../../config/style-util';
 
 const SaleWidgetWrapper = styled.div`
 	width: 100%;

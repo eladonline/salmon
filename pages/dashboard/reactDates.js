@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import ReactDates from '../../containers/AdvancedUI/ReactDates/reactDates';
+;
 
 export default Page(() => (
   <div>

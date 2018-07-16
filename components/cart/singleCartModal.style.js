@@ -32,7 +32,7 @@ const TopbarCartWrapper = styled.div`
     width: 100%;
     display: flex;
     padding: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 20px 0 0' : '0 0 0 20px'};
+    props['data-rtl'] === 'rtl' ? '0 20px 0 0' : '0 0 0 20px'};
     flex-direction: column;
     text-align: ${props => (props['data-rtl'] === 'rtl' ? 'right' : 'left')};
 

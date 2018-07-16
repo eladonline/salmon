@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import { Navbar } from "react-bootstrap";
-import Brand from "./Brand/Brand";
-import Login from "./Collapse/login";
-import LoggedIn from "./Collapse/loggedIn";
+import React, { Component } from 'react';
+import { Navbar } from 'react-bootstrap';
+import Brand from './Brand/Brand';
+import Login from './Collapse/login';
+import LoggedIn from './Collapse/loggedIn';
 
-const brandImgWhite = "static/icons/logoWhite.png";
-const brandImgBlue = "static/icons/logoBlue.png";
-const brandImgDarkBlue = "static/icons/logoDarkBlue.png";
+const brandImgWhite = 'static/icons/logoWhite.png';
+// const brandImgBlue = 'static/icons/logoBlue.png';
+// const brandImgDarkBlue = 'static/icons/logoDarkBlue.png';
 
 export default class MainNavbar extends Component {
-  state = {brand:brandImgWhite}
+  state = {brand: brandImgWhite}
   isLoggedIn(user) {
     // "Unsigned" Linked to private Layout
     return user ? <LoggedIn user={user} /> : <Login />;
   }
   render() {
     return (
-      <Navbar collapseOnSelect onMouseOver={()=>{console.log('over')}} onMouseOut={()=>{console.log('out')}}>
+      <Navbar collapseOnSelect onMouseOver={() => { console.log('over') }} onMouseOut={() => { console.log('out') }}>
         <Navbar.Header>
           <Brand image={this.state.brand} />
           <Navbar.Toggle />
@@ -33,6 +33,6 @@ MainNavbar.defaultProps = {
   login: true
 };
 
-const onWhiteBackground = () => {
+// const onWhiteBackground = () => {
 
-}
+// }

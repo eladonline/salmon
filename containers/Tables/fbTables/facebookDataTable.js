@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table, Cell, Column, ColumnGroup } from 'fixed-data-table-2';
 import Button from '../../../components/uielements/button';
 import { InputSearch } from '../../../components/uielements/input';
-import filterListWrapper from './filterListWrapper';
+import FilterListWrapper from './filterListWrapper';
 import * as helperCells from './helperCells.js';
 
 import 'fixed-data-table-2/dist/fixed-data-table.min.css';
@@ -126,7 +126,7 @@ export default class FacebookDataTable extends Component {
         width={width}
         isReorderable={tableInfo.reorderable}
         allowCellsRecycling={tableInfo.reorderable}
-        flexGrow={flexGrow ? flexGrow : undefined}
+        flexGrow={flexGrow || undefined}
         fixed={fixed === true}
         isResizable={isResizable}
       />
@@ -183,7 +183,7 @@ export default class FacebookDataTable extends Component {
         searchText,
         dataList.datas
       );
-      return new filterListWrapper(filteredIndexes, dataList);
+      return new FilterListWrapper(filteredIndexes, dataList);
     }
     return dataList;
   }

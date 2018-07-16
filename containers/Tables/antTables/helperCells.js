@@ -4,7 +4,7 @@ import { Icon, Input, Popconfirm } from 'antd';
 
 const DateCell = data => <p>{data.toLocaleString()}</p>;
 const ImageCell = src => <ImageCellView src={src} />;
-const LinkCell = (link, href) => <a href={href ? href : '#'}>{link}</a>;
+const LinkCell = (link, href) => <a href={href || '#'}>{link}</a>;
 const TextCell = text => <p>{text}</p>;
 
 class EditableCell extends Component {
@@ -41,17 +41,17 @@ class EditableCell extends Component {
       <div className="isoEditData">
         {editable
           ? <div className="isoEditDataWrapper">
-              <Input
-                value={value}
-                onChange={this.handleChange}
-                onPressEnter={this.check}
-              />
-              <Icon type="check" className="isoEditIcon" onClick={this.check} />
-            </div>
+            <Input
+              value={value}
+              onChange={this.handleChange}
+              onPressEnter={this.check}
+            />
+            <Icon type="check" className="isoEditIcon" onClick={this.check} />
+          </div>
           : <p className="isoDataWrapper">
-              {value || ' '}
-              <Icon type="edit" className="isoEditIcon" onClick={this.edit} />
-            </p>}
+            {value || ' '}
+            <Icon type="edit" className="isoEditIcon" onClick={this.edit} />
+          </p>}
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import Popconfirm from '../../containers/Feedback/Popconfirm';
+;
 
 export default Page(() => (
   <div>

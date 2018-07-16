@@ -89,7 +89,7 @@ const ThemeSwitcherStyle = styled.div`
           height: 20px;
           display: flex;
           margin: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
           border: 1px solid #e4e4e4;
           outline: 0;
           padding: 0;
@@ -174,7 +174,7 @@ const ThemeSwitcherStyle = styled.div`
     right: ${props => (props['data-rtl'] === 'rtl' ? '-50px' : 'inherit')};
     cursor: pointer;
     border-radius: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 3px 3px 0' : '3px 0 0 3px'};
+    props['data-rtl'] === 'rtl' ? '0 3px 3px 0' : '3px 0 0 3px'};
     ${boxShadow('-2px 0 5px rgba(0,0,0,0.2)')};
 
     img {

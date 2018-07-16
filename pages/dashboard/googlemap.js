@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import { GoogleMap } from '../../containers/Map';
+;
 
 export default Page(() => (
   <div>

@@ -74,7 +74,7 @@ class TopbarAddtoCart extends Component {
 
   render() {
     const {
-      url,
+      // url,
       productQuantity,
       viewTopbarCart,
       customizedTheme
@@ -88,7 +88,7 @@ class TopbarAddtoCart extends Component {
           {this.renderProducts()}
         </div>
         <div className="isoDropdownFooterLinks" onClick={this.hide}>
-          <Link href={`/dashboard/cart`}>View Cart</Link>
+          <Link href={'/dashboard/cart'}>View Cart</Link>
 
           <h3>
             Total Price: <span>${totalPrice.toFixed(2)}</span>

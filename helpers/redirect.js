@@ -5,10 +5,10 @@ export default (context = {}, target) => {
   let next
   if (isServer) {
     next = req && req.originalUrl
-    res.writeHead(303, { Location: `/${target}${(next && next.length) ? `?next=${next}`: ''}` })
+    res.writeHead(303, { Location: `/${target}${(next && next.length) ? `?next=${next}` : ''}` })
     res.end()
   } else {
     next = context && context.asPath
-    Router.push(`/${target}${(next && next.length) ? `?next=${next}`: ''}`)
+    Router.push(`/${target}${(next && next.length) ? `?next=${next}` : ''}`)
   }
 };

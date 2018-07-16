@@ -1,4 +1,4 @@
-const dev =  require('./env/.env.dev')
+const dev = require('./env/.env.dev')
 const local = require('./env/.env.local')
 const prod = require('./env/.env.prod')
 let env = dev;

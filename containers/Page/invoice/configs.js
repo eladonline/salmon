@@ -84,33 +84,33 @@ const groupColumns = [
 ];
 const tableinfos = [
   {
-    title:'Simple Table',
-    value:'simple',
+    title: 'Simple Table',
+    value: 'simple',
     columns: clone(smallColumns),
   },
   {
-    title:'Sortable Table',
-    value:'sortView',
+    title: 'Sortable Table',
+    value: 'sortView',
     columns: clone(sortColumns),
   },
   {
-    title:'Search Text',
-    value:'filterView',
+    title: 'Search Text',
+    value: 'filterView',
     columns: clone(smallColumns),
   },
   {
-    title:'Editable View',
-    value:'editView',
+    title: 'Editable View',
+    value: 'editView',
     columns: clone(editColumns),
   },
   {
-    title:'Grouping View',
-    value:'groupView',
+    title: 'Grouping View',
+    value: 'groupView',
     columns: clone(groupColumns),
   },
   {
-    title:'Customized View',
-    value:'customizedView',
+    title: 'Customized View',
+    value: 'customizedView',
     columns: clone(columns),
   },
 

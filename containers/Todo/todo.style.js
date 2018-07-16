@@ -83,9 +83,9 @@ const WDTodoListWrapper = styled.div`
 
     .isoTodoStatus {
       margin-left: ${props =>
-        props['data-rtl'] === 'rtl' ? 'inherit' : 'auto'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : 'auto'};
       margin-right: ${props =>
-        props['data-rtl'] === 'rtl' ? 'auto' : 'inherit'};
+    props['data-rtl'] === 'rtl' ? 'auto' : 'inherit'};
 
       .ant-radio-button-wrapper {
         margin: 0;
@@ -102,16 +102,16 @@ const WDTodoListWrapper = styled.div`
 
         &:last-child {
           padding-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '15px' : '0'};
+    props['data-rtl'] === 'rtl' ? '15px' : '0'};
           padding-left: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : '15px'};
+    props['data-rtl'] === 'rtl' ? '0' : '15px'};
         }
 
         &:first-child {
           padding-left: ${props =>
-            props['data-rtl'] === 'rtl' ? '15px' : '0'};
+    props['data-rtl'] === 'rtl' ? '15px' : '0'};
           padding-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : '15px'};
+    props['data-rtl'] === 'rtl' ? '0' : '15px'};
         }
 
         &:not(:first-child)::before {
@@ -142,7 +142,7 @@ const WDTodoListWrapper = styled.div`
     .isoTodoList {
       width: 100%;
       padding: ${props =>
-        props['data-rtl'] === 'rtl' ? '20px 0 20px 15px' : '20px 15px 20px 0'};
+    props['data-rtl'] === 'rtl' ? '20px 0 20px 15px' : '20px 15px 20px 0'};
       overflow: hidden;
       margin: 0 0 15px;
       background: #ffffff;
@@ -160,9 +160,9 @@ const WDTodoListWrapper = styled.div`
         outline: 0;
         flex-shrink: 0;
         margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : '10px'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : '10px'};
         margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? '10px' : 'inherit'};
+    props['data-rtl'] === 'rtl' ? '10px' : 'inherit'};
         position: absolute;
         top: 0;
         left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '0')};
@@ -174,9 +174,9 @@ const WDTodoListWrapper = styled.div`
       .ant-checkbox-wrapper {
         line-height: 1;
         margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? '25px' : '15px'};
+    props['data-rtl'] === 'rtl' ? '25px' : '15px'};
         margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? '15px' : '25px'};
+    props['data-rtl'] === 'rtl' ? '15px' : '25px'};
 
         .ant-checkbox-inner {
           width: 15px;
@@ -187,7 +187,7 @@ const WDTodoListWrapper = styled.div`
       .isoTodoContentWrapper {
         width: 100%;
         padding: ${props =>
-          props['data-rtl'] === 'rtl' ? '0 0 0 30px' : '0 30px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 30px' : '0 30px 0 0'};
         position: relative;
 
         .isoTodoDate {
@@ -276,18 +276,18 @@ const WDTodoListWrapper = styled.div`
         padding: 0;
         border: 1px solid ${palette('border', 0)};
         margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : '-1px'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : '-1px'};
         margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? '-1px' : 'inherit'};
+    props['data-rtl'] === 'rtl' ? '-1px' : 'inherit'};
         cursor: pointer;
         ${transition()};
         ${borderRadius()};
 
         &:first-child {
           margin-left: ${props =>
-            props['data-rtl'] === 'rtl' ? 'inherit' : '0'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : '0'};
           margin-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : 'inherit'};
+    props['data-rtl'] === 'rtl' ? '0' : 'inherit'};
         }
 
         &:hover {

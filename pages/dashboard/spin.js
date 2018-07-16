@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import Spin from '../../containers/Feedback/Spin';
+;
 
 export default Page(() => (
   <div>

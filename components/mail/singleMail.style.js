@@ -127,7 +127,7 @@ const WDSingleMailInfo = styled.div`
           font-weight: 400;
           color: ${palette('secondary', 2)};
           padding: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 5px 0 0' : '0 0 0 5px'};
+    props['data-rtl'] === 'rtl' ? '0 5px 0 0' : '0 0 0 5px'};
           display: -webkit-inline-flex;
           display: -ms-inline-flex;
           display: inline-flex;

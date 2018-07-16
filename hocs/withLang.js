@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { LocaleProvider } from 'antd';
 import { IntlProvider } from 'react-intl';
 import AppLocale from '../languageProvider';

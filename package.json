@@ -92,8 +92,11 @@
     "validate.js": "^0.12.0"
   },
   "scripts": {
+    "precommit": "npm test",
     "start": "node server.js -p $PORT",
     "build": "next build",
+    "test": "npm run lint-validate",
+    "lint-validate": "eslint .  --ignore-path .gitignore  --quiet  --fix",
     "prod": "next build && cross-env NODE_ENV=production node server.js",
     "analyze": "cross-env ANALYZE=1 next build",
     "heroku-postbuild": "npm run build",
@@ -101,6 +104,19 @@
     "next": "next"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-flowtype": "2.34.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-standard": "^3.1.0",
+    "husky": "^0.14.3",
     "babel-plugin-import": "^1.7.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-styled-components": "^1.5.1",

@@ -11,13 +11,15 @@ class AsyncComponent extends Component {
     const componentArguement = this.props.componentArguement;
     let Component;
     switch (componentArguement) {
-      case 'googleChart':
+      case 'googleChart': {
         const { Chart: googleChart } = await this.props.load;
         Component = googleChart;
         break;
-      default:
+      }
+      default: {
         const { default: newComponent } = await this.props.load;
         Component = newComponent;
+      }
     }
     if (this.mounted) {
       this.setState({

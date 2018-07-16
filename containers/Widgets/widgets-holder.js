@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class IsoWidgetsHolder extends Component {
   render() {
-    const { width, gutterTop, gutterBottom, children } = this.props;
+    const { width, gutterTop, gutterBottom } = this.props;
 
     const holderStyle = {
       display: 'flex',

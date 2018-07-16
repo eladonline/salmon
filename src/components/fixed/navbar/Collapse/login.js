@@ -1,5 +1,5 @@
-import React from "react";
-import { Nav, NavItem,  } from "react-bootstrap";
+import React from 'react';
+import { Nav, NavItem } from 'react-bootstrap';
 
 const LoginItems = () => (
   <Nav pullRight>
