@@ -1,5 +1,5 @@
 const namesToReAnimate = {
-  first: [['#sectionFirstHeader', /*'#promoVid'*/], []],
+  first: [['#sectionFirstHeader'], []],
   second: [['#second-header'], []],
   third: [[''], []],
   forth: [[''], []]

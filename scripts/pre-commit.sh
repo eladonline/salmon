@@ -8,6 +8,6 @@ do
     isBad=true
   fi
 done
-if ["$isBad" = true]; then
+if ["$isBad"=true]; then
     exit 1 # exit with failure status
 fi 
