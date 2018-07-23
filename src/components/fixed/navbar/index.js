@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Navbar } from "react-bootstrap";
-import Brand from "./Brand/Brand";
-import Login from "./Collapse/login";
-import LoggedIn from "./Collapse/loggedIn";
-import { setLastUserInStorage } from "src/logic/redux/auth/workers/persist";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { Navbar } from 'react-bootstrap';
+import Brand from './Brand/Brand';
+import Login from './Collapse/login';
+import LoggedIn from './Collapse/loggedIn';
+// import { setLastUserInStorage } from 'src/logic/redux/auth/workers/persist';
+import PropTypes from 'prop-types';
 
 const brandImgWhite = 'static/icons/logoWhite.png';
-// const brandImgBlue = 'static/icons/logoBlue.png';
-// const brandImgDarkBlue = 'static/icons/logoDarkBlue.png';
+const brandImgBlue = 'static/icons/logoBlue.png';
+const brandImgDarkBlue = 'static/icons/logoDarkBlue.png';
 
 export default class MainNavbar extends Component {
   constructor(props) {
@@ -16,12 +16,12 @@ export default class MainNavbar extends Component {
     this.state = { brandActive: false, invers: true };
     this.isinvers = this.isinvers.bind(this);
   }
-/**
- * 
- * @param {number} prevProps.offset
- * @param {number} prevState.offset
- * @summary detect change in the invers prop
- */
+  /**
+   *
+   * @param {number} prevProps.offset
+   * @param {number} prevState.offset
+   * @summary detect change in the invers prop
+   */
   componentDidUpdate(prevProps, prevState) {
     const { offset } = this.props;
     if (prevProps.offset !== offset) {
@@ -29,12 +29,12 @@ export default class MainNavbar extends Component {
     }
   }
   /**
-   * 
+   *
    * @param {string} user
    * @return login or loggedIn state to view
    */
   isLoggedIn(user) {
-    // "Unsigned" Linked to private Layout
+    // 'Unsigned' Linked to private Layout
     return user ? (
       <LoggedIn user={user} invers={this.state.invers} />
     ) : (
@@ -60,10 +60,10 @@ export default class MainNavbar extends Component {
       <Navbar
         collapseOnSelect
         onMouseOver={() => {
-          this.setState({brandActive:true})
+          this.setState({ brandActive: true })
         }}
         onMouseOut={() => {
-          this.setState({brandActive:false})
+          this.setState({ brandActive: false })
         }}
       >
         <Navbar.Header>
@@ -71,7 +71,7 @@ export default class MainNavbar extends Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          {this.isLoggedIn("elad+1@committed.co.il")}
+          {this.isLoggedIn('elad+1@committed.co.il')}
         </Navbar.Collapse>
       </Navbar>
     );
