@@ -1,8 +1,8 @@
 const namesToReAnimate = {
-  first: [["#sectionFirstHeader", /*"#promoVid"*/], []],
-  second: [["#second-header"], []],
-  third: [[""], []],
-  forth: [[""], []]
+  first: [['#sectionFirstHeader', /*'#promoVid'*/], []],
+  second: [['#second-header'], []],
+  third: [[''], []],
+  forth: [[''], []]
 };
 
 const reset = (aClassAids, display, domNode) => {
