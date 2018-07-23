@@ -9,7 +9,7 @@ export default class FirstSection extends Component {
     return (
       <div className="main-container" id="first-mainCon">
         <div className="firstSection-spaceDiv" />
-          <header id="sectionFirstHeader" className='animated fadeInUp'>
+          <header id="sectionFirstHeader" className='animated fadeInUp firstSectionHeader'>
             <p>
               CRYPTOCURRENCY EXCHANGE <br />
             </p>

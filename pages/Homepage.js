@@ -1,20 +1,29 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import Navbar from "src/components/fixed/navbar/";
+import { Parallax, ParallaxLayer } from "react-spring";
+import resetAnimation from "src/components/helpers/resetAnimation";
+
 import FirstSection from "src/components/sections/first/First";
 import SecondSection from "src/components/sections/second/Second";
 import ThirdSection from "src/components/sections/third/Third";
+import ForthSection from "src/components/sections/forth/Forth";
+import FifthSection from "src/components/sections/fifth/Fifth";
+import SixthSection from "src/components/sections/sixth/Sixth";
+import SeventhSection from "src/components/sections/seventh/Seventh";
+import JoinUs from "src/components/sections/joinUs/JoinUs";
+import JoinUsBackground from "src/components/sections/joinUs/joinUsBackground";
+import JuLayer from "src/components/sections/joinUs/JuLayer";
 import Promo from "src/components/sections/first/Promo";
-import Navbar from "src/components/fixed/navbar/";
-import { Parallax, ParallaxLayer, config } from "react-spring";
-import resetAnimation from "src/components/helpers/resetAnimation";
+
 export default class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = { offset: 0, canScroll: true };
-    this.overallPages = 3;
+    this.overallPages = 7.7;
     this.lastScrollPos = 0;
     this.ticking = false;
-    this.scrollLockTime = 2500; // 2.5s
+    this.scrollLockTime = 3000; // 3s
     this.scrollUnlock = this.scrollUnlock.bind(this);
     this.scrollLock = this.scrollLock.bind(this);
   }
@@ -29,14 +38,14 @@ export default class Homepage extends Component {
       const paralax = ReactDOM.findDOMNode(this.parallax);
       paralax.onscroll = e => {
         const scrollPos = e.target.scrollTop;
-        if (scrollPos > this.lastScrollPos + 5  && !this.ticking) {
+        if (scrollPos > this.lastScrollPos + 5 && !this.ticking) {
           const offset = Math.min(this.state.offset + 1, this.overallPages - 1);
           // reset last page animation
           setTimeout(() => {
-            resetAnimation(this.state.offset - 1, "none", paralax);
+            resetAnimation(this.state.offset - 1, paralax);
           }, 1500);
           // display next page animation
-          resetAnimation(offset, "block", paralax);
+          resetAnimation(offset, paralax);
 
           this.parallax.scrollTo(offset);
           this.setState({ offset: this.state.offset + 1 });
@@ -50,9 +59,9 @@ export default class Homepage extends Component {
           const offset = Math.max(this.state.offset - 1, 0);
           this.parallax.scrollTo(offset);
           // reset next page animation
-          resetAnimation(offset, "block", paralax);
+          resetAnimation(offset, paralax);
           // reset last page animation
-          resetAnimation(offset + 1 , "none", paralax);
+          resetAnimation(offset + 1, paralax);
           this.setState({ offset: this.state.offset - 1 });
           this.scrollLock(scrollPos);
           this.scrollUnlock();
@@ -90,9 +99,9 @@ export default class Homepage extends Component {
    * @param {float, number} speed
    * @returns [{component}] [component wrapped by parallax layer]
    */
-  page(children, offset, speed) {
+  page(children, offset, speed, zIndex = 0) {
     return (
-      <ParallaxLayer offset={offset} speed={speed}>
+      <ParallaxLayer offset={offset} speed={speed} style={{ zIndex: zIndex }}>
         {children}
       </ParallaxLayer>
     );
@@ -106,20 +115,57 @@ export default class Homepage extends Component {
           className="container-parallax"
           ref={ref => (this.parallax = ref)}
           pages={this.overallPages}
-          scrolling={this.state.canScroll}
-          config={config.gentel}
+          scrolling={
+            this.state.canScroll ||
+            this.state.offset === this.overallPages - 0.7
+          }
+          config={{
+            tension: 79,
+            friction: 18,
+            velocity: .3,
+            overshootClamping: true,
+            restSpeedThreshold: 0.9,
+            restDisplacementThreshold: 0.9
+          }}
         >
           <React.Fragment>
-            {/*first section*/}
-            {this.page(<Promo />, 0, 0)}
-            {this.page(<FirstSection />, 0, 0.1)}
+            {this.page(<Promo />, 0, 0, 1)}
+            {this.page(<FirstSection />, 0, 0.3, 1)}
 
-            {/*second section*/}
-            {this.page(<SecondSection />, 1, 0.4)}
-            {this.page(<ThirdSection />, 2, 0.3)}
+            {this.page(<SecondSection />, 1, 0, 1)}
+
+            <ParallaxLayer
+              offset={2}
+              speed={0}
+              style={{
+                zIndex: 3,
+                display: "flex",
+                justifyContent: "flex-end",
+                flexDirection: "column"
+              }}
+              factor={1}
+            >
+              <ThirdSection />
+            </ParallaxLayer>
+            {this.page(<ForthSection />, 3, 0, 1)}
+            {this.page(<FifthSection />, 4, 0, 1)}
+            {this.page(<SixthSection />, 5, 0, 1)}
+            {this.page(<SeventhSection />, 6, 0, 1)}
+            {this.page(<JoinUs />, 7, 0, 2)}
+            {this.page(<JuLayer />, 7, 0, 1)}
+            {this.page(<JoinUsBackground />, 7, 0.3, 1)}
           </React.Fragment>
         </Parallax>
       </React.Fragment>
     );
   }
 }
+
+/* <ParallaxLayer
+              // onScroll={(e)=>{e.stopPropagation()}}
+              offset={1}
+              speed={0}
+              style={{ zIndex: 2, display:'flex', justifyContent:'flex-end', flexDirection:'column' }}
+              factor={1}
+            > <SecondSection />
+             </ParallaxLayer> */

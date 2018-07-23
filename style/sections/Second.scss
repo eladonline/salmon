@@ -1,19 +1,38 @@
 @import "./styleTools.scss";
-$contentBoundries:841.5px;
+/////////////////////////////
+// Animation timeing vars
+/////////////////////////////
+//**** black main header
+$headerTranslateUp: 25vh;
+$goToTopDelay: 5s;
+$goToTopduration: 1s;
+//black main header fadein
+$second-header-first-delay:.5s;
+$second-header-second-delay:1.5s;
+$second-header-third-delay:2.5s;
+//duration of the fade
+$second-header-duration: 1s;
+//**** black main header
+//**** 3 blue icons section
+$iconsAnimationDelay: 5.3s;
+$iconsAnimationDuration: .450s;
+//**** 3 blue icons section
+//**** chart section
+$chartAnimationDelay: 5.5s;
+$chartAnimationDuration: .5s;
+//**** chart section
+/////////////////////////////
+// style
+/////////////////////////////
 #second-mainCon {
-    @include flex-column(center, center);
+    @include flex-column(flex-start, center);
     background: white;
     transition: .5s ease-in;
     h1 {
-        //animation related
-        display: none; // to initiate animation
-        // transform: translate3d(0,150px,0);
-        animation: incomingHeaderUp .5s ease-in forwards;
-        animation-delay: 4.5s; //
         @extend %Raleway-SemiBold;
         color: $mainHeaderDark;
         width: 100%;
-        margin-top: 150px;
+        margin-top: 80px;
         text-align: center;
         font: {
             size: 25px;
@@ -21,6 +40,8 @@ $contentBoundries:841.5px;
         }
         ; // tablets and up
         @include sm {
+            transform: translate3d(0, $headerTranslateUp, 0);
+            margin-top: 150px;
             font: {
                 size: 30px;
             }
@@ -28,9 +49,9 @@ $contentBoundries:841.5px;
         }
         ; // laptops and up
         @include lg {
-            margin-top: 130px;
+            margin-top: 90px;
             font: {
-                size: 35px;
+                size: 32px;
             }
         }
         @include xl {
@@ -40,89 +61,162 @@ $contentBoundries:841.5px;
             }
         }
         ;
-        .second-header-first,
-        .second-header-second,
-        .second-header-third {
-            opacity: 0;
-            animation: incomingHeader 1s linear forwards;
-        }
         .second-header-first {
-            animation-delay: .5s;
+            animation-delay: $second-header-first-delay;
         }
         ;
         .second-header-second {
-            animation-delay: 1.5s;
+            animation-delay: $second-header-second-delay;
         }
         ;
         .second-header-third {
-            animation-delay: 2.5s;
+            animation-delay: $second-header-third-delay;
         }
         ;
     }
     section {
         /* this is a highest container of 3 blue icons*/
+        /*changing width will attach/distance icons*/
         @include flex-row(space-between);
         width: 90%; // tablets and up
         @include sm {
-            width: 80%;
+            width: 95%;
         } // laptops and up
         @include lg {
-            width: 1130px;
+            width: 970px;
         }
         @include xl {
             width: 1280px;
         }
     }
     .iconsSection {
+        // animation-delay: 5.3s;
+        opacity: 0;
+        transform: translate3d(0, -30px, 0);
         div {
-            div {max-width:300px;}
             @include flex-column(center, center);
             .opportunity {
-                @include lg {
-                    margin-top: 99px;
+                width: 62px;
+                height: 59px;
+                margin-top: 29px;
+                @include sm {
+                    margin-top: 59px;
                     margin-bottom: 33px;
+                    width: 92px;
+                    height: 89px;
+                }
+                @include lg {
+                    margin-top: 39px;
+                    margin-bottom: 33px;
+                    width: 92px;
+                    height: 89px;
+                }
+                @include xl {
                     width: 122px;
                     height: 119px;
+                    margin-top: 99px;
                 }
             }
             .standards {
-                @include lg {
-                    margin-top: 87px;
+                width: 69px;
+                height: 71px;
+                margin-top: 27px;
+                @include sm {
+                    margin-top: 57px;
                     margin-bottom: 33px;
+                    width: 99px;
+                    height: 101px;
+                }
+                @include lg {
+                    margin-top: 27px;
+                    margin-bottom: 33px;
+                    width: 99px;
+                    height: 101px;
+                }
+                @include xl {
                     width: 129px;
                     height: 131px;
+                    margin-top: 87px;
                 }
             }
             .cryptotrade {
-                @include lg {
-                    margin-top: 98px;
+                width: 70px;
+                height: 53px;
+                margin-top: 28px;
+                @include sm {
+                    margin-top: 68px;
                     margin-bottom: 41px;
+                    width: 100px;
+                    height: 83px;
+                }
+                @include lg {
+                    margin-top: 38px;
+                    margin-bottom: 41px;
+                    width: 100px;
+                    height: 83px;
+                }
+                @include xl {
                     width: 130px;
                     height: 113px;
+                    margin-top: 98px;
                 }
             } // subHeaders
             span {
                 letter-spacing: 0.3px;
                 @extend %Raleway-Bold;
                 color: $mainHeaderDark;
-                font-size: 22px;
+                @include sm {
+                    font-size: 14px;
+                }
+                @include lg {
+                    font-size: 18px;
+                }
+                @include xl {
+                    font-size: 22px;
+                }
             }
             p {
                 text-align: center;
                 color: $headerTextLessDark;
-                font-size: 16px;
-                @extend %Lato;
-                // line-height: 1.5;
-                margin: 7px 0 0 0;
+                @extend %Lato; // line-height: 1.5;
+                margin: 1px 0 0 0;
+                font-size: 12px;
+                @include sm {
+                    margin: 7px 0 0 0;
+                    font-size: 10px;
+                }
+                @include lg {
+                    font-size: 12px;
+                }
+                @include xl {
+                    font-size: 15px;
+                }
             }
         }
     }
     .chartSection {
+        transition: height 0s;
+        transform: translate3d(0, 30px, 0);
+        height: 150px;
+        opacity: 0;
+        width: 1000px;
+        margin-top: 65px;
+        @include sm {
+            height: 352px;
+            width: 90%;
+        }
         @include lg {
+            height: 252px;
+            width: 1000px;
+        }
+        @include xl {
             height: 392px;
             width: 1176px;
-            margin-top: 62px;
-            background: green;
+        }
+        background-image: linear-gradient(to left, #ffffff, rgba(246, 246, 246, 0.44));
+        img {
+            object-fit: cover;
+            width: 100%;
         }
     }
 }
@@ -130,7 +224,40 @@ $contentBoundries:841.5px;
 ////////////////////
 // Animation
 ///////////////////
-@keyframes incomingHeader {
+.animate-second-header-first,
+.animate-second-header-second,
+.animate-second-header-third {
+    @include sm {
+        opacity: 0;
+        animation: secondSectionfadein $second-header-duration linear forwards;
+    }
+}
+
+.animate-secondSectiongoToTop {
+    @include sm {
+        animation: secondSectiongoToTop $goToTopduration ease-out $goToTopDelay forwards;
+    }
+}
+
+.animate-iconsSection {
+    // transition: 1s ease-out;
+    animation: animateIcons $iconsAnimationDuration ease-in $iconsAnimationDelay forwards;
+}
+
+.animate-chartSection {
+    animation: animateChart $chartAnimationDuration linear $chartAnimationDelay forwards;
+}
+
+@keyframes secondSectiongoToTop {
+    from {
+        transform: translate3d(0, $headerTranslateUp, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes secondSectionfadein {
     from {
         opacity: 0;
     }
@@ -139,11 +266,61 @@ $contentBoundries:841.5px;
     }
 }
 
-// @keyframes incomingHeaderUp {
-//     from {
-//         transform: translate3d(0,150px,0);
-//     }
-//     to {
-//         transform: translate3d(0,0,0);
-//     }
-// }
+@keyframes animateIcons {
+    from {
+        transform: translate3d(0, -30px, 0);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0px, 0);
+    }
+}
+
+@keyframes animateChart {
+    from {
+        transform: translate3d(0, 30px, 0);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0px, 0);
+    }
+}
+
+//////////////
+// carousle
+/////////////
+#carousle_main_container {
+    margin-top: 1.5em;
+    @include flex-row(center, center);
+    width: 100%;
+    .slide {
+        @include flex-row(center, center);
+        width: 100%;
+    }
+    img {
+        height: 180px !important;
+        width: 200px;
+        object-fit: fill;
+        margin: auto;
+    }
+    .miniHeaderCarousle {
+        margin: auto;
+        padding-top: 15px;
+        letter-spacing: 0.3px;
+        @extend %Raleway-Bold;
+        color: $mainHeaderDark;
+        text-align: center;
+        font-size: 20px;
+    }
+    p {
+        margin: auto;
+        padding-top: 0.5em;
+        text-align: center;
+        color: $headerTextLessDark;
+        @extend %Lato;
+        line-height: 1em;
+        font-size: 18px;
+    }
+}

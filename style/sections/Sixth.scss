@@ -1,0 +1,33 @@
+#sixth-mainCon {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 0 90%;
+    background-repeat: no-repeat;
+    @include flex-column(flex-start, center);
+    background:#1e5bff;
+    h1 {
+        margin: 154px 0 52px 0;
+    }
+    section {
+        @include flex-row();
+        .sixth-box {
+            margin-right: 48px;
+            .line {
+                width: 38px;
+                height: 2px;
+                border: solid 2px #dce1e8;
+                margin-bottom: 22px;
+            }
+            h5 {
+                font-size: 22px;
+                @extend %Raleway-Bold;
+                line-height: 1.36;
+            }
+            p {
+                line-height: 1.67;
+                @extend %Lato;
+            }
+        }
+    }
+}

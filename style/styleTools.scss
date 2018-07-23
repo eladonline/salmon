@@ -12,19 +12,13 @@ $mainHighlight:#0a5ff2;
 $subHighlight:#86baff;
 $alerts:#ee6f7d;
 $TraderRegistration :#13379c;
-///////////////////////
-// page indicator (bullets on right side of page)
-/////////////////////
-$bulletsAnavbarItem:#1e5bff;
+
+$textBlue:#1e5bff;
 $pageLabel: #7fb4ff;
-///////////////////
-// diagram colors
-//////////////////
+
 $diagPos:#2cce9f;
 $diagNeg: #ee6f7d;
-//////////////
-// responsive
-//////////////
+
 /////////////////
 // Mixins
 /////////////////
@@ -41,6 +35,9 @@ $diagNeg: #ee6f7d;
     justify-content: $justify;
     align-items: $alignItems;
 }
+//////////////
+// responsive
+//////////////
 
 // lanscape phone
 @mixin xs {
@@ -103,8 +100,8 @@ $diagNeg: #ee6f7d;
 // selectors
 /////////////////
 %btn-base {
-    // padding-left:26px;
-    // padding-right:26px;
+    padding-left:26px;
+    padding-right:26px;
     border-radius: 23px;
     outline: none;
     font: {
@@ -115,6 +112,9 @@ $diagNeg: #ee6f7d;
     }
 }
 
+ ///////////
+ // LATO
+ ///////////
 %Lato {
     font-family: Lato-regular, sans-serif;
 }
@@ -127,6 +127,20 @@ $diagNeg: #ee6f7d;
     font-family: Lato-Heavy, sans-serif;
 }
 
+%Lato-Black {
+    font-family: Lato-Black, sans-serif;
+}
+%Lato-Light {
+    font-family: Lato-Light, sans-serif;
+}
+%Lato-Medium {
+    font-family: Lato-Medium, sans-serif;
+}
+
+
+ ///////////
+ // Raleway
+ ///////////
 %Raleway {
     font-family: Raleway-Regular, sans-serif;
 }
@@ -134,9 +148,18 @@ $diagNeg: #ee6f7d;
 %Raleway-Bold {
     font-family: Raleway-Bold, sans-serif;
 }
+%Raleway-ExtraBold {
+    font-family: Raleway-ExtraBold, sans-serif;
+}
 
 %Raleway-SemiBold {
     font-family: Raleway-SemiBold, sans-serif;
+}
+%Raleway-Black {
+    font-family: Raleway-Black, sans-serif;
+}
+%Raleway-Medium {
+    font-family: Raleway-Medium, sans-serif;
 }
 
 //////////////////
