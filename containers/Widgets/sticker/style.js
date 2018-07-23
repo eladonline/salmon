@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { palette } from 'styled-theme';
-import { fontSize, borderRadius } from '../../../config/style-util';
+// import { palette } from 'styled-theme';
+// import { fontSize, borderRadius } from '../../../config/style-util';
 
 const StickerWidgetWrapper = styled.div`
 	width: 100%;

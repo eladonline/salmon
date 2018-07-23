@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import ReactChart2 from '../../containers/Charts/reactChart2';
+;
 
 export default Page(() => (
   <div>

@@ -14,10 +14,10 @@ class ResetPassword extends React.Component {
             <div className="isoLogoWrapper">
               <Link to="/dashboard">
                 <span className="isoMenuHolder">
-                  <span className="nav-text">                 
+                  <span className="nav-text">
                     <IntlMessages id="page.resetPassTitle" />
                   </span>
-                </span>                  
+                </span>
               </Link>
             </div>
 

@@ -37,7 +37,7 @@ const Badge = styled(AntBadge)`
 
   .ant-badge-count {
     transform: ${props =>
-      props['data-rtl'] === 'rtl' ? 'translateX(50%)' : 'translateX(-50%)'};
+    props['data-rtl'] === 'rtl' ? 'translateX(50%)' : 'translateX(-50%)'};
 
     background: ${palette('primary', 0)};
     font-family: ${font('primary', 0)};

@@ -5,13 +5,13 @@ import { Debounce } from 'react-throttle';
 import { Layout, LocaleProvider } from 'antd';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
-import { initGA, logPageView } from '../../helpers/analytics';
+// import { initGA, logPageView } from '../../helpers/analytics';
 import Sidebar from '../Sidebar/Sidebar';
 import ThemeSwitcher from '../ThemeSwitcher';
 import Topbar from '../Topbar/Topbar';
 import themes from '../../config/themes';
 import { siteConfig } from '../../config/index';
-import authAction from 'src/logic/redux/isomorphic/auth/actions';
+// import authAction from 'src/logic/redux/isomorphic/auth/actions';
 import appActions from 'src/logic/redux/isomorphic/app/actions';
 import AppLocale from '../../languageProvider';
 import AppHolder from './commonStyle';
@@ -21,7 +21,11 @@ const { Content, Footer } = Layout;
 
 class Header extends Component {
   render() {
-    const { locale, selectedTheme, isLoggedIn } = this.props;
+    const {
+      locale,
+      selectedTheme,
+      // isLoggedIn
+    } = this.props;
     const currentAppLocale = AppLocale[locale];
     if (this.props.App.height === 0) {
       return (

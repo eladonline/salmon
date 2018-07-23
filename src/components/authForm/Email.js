@@ -15,7 +15,7 @@ class Email extends Component {
   }
   render() {
     return (
-        <Input
+      <Input
         id="inputUserName"
         size="large"
         placeholder="Username"

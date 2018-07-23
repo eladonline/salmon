@@ -252,15 +252,15 @@ const events = [
   }
 ];
 
-const datediff = new moment(new Date()).diff(
-  new moment('2017-06-01T18:23:07.322Z'),
+const datediff = moment(new Date()).diff(
+  moment('2017-06-01T18:23:07.322Z'),
   'days'
 );
 events.forEach((event, index) => {
   events[index].id = `${index + 1}`;
   events[index].title = `Demo event ${index + 1}`;
   events[index].desc = `Desc of event ${index + 1}`;
-  events[index].start = new moment(event.start).add(datediff, 'days').toDate();
-  events[index].end = new moment(event.end).add(datediff, 'days').toDate();
+  events[index].start = moment(event.start).add(datediff, 'days').toDate();
+  events[index].end = moment(event.end).add(datediff, 'days').toDate();
 });
 export default events.splice(0, 10);

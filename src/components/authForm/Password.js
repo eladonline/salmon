@@ -15,13 +15,13 @@ class Password extends Component {
   }
   render() {
     return (
-        <Input
-          id="inpuPassword"
-          size="large"
-          type="password"
-          placeholder="Password"
-          onChange={this.onUpdate}
-          value={this.props.form.password || ''}
+      <Input
+        id="inpuPassword"
+        size="large"
+        type="password"
+        placeholder="Password"
+        onChange={this.onUpdate}
+        value={this.props.form.password || ''}
       />
     );
   }

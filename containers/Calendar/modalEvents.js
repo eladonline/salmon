@@ -56,7 +56,7 @@ export default class ModalEvent extends Component {
   };
   render() {
     const { modalVisible, selectedData, setModalData } = this.props;
-    const visible = modalVisible ? true : false;
+    const visible = !!modalVisible;
     if (!visible) {
       return <div />;
     }
@@ -78,7 +78,7 @@ export default class ModalEvent extends Component {
       try {
         selectedData.start = value[0].toDate();
         selectedData.end = value[1].toDate();
-      } catch (e) {}
+      } catch (e) { console.log(e); }
       setModalData('updateValue', selectedData);
     };
     return (

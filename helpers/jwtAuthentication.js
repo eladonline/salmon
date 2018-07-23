@@ -2,11 +2,11 @@ import { jwtConfig } from '../config';
 import jwtDecode from 'jwt-decode';
 
 class JwtAuth {
-  login = async userInfo => {
+  login = userInfo => {
     if (!userInfo.username || !userInfo.password) {
       return { error: 'please fill in the input' };
     }
-    return await fetch(jwtConfig.fetchUrl, {
+    return fetch(jwtConfig.fetchUrl, {
       method: 'post',
       headers: {
         Accept: 'application/json',

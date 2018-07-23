@@ -34,8 +34,8 @@ export default class Homepage extends Component {
    * @summary lock the scroll for some time for the parallax scroll to finish
    */
   componentDidMount() {
-    if (ReactDOM.findDOMNode(this.parallax)) {
-      const paralax = ReactDOM.findDOMNode(this.parallax);
+    if (ReactDOM.findDOMNode(this.parallax)) { // eslint-disable-line
+      const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
       paralax.onscroll = e => {
         const scrollPos = e.target.scrollTop;
         if (scrollPos > this.lastScrollPos + 5 && !this.ticking) {

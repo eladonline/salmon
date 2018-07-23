@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import FormsWithValidation from '../../containers/Forms/FormsWithValidation';
+;
 
 export default Page(() => (
   <div>

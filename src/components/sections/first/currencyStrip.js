@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const [caretDown, caretUp] = [
   <i className="fas fa-caret-down" />,
@@ -7,12 +7,12 @@ const [caretDown, caretUp] = [
 ];
 
 const aCurrencys = [
-  { type: "ETH/USD", drop: 1.48, raise: null },
-  { type: "ETH/EUR", drop: 3.48, raise: null },
-  { type: "BCH/EUR", drop: 2.32, raise: null },
-  { type: "BTC/GBP", drop: 5, raise: null },
-  { type: "ETH/BTC", drop: 1.5, raise: null },
-  { type: "BCH/BTC", drop: null, raise: 3.5 }
+  { type: 'ETH/USD', drop: 1.48, raise: null },
+  { type: 'ETH/EUR', drop: 3.48, raise: null },
+  { type: 'BCH/EUR', drop: 2.32, raise: null },
+  { type: 'BTC/GBP', drop: 5, raise: null },
+  { type: 'ETH/BTC', drop: 1.5, raise: null },
+  { type: 'BCH/BTC', drop: null, raise: 3.5 }
 ];
 
 const CurrencyList = p => (
@@ -20,7 +20,7 @@ const CurrencyList = p => (
     <span className="currencyText">{p.data.type}</span> &nbsp;
     <span className="currencyCaret">
       {p.data.drop !== null ? caretDown : caretUp}
-    </span>{" "}
+    </span>{' '}
     &nbsp;
     <span className="currencynumber">
       {p.data.drop !== null ? p.data.drop : p.data.raise}
@@ -29,7 +29,6 @@ const CurrencyList = p => (
 );
 
 export default class Homepage extends Component {
-
   listStriper(aProps) {
     return (
       <div>

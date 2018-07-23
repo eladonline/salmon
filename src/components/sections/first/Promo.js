@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import CurrencyStrip from "./currencyStrip";
+import React, { Component } from 'react';
+import CurrencyStrip from './currencyStrip';
 
-const poster = "static/image/firstSection.png";
-const video = "static/videos/strip1_cover_video.mp4";
+const poster = 'static/image/firstSection.png';
+const video = 'static/videos/strip1_cover_video.mp4';
 
 export default class Promo extends Component {
   render() {

@@ -21,7 +21,7 @@ class FiveHundred extends React.Component {
           <button type="button">
             <Link href="/dashboard">
               <span className="isoMenuHolder">
-                <span className="nav-text">             
+                <span className="nav-text">
                   <IntlMessages id="page500.backButton" />
                 </span>
               </span>

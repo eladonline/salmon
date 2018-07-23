@@ -34,7 +34,7 @@ export default class extends Component {
           routeWhileDragging: true
         })
         .addTo(map);
-    } catch (e) {}
+    } catch (e) { console.log(e); }
   }
   render() {
     return (

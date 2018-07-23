@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import WindowResizeListener from 'react-window-size-listener';
 import { Debounce } from 'react-throttle';
-import { Layout } from 'antd';
+// import { Layout } from 'antd';
 import { ThemeProvider } from 'styled-components';
-import { initGA, logPageView } from '../helpers/analytics';
+// import { initGA, logPageView } from '../helpers/analytics';
 import themes from '../config/themes';
-import { siteConfig } from '../config/index';
+// import { siteConfig } from '../config/index';
 import authAction from 'src/logic/redux/isomorphic/auth/actions';
 import appActions from 'src/logic/redux/isomorphic/app/actions';
-import AppLocale from '../languageProvider';
+// import AppLocale from '../languageProvider';
 
 const { logout } = authAction;
 const { toggleAll } = appActions;
-const { Content, Footer } = Layout;
+// const { Content, Footer } = Layout;
 
 class Header extends Component {
   render() {

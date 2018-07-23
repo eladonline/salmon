@@ -48,18 +48,18 @@ class Range extends Component {
     const { currentValues } = this.state;
     return min !== max
       ? <div className="isoAlRangeSlider">
-          <div className="isoAlRangeNumber">
-            <span>{currentValues.min}</span> -
-            <span>{currentValues.max}</span>
-          </div>
-          <Rheostat
-            min={min}
-            max={max}
-            values={[currentRefinement.min, currentRefinement.max]}
-            onChange={this.onChange}
-            onValuesUpdated={this.onValuesUpdated}
-          />
+        <div className="isoAlRangeNumber">
+          <span>{currentValues.min}</span> -
+          <span>{currentValues.max}</span>
         </div>
+        <Rheostat
+          min={min}
+          max={max}
+          values={[currentRefinement.min, currentRefinement.max]}
+          onChange={this.onChange}
+          onValuesUpdated={this.onValuesUpdated}
+        />
+      </div>
       : null;
   }
 }

@@ -81,13 +81,11 @@ class Sidebar extends Component {
       if (openDrawer === false) {
         toggleOpenDrawer();
       }
-      return;
     };
     const onMouseLeave = () => {
       if (openDrawer === true) {
         toggleOpenDrawer();
       }
-      return;
     };
     const scrollheight = app.height;
     const styling = {

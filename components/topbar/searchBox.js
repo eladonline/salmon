@@ -5,7 +5,7 @@ export default class extends Component {
     setTimeout(() => {
       try {
         document.getElementById('InputTopbarSearch').focus();
-      } catch (e) {}
+      } catch (e) { console.log(e); }
     }, 200);
   }
   render() {

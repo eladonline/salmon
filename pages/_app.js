@@ -2,13 +2,12 @@ import App, { Container } from 'next/app'
 import React from 'react'
 import { Provider } from 'react-redux'
 import {withReduxSaga} from 'src/logic/redux/store/web/createStoreSsr'
-import withLang from 'hocs/withLang';
-import {appConfig} from 'src/logic';
+// import withLang from 'hocs/withLang';
 import {setUserFromCookies} from 'src/logic/redux/auth/actions'
 import {getCookie} from '../helpers/session'
-import {api, envConfig} from 'src/logic'
+import {api, envConfig, appConfig} from 'src/logic'
 import {config as reactParseConfig, setReactParseDispatch} from 'react-parse'
-import "style/core.scss"
+import 'style/core.scss'
 
 const apiConfig = { baseURL: envConfig.SERVER_URL, appId: envConfig.PARSE_ID }
 api.init(apiConfig);
@@ -23,7 +22,7 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps({ ctx })
     }
     userCookie = getCookie(appConfig.userStorageKey, ctx.req)
-    if(userCookie){
+    if(userCookie) {
       ctx.store.dispatch(setUserFromCookies(userCookie))
     }
     return { pageProps, userCookie }

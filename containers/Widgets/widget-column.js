@@ -4,14 +4,13 @@ import { WidgetColumn } from './style';
 export default class IsoWidgetsColumn extends Component {
   render() {
     const {
-      width,
+      // width,
       gutterTop,
       gutterRight,
       gutterBottom,
       gutterLeft,
       padding,
-      children,
-      align,
+      // align,
     } = this.props;
     const alignContent =
       this.props.align === 'start'

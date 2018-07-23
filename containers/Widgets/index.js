@@ -43,7 +43,7 @@ export default class IsoWidgets extends Component {
         }
       }
     ];
-    
+
     const stackConfig = {
       ...rechartConfigs.StackedAreaChart,
       width: window.innerWidth < 450 ? 300 : 500

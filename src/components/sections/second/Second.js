@@ -10,14 +10,14 @@ const chartImg = "static/image/chart.png";
 export default class SecondSection extends Component {
   render() {
     return (
-      <div className="main-container" id="second-mainCon">
-        <h1 id="second-header">
-          <span className="second-header-first">Introducing</span>&nbsp;
-          <span className="second-header-second">
+      <div className='main-container' id='second-mainCon'>
+        <h1 id='second-header'>
+          <span className='second-header-first'>Introducing</span>&nbsp;
+          <span className='second-header-second'>
             The New Regulation Standard
           </span>
           <br />
-          <span className="second-header-third">
+          <span className='second-header-third'>
             For Cryptocurrency Exchange
           </span>
         </h1>

@@ -8,7 +8,7 @@ import ContentHolder from '../../../components/utility/contentHolder';
 import DropzoneWrapper from './dropzone.style';
 import DropzoneCss from 'dropzone/dist/min/dropzone.min.css';
 
-export default function() {
+export default function () {
   const componentConfig = {
     iconFiletypes: ['.jpg', '.png', '.gif'],
     method: true,
@@ -26,7 +26,7 @@ export default function() {
     addedfile: file => notification('success', `${file.name} added`),
     success: file =>
       notification('success', `${file.name} successfully uploaded`),
-    error: error => notification('error', 'Server is not set in the demo'),
+    error: () => { notification('error', 'Server is not set in the demo') },
   };
   return (<div>
     <style>{DropzoneCss}</style>

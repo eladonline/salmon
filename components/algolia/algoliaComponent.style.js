@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import { palette, font } from 'styled-theme';
+import {
+  palette,
+  // font
+} from 'styled-theme';
 import { transition, borderRadius, boxShadow } from '../../config/style-util';
 import WithDirection from '../../config/withDirection';
 
@@ -9,15 +12,15 @@ const WDSidebarWrapper = styled.div`
 	flex-direction: column;
 	flex-shrink: 0;
 	margin: ${props =>
-		props['data-rtl'] === 'rtl' ? '0 0 0 30px' : '0 30px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 30px' : '0 30px 0 0'};
 	${transition()};
 
 	@media only screen and (max-width: 767px) {
 		width: 100%;
 		margin-left: ${props =>
-			props['data-rtl'] === 'rtl' ? '30px' : 'calc(-100% + -30px)'};
+    props['data-rtl'] === 'rtl' ? '30px' : 'calc(-100% + -30px)'};
 		margin-right: ${props =>
-			props['data-rtl'] === 'rtl' ? 'calc(-100% + -30px)' : '30px'};
+    props['data-rtl'] === 'rtl' ? 'calc(-100% + -30px)' : '30px'};
 	}
 
 	@media only screen and (min-width: 768px) and (max-width: 1199px) {
@@ -31,7 +34,7 @@ const WDSidebarWrapper = styled.div`
 
 		.ais-SearchBox__input {
 			padding: ${props =>
-				props['data-rtl'] === 'rtl' ? '0 46px 0 36px' : '0 36px 0 46px'};
+    props['data-rtl'] === 'rtl' ? '0 46px 0 36px' : '0 36px 0 46px'};
 			border: 1px solid ${palette('border', 0)};
 			${borderRadius('3px')};
 			${boxShadow()};
@@ -88,7 +91,7 @@ const WDSidebarWrapper = styled.div`
 
 				.ais-MultiRange__itemBox {
 					margin: ${props =>
-						props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
 				}
 			}
 		}
@@ -106,12 +109,12 @@ const WDSidebarWrapper = styled.div`
 
 				.ais-StarRating__ratingLabel {
 					margin: ${props =>
-						props['data-rtl'] === 'rtl' ? '0 10px 0 0' : '0 0 0 10px'};
+    props['data-rtl'] === 'rtl' ? '0 10px 0 0' : '0 0 0 10px'};
 				}
 
 				.ais-StarRating__ratingCount {
 					margin: ${props =>
-						props['data-rtl'] === 'rtl' ? '0 auto 0 0' : '0 0 0 auto'};
+    props['data-rtl'] === 'rtl' ? '0 auto 0 0' : '0 0 0 auto'};
 				}
 			}
 		}
@@ -134,11 +137,11 @@ const WDSidebarWrapper = styled.div`
 					color: ${palette('text', 3)};
 					line-height: 1.3;
 					padding: ${props =>
-						props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
 
 					&:last-child {
 						padding: ${props =>
-							props['data-rtl'] === 'rtl' ? '0 10px 0 0' : '0 0 0 10px'};
+    props['data-rtl'] === 'rtl' ? '0 10px 0 0' : '0 0 0 10px'};
 					}
 				}
 			}
@@ -208,12 +211,12 @@ const WDSidebarWrapper = styled.div`
 
 					.ais-RefinementList__itemCount {
 						margin: ${props =>
-							props['data-rtl'] === 'rtl' ? ' 0 auto 0 0' : '0 0 0 auto'};
+    props['data-rtl'] === 'rtl' ? ' 0 auto 0 0' : '0 0 0 auto'};
 					}
 
 					.ais-RefinementList__itemBox {
 						margin: ${props =>
-							props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
 					}
 				}
 			}
@@ -227,12 +230,12 @@ const WDSidebarWrapper = styled.div`
 
 				&:after {
 					right: ${props =>
-						props['data-rtl'] === 'rtl' ? 'inherit' : '-22px'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : '-22px'};
 					left: ${props => (props['data-rtl'] === 'rtl' ? '-22px' : 'inherit')};
 					transform: ${props =>
-						props['data-rtl'] === 'rtl'
-							? 'translateY(-50%) rotate(180deg)'
-							: 'translateY(-50%) rotate(0deg)'};
+    props['data-rtl'] === 'rtl'
+      ? 'translateY(-50%) rotate(180deg)'
+      : 'translateY(-50%) rotate(0deg)'};
 				}
 
 				&:first-child {
@@ -305,13 +308,13 @@ const WDGridListViewWrapper = styled.div`
 		padding: 0;
 		background-color: #fff;
 		margin: ${props =>
-			props['data-rtl'] === 'rtl' ? '0 0 20px 20px' : '0 20px 20px 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 20px 20px' : '0 20px 20px 0'};
 		position: relative;
 		border: 1px solid ${palette('border', 0)};
 
 		&:nth-child(2n) {
 			margin: ${props =>
-				props['data-rtl'] === 'rtl' ? '0 0 20px 0' : '0 0 20px 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 20px 0' : '0 0 20px 0'};
 		}
 
 		@media only screen and (min-width: 1400px) {
@@ -319,12 +322,12 @@ const WDGridListViewWrapper = styled.div`
 
 			&:nth-child(2n) {
 				margin: ${props =>
-					props['data-rtl'] === 'rtl' ? '0 0 20px 20px' : '0 20px 20px 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 20px 20px' : '0 20px 20px 0'};
 			}
 
 			&:nth-child(3n) {
 				margin: ${props =>
-					props['data-rtl'] === 'rtl' ? '0 0 20px' : '0 0 20px'};
+    props['data-rtl'] === 'rtl' ? '0 0 20px' : '0 0 20px'};
 			}
 		}
 
@@ -383,7 +386,7 @@ const WDGridListViewWrapper = styled.div`
 
 					i {
 						margin: ${props =>
-							props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
 						font-size: 14px;
 					}
 
@@ -394,7 +397,7 @@ const WDGridListViewWrapper = styled.div`
 					&.ant-btn-loading {
 						i:not(.anticon-loading) {
 							margin: ${props =>
-								props['data-rtl'] === 'rtl' ? '0 10px 0 0' : '0 0 0 10px'};
+    props['data-rtl'] === 'rtl' ? '0 10px 0 0' : '0 0 0 10px'};
 						}
 					}
 				}
@@ -543,7 +546,7 @@ const WDGridListViewWrapper = styled.div`
 
 				i {
 					margin: ${props =>
-						props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
 					font-size: 14px;
 				}
 
@@ -660,7 +663,7 @@ const WDTopbarWrapper = styled.div`
 
 		@media only screen and (max-width: 991px) {
 			margin: ${props =>
-				props['data-rtl'] === 'rtl' ? '0 0 0 auto' : '0 auto 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 auto' : '0 auto 0 0'};
 		}
 	}
 
@@ -868,12 +871,12 @@ const TopbarWrapper = WithDirection(WDTopbarWrapper);
 const FooterWrapper = WithDirection(WDFooterWrapper);
 
 export {
-	SidebarWrapper,
-	ContentWrapper,
-	FooterWrapper,
-	GridListViewWrapper,
-	VoiceSearchWrapper,
-	LoaderElement,
-	TopbarWrapper,
-	PaginationStyleWrapper,
+  SidebarWrapper,
+  ContentWrapper,
+  FooterWrapper,
+  GridListViewWrapper,
+  VoiceSearchWrapper,
+  LoaderElement,
+  TopbarWrapper,
+  PaginationStyleWrapper,
 };

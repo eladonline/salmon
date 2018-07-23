@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
 
-const Messages = styled(message)`
+const Messages = styled()`
   &.ant-message {
     .ant-message-notice-content {
       padding: 12px 16px;

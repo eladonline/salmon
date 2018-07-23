@@ -105,7 +105,7 @@ const AntTransfer = ComponentName => styled(ComponentName)`
 
     .ant-checkbox-wrapper:not(:last-child) {
       margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
     }
   }
 
@@ -148,7 +148,7 @@ const AntTransfer = ComponentName => styled(ComponentName)`
       .anticon-left,
       .anticon-right{
         transform: ${props =>
-          props['data-rtl'] === 'rtl' ? 'rotate(180deg)' : 'rotate(0)'};
+    props['data-rtl'] === 'rtl' ? 'rotate(180deg)' : 'rotate(0)'};
       }
     }
   }

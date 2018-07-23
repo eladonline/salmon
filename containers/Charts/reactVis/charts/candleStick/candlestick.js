@@ -23,7 +23,6 @@ export default class extends AbstractSeries {
     return (
       <g
         className={`${predefinedClassName} ${className}`}
-        ref="container"
         transform={`translate(${marginLeft},${marginTop})`}
       >
         {data.map((d, i) => {

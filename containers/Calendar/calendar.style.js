@@ -225,7 +225,7 @@ const WDCalendarStyleWrapper = styled.div`
 
     button + button {
       margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px'};
+    props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px'};
     }
 
     .rbc-rtl & button + button {
@@ -477,7 +477,7 @@ const WDCalendarStyleWrapper = styled.div`
       thead > tr > th {
         padding: 5px 12px;
         text-align: ${props =>
-          props['data-rtl'] === 'rtl' ? 'right' : 'left'};
+    props['data-rtl'] === 'rtl' ? 'right' : 'left'};
         border-bottom: 1px solid ${palette('border', 2)};
 
         .rbc-rtl & {
@@ -580,7 +580,7 @@ const WDCalendarStyleWrapper = styled.div`
       word-wrap: break-word;
       line-height: 1;
       height: 100%;
-      ${'' /* min-height: 1em; */}
+      ${''}
     }
 
     .rbc-time-slot {
@@ -831,7 +831,7 @@ const WDCalendarModalBody = styled.div`
 
       .ant-input {
         border-radius: ${props =>
-          props['data-rtl'] === 'rtl' ? '0 4px 4px 0' : '4px 0 0 4px'};
+    props['data-rtl'] === 'rtl' ? '0 4px 4px 0' : '4px 0 0 4px'};
       }
 
       &:hover {
@@ -846,11 +846,11 @@ const WDCalendarModalBody = styled.div`
       display: flex;
       flex-shrink: 0;
       margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px'};
+    props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px'};
       align-items: center;
       justify-content: center;
       border-radius: ${props =>
-        props['data-rtl'] === 'rtl' ? '4px 0 0 4px' : '0 4px 4px 0'};
+    props['data-rtl'] === 'rtl' ? '4px 0 0 4px' : '0 4px 4px 0'};
 
       &:hover {
         z-index: 1;

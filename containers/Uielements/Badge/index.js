@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Icon } from 'antd';
-import { Row, Col } from 'antd';
+import { Row, Col, Icon } from 'antd';
 
 import PageHeader from '../../../components/utility/pageHeader';
 import Box from '../../../components/utility/box';

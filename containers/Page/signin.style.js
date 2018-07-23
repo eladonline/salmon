@@ -110,9 +110,9 @@ const SignInStyleWrapper = styled.div`
         line-height: 1.2;
         color: ${palette('grayscale', 1)};
         padding-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : '13px'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : '13px'};
         padding-right: ${props =>
-          props['data-rtl'] === 'rtl' ? '13px' : 'inherit'};
+    props['data-rtl'] === 'rtl' ? '13px' : 'inherit'};
         margin: 15px 0;
         position: relative;
         display: flex;

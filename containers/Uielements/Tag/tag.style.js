@@ -34,7 +34,7 @@ const TagStyleWrapper = styled.div`
 
 		.anticon-cross {
 			margin: ${props =>
-				props['data-rtl'] === 'rtl' ? '0 3px 0 0' : '0 0 0 3px'};
+    props['data-rtl'] === 'rtl' ? '0 3px 0 0' : '0 0 0 3px'};
 		}
 
 		&.ant-tag-has-color {

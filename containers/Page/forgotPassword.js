@@ -14,7 +14,7 @@ class ForgotPassword extends React.Component {
             <div className="isoLogoWrapper">
               <Link href="/dashboard">
                 <span className="isoMenuHolder">
-                  <span className="nav-text">                 
+                  <span className="nav-text">
                     <IntlMessages id="page.forgetPassTitle" />
                   </span>
                 </span>

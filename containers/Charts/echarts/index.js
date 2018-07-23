@@ -11,9 +11,9 @@ import 'echarts-liquidfill';
 
 const ReactEcharts = (props) => <Async load={import(/* webpackChunkName: "Echarts" */ 'echarts-for-react')} componentProps={props} />;
 
-export default class  extends Component {
+export default class extends Component {
   clickBtn() {
-    window.open(this.refs.echarts_react.getEchartsInstance().getDataURL(), '_blank');
+    window.open(this.refs.echarts_react.getEchartsInstance().getDataURL(), '_blank'); // eslint-disable-line
   }
   render() {
     const style = {height: '700px', width: '100%'};
@@ -54,7 +54,7 @@ export default class  extends Component {
         </ContentHolder>
       </Box>
 
-       <Box>
+      <Box>
         <ContentHolder>
           <ReactEcharts
             option={configs.ChartWithEventComponent()}

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { palette } from 'styled-theme';
-import { fontSize, transition } from '../../../config/style-util';
+// import { palette } from 'styled-theme';
+import {
+  // fontSize,
+  transition
+} from '../../../config/style-util';
 
 const SocialWidgetWrapper = styled.ul`
 	width: 100%;

@@ -22,7 +22,7 @@ jobs:
     docker:
       - image: circleci/node:8.11
         environment:
-          AWS_CODE_DEPLOY_REGION: eu-west-1
+          AWS_CODE_DEPLOY_REGION: us-east-1
           AWS_CODE_DEPLOY_APPLICATION_NAME: "FrontDev"
           AWS_CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: "FrontDevDeploymentGroup"
           AWS_CODE_DEPLOY_SERVICE_ROLE_ARN: "arn:aws:iam::168411776127:role/codeDeployRole"

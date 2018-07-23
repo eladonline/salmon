@@ -6,7 +6,7 @@ const Pagination = ComponentName => styled(ComponentName)`
 	&.ant-pagination {
 		.ant-pagination-item {
 			margin: ${props =>
-				props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
 			&.ant-pagination-item-active {
 				background-color: ${palette('primary', 0)};
 				border-color: ${palette('primary', 0)};
@@ -31,14 +31,14 @@ const Pagination = ComponentName => styled(ComponentName)`
 
 		.ant-pagination-total-text {
 			margin: ${props =>
-				props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
 		}
 
 		.ant-pagination-prev,
 		.ant-pagination-jump-prev,
 		.ant-pagination-jump-next {
 			margin: ${props =>
-				props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
 		}
 
 		.ant-pagination-prev:hover,
@@ -53,16 +53,16 @@ const Pagination = ComponentName => styled(ComponentName)`
 		.ant-pagination-prev .ant-pagination-item-link,
 		.ant-pagination-next .ant-pagination-item-link {
 			transform: ${props =>
-				props['data-rtl'] === 'rtl' ? 'rotate(180deg)' : 'rotate(0)'};
+    props['data-rtl'] === 'rtl' ? 'rotate(180deg)' : 'rotate(0)'};
 		}
 
 		.ant-pagination-jump-prev,
 		.ant-pagination-jump-next {
 			&:after {
 				transform: ${props =>
-					props['data-rtl'] === 'rtl'
-						? 'rotate(180deg) scale(0.66666667)'
-						: 'rotate(0) scale(0.66666667)'};
+    props['data-rtl'] === 'rtl'
+      ? 'rotate(180deg) scale(0.66666667)'
+      : 'rotate(0) scale(0.66666667)'};
 			}
 		}
 
@@ -74,13 +74,13 @@ const Pagination = ComponentName => styled(ComponentName)`
 
 			.ant-pagination-simple-pager {
 				margin: ${props =>
-					props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
 			}
 		}
 
 		.ant-pagination-options {
 			margin: ${props =>
-				props['data-rtl'] === 'rtl' ? '0 10px 0 0' : '0 0 0 10px'};
+    props['data-rtl'] === 'rtl' ? '0 10px 0 0' : '0 0 0 10px'};
 
 			.ant-select .ant-select-selection.ant-select-selection--single {
 				height: 28px;
@@ -92,7 +92,7 @@ const Pagination = ComponentName => styled(ComponentName)`
 
 			.ant-pagination-options-size-changer {
 				margin: ${props =>
-					props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
 			}
 		}
 		.ant-pagination-options-quick-jumper {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
-import { fontSize, transition, media } from '../../config/style-util';
+// import { fontSize, transition, media } from '../../config/style-util';
 
 const WidgetWrapper = styled.div`
 	margin: 0 10px;

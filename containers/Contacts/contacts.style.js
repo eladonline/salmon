@@ -87,9 +87,9 @@ const WDContactsWrapper = styled.div`
         padding: 0;
         border: 1px solid ${palette('border', 0)};
         margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : '-1px'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : '-1px'};
         margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? '-1px' : 'inherit'};
+    props['data-rtl'] === 'rtl' ? '-1px' : 'inherit'};
         cursor: pointer;
         ${borderRadius()};
         ${transition()};
@@ -104,9 +104,9 @@ const WDContactsWrapper = styled.div`
 
         &:first-child {
           margin-left: ${props =>
-            props['data-rtl'] === 'rtl' ? 'inherit' : '0'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : '0'};
           margin-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : 'inherit'};
+    props['data-rtl'] === 'rtl' ? '0' : 'inherit'};
         }
 
         &:hover {
@@ -121,9 +121,9 @@ const WDContactsWrapper = styled.div`
         height: 30px;
         padding: 0 15px;
         margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : 'auto'};
+    props['data-rtl'] === 'rtl' ? 'inherit' : 'auto'};
         margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? 'auto' : 'inherit'};
+    props['data-rtl'] === 'rtl' ? 'auto' : 'inherit'};
         ${borderRadius('3px')};
         ${transition()};
 

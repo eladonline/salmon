@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import 'leaflet';
 import 'leaflet.markercluster';
 import MarkerClusterCss from 'leaflet.markercluster/dist/MarkerCluster.css';

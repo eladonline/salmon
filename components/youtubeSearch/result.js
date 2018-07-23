@@ -77,7 +77,7 @@ export default class extends Component {
       error,
       nextPageToken,
       prevPageToken,
-      total_count
+      total_count: totalCount
     } = YoutubeSearch;
     if (!searcText) {
       return <div />;
@@ -85,7 +85,7 @@ export default class extends Component {
     if (loading) {
       return <Loader />;
     }
-    if (error || !total_count) {
+    if (error || !totalCount) {
       return <HelperText text="THERE ARE SOME ERRORS" />;
     }
     if (result.length === 0) {
@@ -94,7 +94,7 @@ export default class extends Component {
     return (
       <YoutubeSearchStyleWrapper className="isoYoutubeSearchResult">
         <p className="isoTotalResultFind">
-          <span>{`${total_count}`} videos found</span>
+          <span>{`${totalCount}`} videos found</span>
         </p>
         {selectedVideo ? (
           <PlayYoutubeVideo

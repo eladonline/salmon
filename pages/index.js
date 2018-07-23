@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import Link from 'next/link'
 import Page from '../hocs/publicPage';
 import HomePage from './Homepage'

@@ -2,7 +2,7 @@ import React from 'react';
 import Loader from '../../components/utility/loader';
 import HelperText from '../../components/utility/helper-text';
 import Pagination from '../../components/uielements/pagination';
-import { per_page } from 'src/logic/redux/isomorphic/githubSearch/sagas';
+import { per_page as perPage } from 'src/logic/redux/isomorphic/githubSearch/sagas';
 import {
   GithubResultListStyleWrapper,
   GithubResultStyleWrapper
@@ -45,25 +45,25 @@ function SearchList(result) {
   );
 }
 export default ({ GitSearch, onPageChange }) => {
-  const { searcText, result, loading, error, page, total_count } = GitSearch;
+  const { searcText, result, loading, error, page, total_count: totalCount } = GitSearch;
   if (!searcText) {
     return <div />;
   }
   if (loading) {
     return <Loader />;
   }
-  if (error || !total_count) {
+  if (error || !totalCount) {
     return <HelperText text="THERE ARE SOME ERRORS" />;
   }
   if (result.length === 0) {
     return <HelperText text="No Result Found" />;
   }
-  const visibleItem = total_count > 1000 ? 1000 : total_count;
-  const pageCount = Math.floor(visibleItem / per_page);
+  const visibleItem = totalCount > 1000 ? 1000 : totalCount;
+  const pageCount = Math.floor(visibleItem / perPage);
   return (
     <GithubResultStyleWrapper className="isoGithubSearchResult">
       <p className="isoTotalRepository">
-        <span>{`${total_count}`} repository results</span>
+        <span>{`${totalCount}`} repository results</span>
       </p>
       {SearchList(result)}
       <div className="githubSearchPagination">

@@ -48,7 +48,7 @@ export default class extends Component {
           <Col md={24} xs={24} style={colStyle}>
             <Box title={configs.updatedChart.header}>
               <ContentHolder>
-                <div style={{display:'flex', justifyContent: 'flex-end'}}>
+                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
                   <Button onClick={this.addData} style={{marginRight: '10px'}}>+ Add Value</Button>
                   <Button onClick={this.removeData}>Remove Value</Button>
                 </div>

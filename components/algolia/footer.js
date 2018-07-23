@@ -1,6 +1,6 @@
 import React from 'react';
-const AlgoliaLogo = '/static/image/algolia.svg';
 import { FooterWrapper } from './algoliaComponent.style';
+// const AlgoliaLogo = '/static/image/algolia.svg';
 const algoliSrc = '/static/image/algolia.svg';
 
 export default () => (

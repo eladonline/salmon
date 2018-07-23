@@ -1,7 +1,7 @@
-import Document, { Head, Main, NextScript } from "next/document";
-import flush from "styled-jsx/server";
-import { ServerStyleSheet } from "styled-components";
-import Helmet from "react-helmet";
+import Document, { Head, Main, NextScript } from 'next/document';
+import flush from 'styled-jsx/server';
+import { ServerStyleSheet } from 'styled-components';
+import Helmet from 'react-helmet';
 
 export default class MyDocument extends Document {
   static async getInitialProps(...args) {
@@ -22,17 +22,17 @@ export default class MyDocument extends Document {
   // should render on <head>
   get helmetHeadComponents() {
     return Object.keys(this.props.helmet)
-      .filter(el => el !== "htmlAttributes" && el !== "bodyAttributes")
+      .filter(el => el !== 'htmlAttributes' && el !== 'bodyAttributes')
       .map(el => this.props.helmet[el].toComponent());
   }
 
   get helmetJsx() {
     return (
       <Helmet
-        htmlAttributes={{ lang: "en" }}
+        htmlAttributes={{ lang: 'en' }}
         title="Isomorphic"
         meta={[
-          { name: "viewport", content: "width=device-width, initial-scale=1" }
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' }
         ]}
       />
     );
@@ -46,7 +46,7 @@ export default class MyDocument extends Document {
         <Head>
           {this.helmetJsx}
           {this.helmetHeadComponents}
-          <style>{`body { margin: 0 }`}</style>
+          <style>{'body { margin: 0 }'}</style>
 
           {/* <link
             rel="stylesheet"
@@ -56,13 +56,13 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
             integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
           <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
           <link
             rel="stylesheet"

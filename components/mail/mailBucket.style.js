@@ -31,7 +31,7 @@ const MailBucket = styled.ul`
       color: ${palette('secondary', 2)};
       line-height: normal;
       margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 auto 0 0' : '0 0 0 auto'};
+    props['data-rtl'] === 'rtl' ? '0 auto 0 0' : '0 0 0 auto'};
       display: -webkit-inline-flex;
       display: -ms-inline-flex;
       display: inline-flex;

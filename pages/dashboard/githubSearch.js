@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import Page from '../../hocs/privatePage';
-;
 import GithubSearch from '../../containers/GithubSearch';
+;
 
 export default Page(() => (
   <div>

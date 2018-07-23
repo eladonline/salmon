@@ -34,19 +34,19 @@ class BasicMarkerMap extends Component {
     posts.map(post => {
       const marker = RichMarker
         ? new RichMarker.RichMarker({
-            map: Map,
-            animation: google.maps.Animation.DROP,
-            flat: true,
-            content: Marker(post.marker),
-            position: new google.maps.LatLng(post.lat, post.lng),
-          })
+          map: Map,
+          animation: google.maps.Animation.DROP,
+          flat: true,
+          content: Marker(post.marker),
+          position: new google.maps.LatLng(post.lat, post.lng),
+        })
         : new google.maps.Marker({
-            position: new google.maps.LatLng(post.lat, post.lng),
-            map: Map,
-            flat: true,
-            animation: google.maps.Animation.DROP,
-            content: Marker(post.marker),
-          });
+          position: new google.maps.LatLng(post.lat, post.lng),
+          map: Map,
+          flat: true,
+          animation: google.maps.Animation.DROP,
+          content: Marker(post.marker),
+        });
       const infoBubble = new InfoBubble({
         maxWidth: 280,
         minWidth: 280,

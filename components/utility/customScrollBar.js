@@ -1,5 +1,5 @@
 import React from 'react';
-import SmoothScrollbar from 'smooth-scrollbar';
+// import SmoothScrollbar from 'smooth-scrollbar';
 import Scrollbar from 'react-smooth-scrollbar';
 
 

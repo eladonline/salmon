@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { font, palette } from 'styled-theme';
-import { fontSize, transition } from '../../../config/style-util';
+import {
+  // font,
+  palette
+} from 'styled-theme';
+// import { fontSize, transition } from '../../../config/style-util';
 
 const CardWidgetWrapper = styled.div`
 	width: 100%;
@@ -17,9 +20,9 @@ const CardWidgetWrapper = styled.div`
 		align-items: center;
 		justify-content: center;
 		padding: ${props =>
-			props['data-rtl'] === 'rtl'
-				? '20px 20px 20px 30px'
-				: '20px 30px 20px 20px'};
+    props['data-rtl'] === 'rtl'
+      ? '20px 20px 20px 30px'
+      : '20px 30px 20px 20px'};
 
 		i {
 			font-size: 36px;
