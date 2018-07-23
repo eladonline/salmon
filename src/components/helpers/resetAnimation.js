@@ -1,11 +1,8 @@
 const namesToReAnimate = {
-  first: [[
-    '#sectionFirstHeader',
-    /*"#promoVid"*/
-  ], []],
-  second: [[''], []],
-  third: [[''], []],
-  forth: [[''], []]
+  first: [["#sectionFirstHeader", /*"#promoVid"*/], []],
+  second: [["#second-header"], []],
+  third: [[""], []],
+  forth: [[""], []]
 };
 
 const reset = (aClassAids, display, domNode) => {
@@ -26,7 +23,10 @@ const resetAnimation = (section, display, Node) => {
   switch (section) {
     case 0: // First section
       reset(namesToReAnimate.first, display, Node);
+<<<<<<< HEAD
 
+=======
+>>>>>>> e9c69a99c4d9324bd9a414187d6b1266d49bfe62
       break;
     case 1: // Second section
       reset(namesToReAnimate.second, display, Node);

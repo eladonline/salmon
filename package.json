@@ -92,7 +92,7 @@
     "validate.js": "^0.12.0"
   },
   "scripts": {
-    "precommit": "npm test",
+    "precommit": "bash scripts/pre-commit.sh",
     "start": "node server.js -p $PORT",
     "build": "next build",
     "test": "npm run lint-validate",

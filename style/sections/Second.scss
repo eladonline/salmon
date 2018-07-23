@@ -1,42 +1,149 @@
 @import "./styleTools.scss";
 $contentBoundries:841.5px;
 #second-mainCon {
-    @include flex-column(flex-start, center);
-    background:red;
+    @include flex-column(center, center);
+    background: white;
+    transition: .5s ease-in;
     h1 {
+        //animation related
+        display: none; // to initiate animation
+        // transform: translate3d(0,150px,0);
+        animation: incomingHeaderUp .5s ease-in forwards;
+        animation-delay: 4.5s; //
         @extend %Raleway-SemiBold;
         color: $mainHeaderDark;
-        width: 90%;
-        margin: 150px 0 87px 0;
+        width: 100%;
+        margin-top: 150px;
+        text-align: center;
         font: {
-            size: 15px;
+            size: 25px;
             weight: 600;
         }
         ; // tablets and up
         @include sm {
             font: {
                 size: 30px;
-                weight: 600;
             }
             width: 80%
         }
         ; // laptops and up
-        @include md {
-            margin: 155px 0 87px 0;
-            width: 841.5px;
+        @include lg {
+            margin-top: 130px;
+            font: {
+                size: 35px;
+            }
+        }
+        @include xl {
+            margin-top: 155px; // width: 841.5px;
+            font: {
+                size: 42px;
+            }
+        }
+        ;
+        .second-header-first,
+        .second-header-second,
+        .second-header-third {
+            opacity: 0;
+            animation: incomingHeader 1s linear forwards;
+        }
+        .second-header-first {
+            animation-delay: .5s;
+        }
+        ;
+        .second-header-second {
+            animation-delay: 1.5s;
+        }
+        ;
+        .second-header-third {
+            animation-delay: 2.5s;
         }
         ;
     }
     section {
-        color: green;
-        @include flex-column(flex-start, center);
+        /* this is a highest container of 3 blue icons*/
+        @include flex-row(space-between);
         width: 90%; // tablets and up
         @include sm {
             width: 80%;
-            @include flex-row(space-between);
         } // laptops and up
-        @include md {
-            width: 1125px;
+        @include lg {
+            width: 1130px;
+        }
+        @include xl {
+            width: 1280px;
+        }
+    }
+    .iconsSection {
+        div {
+            div {max-width:300px;}
+            @include flex-column(center, center);
+            .opportunity {
+                @include lg {
+                    margin-top: 99px;
+                    margin-bottom: 33px;
+                    width: 122px;
+                    height: 119px;
+                }
+            }
+            .standards {
+                @include lg {
+                    margin-top: 87px;
+                    margin-bottom: 33px;
+                    width: 129px;
+                    height: 131px;
+                }
+            }
+            .cryptotrade {
+                @include lg {
+                    margin-top: 98px;
+                    margin-bottom: 41px;
+                    width: 130px;
+                    height: 113px;
+                }
+            } // subHeaders
+            span {
+                letter-spacing: 0.3px;
+                @extend %Raleway-Bold;
+                color: $mainHeaderDark;
+                font-size: 22px;
+            }
+            p {
+                text-align: center;
+                color: $headerTextLessDark;
+                font-size: 16px;
+                @extend %Lato;
+                // line-height: 1.5;
+                margin: 7px 0 0 0;
+            }
+        }
+    }
+    .chartSection {
+        @include lg {
+            height: 392px;
+            width: 1176px;
+            margin-top: 62px;
+            background: green;
         }
     }
 }
+
+////////////////////
+// Animation
+///////////////////
+@keyframes incomingHeader {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// @keyframes incomingHeaderUp {
+//     from {
+//         transform: translate3d(0,150px,0);
+//     }
+//     to {
+//         transform: translate3d(0,0,0);
+//     }
+// }

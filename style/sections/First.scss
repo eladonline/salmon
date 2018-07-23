@@ -2,7 +2,7 @@
 .startTrading {
     margin: 0 0 0 34px;
     background: transparent;
-    border: 1px solid white;
+    border: 2px solid white;
     @extend %btn-base;
     width: 153px;
     height: 48px;
@@ -16,7 +16,6 @@
         margin-top: .7em;
     }
 }
-
 #sectionFirstHeader {
     position: relative;
     ;

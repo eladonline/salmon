@@ -6,7 +6,7 @@
 $mainTextBright: white;
 $mainBtn:#0f64f2;
 $mainHeaderDark: #36404b;
-$headerTextLessDark: #7b7d82;
+$headerTextLessDark: #7f8697;
 $positiveMoney:#6ae1af;
 $mainHighlight:#0a5ff2;
 $subHighlight:#86baff;
@@ -15,7 +15,7 @@ $TraderRegistration :#13379c;
 ///////////////////////
 // page indicator (bullets on right side of page)
 /////////////////////
-$bullets:#1e5bff;
+$bulletsAnavbarItem:#1e5bff;
 $pageLabel: #7fb4ff;
 ///////////////////
 // diagram colors
@@ -107,7 +107,6 @@ $diagNeg: #ee6f7d;
     // padding-right:26px;
     border-radius: 23px;
     outline: none;
-    border: none;
     font: {
         size: 16px;
         weight: bold;
@@ -123,6 +122,7 @@ $diagNeg: #ee6f7d;
 %Lato-Bold {
     font-family: Lato-Bold, sans-serif;
 }
+
 %Lato-Heavy {
     font-family: Lato-Heavy, sans-serif;
 }
@@ -134,6 +134,7 @@ $diagNeg: #ee6f7d;
 %Raleway-Bold {
     font-family: Raleway-Bold, sans-serif;
 }
+
 %Raleway-SemiBold {
     font-family: Raleway-SemiBold, sans-serif;
 }
@@ -147,6 +148,10 @@ $diagNeg: #ee6f7d;
 
 .flex-wrap {
     flex-wrap: wrap;
+}
+
+.m-t-7 {
+    margin-top: 7px;
 }
 
 .modal {
