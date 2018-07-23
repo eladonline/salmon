@@ -24,7 +24,7 @@ export default class SixthSection extends Component {
 const TextBox = p => (
   <div className="sixth-box">
     <div className="line" />
-    <p>{p.children}</p>
+    <div>{p.children}</div>
   </div>
 );
 const Financing = () => (

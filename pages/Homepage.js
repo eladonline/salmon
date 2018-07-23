@@ -1,29 +1,30 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import Navbar from "src/components/fixed/navbar/";
-import { Parallax, ParallaxLayer } from "react-spring";
-import resetAnimation from "src/components/helpers/resetAnimation";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Navbar from 'src/components/fixed/navbar/';
+import { Parallax, ParallaxLayer } from 'react-spring';
+import resetAnimation from 'src/components/helpers/resetAnimation';
 
-import FirstSection from "src/components/sections/first/First";
-import SecondSection from "src/components/sections/second/Second";
-import ThirdSection from "src/components/sections/third/Third";
-import ForthSection from "src/components/sections/forth/Forth";
-import FifthSection from "src/components/sections/fifth/Fifth";
-import SixthSection from "src/components/sections/sixth/Sixth";
-import SeventhSection from "src/components/sections/seventh/Seventh";
-import JoinUs from "src/components/sections/joinUs/JoinUs";
-import JoinUsBackground from "src/components/sections/joinUs/joinUsBackground";
-import JuLayer from "src/components/sections/joinUs/JuLayer";
-import Promo from "src/components/sections/first/Promo";
+import FirstSection from 'src/components/sections/first/First';
+import SecondSection from 'src/components/sections/second/Second';
+import ThirdSection from 'src/components/sections/third/Third';
+import ForthSection from 'src/components/sections/forth/Forth';
+import FifthSection from 'src/components/sections/fifth/Fifth';
+import SixthSection from 'src/components/sections/sixth/Sixth';
+import SeventhSection from 'src/components/sections/seventh/Seventh';
+import JoinUs from 'src/components/sections/joinUs/JoinUs';
+import JoinUsBackground from 'src/components/sections/joinUs/joinUsBackground';
+import JuLayer from 'src/components/sections/joinUs/JuLayer';
+import Promo from 'src/components/sections/first/Promo';
 
 export default class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = { offset: 0, canScroll: true };
-    this.overallPages = 7.7;
+    this.lastPage = 0.7;
+    this.overallPages = 7 + this.lastPage;
     this.lastScrollPos = 0;
     this.ticking = false;
-    this.scrollLockTime = 3000; // 3s
+    this.scrollLockTime = 2500; // 3s
     this.scrollUnlock = this.scrollUnlock.bind(this);
     this.scrollLock = this.scrollLock.bind(this);
   }
@@ -34,7 +35,8 @@ export default class Homepage extends Component {
    * @summary lock the scroll for some time for the parallax scroll to finish
    */
   componentDidMount() {
-    if (ReactDOM.findDOMNode(this.parallax)) { // eslint-disable-line
+    if (ReactDOM.findDOMNode(this.parallax)) {
+      // eslint-disable-line
       const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
       paralax.onscroll = e => {
         const scrollPos = e.target.scrollTop;
@@ -117,12 +119,12 @@ export default class Homepage extends Component {
           pages={this.overallPages}
           scrolling={
             this.state.canScroll ||
-            this.state.offset === this.overallPages - 0.7
+            this.state.offset === this.overallPages - this.lastPage
           }
           config={{
             tension: 79,
             friction: 18,
-            velocity: .3,
+            velocity: 0.3,
             overshootClamping: true,
             restSpeedThreshold: 0.9,
             restDisplacementThreshold: 0.9
@@ -139,9 +141,9 @@ export default class Homepage extends Component {
               speed={0}
               style={{
                 zIndex: 3,
-                display: "flex",
-                justifyContent: "flex-end",
-                flexDirection: "column"
+                display: 'flex',
+                justifyContent: 'flex-end',
+                flexDirection: 'column'
               }}
               factor={1}
             >
