@@ -1,13 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class SixthSection extends Component {
   render() {
-    const screenSize = window.screen.width;
+    // const screenSize = window.screen.width;
     return (
-      <div
-        className="main-container"
-        id="sixth-mainCon"
-      >
+      <div className="main-container" id="sixth-mainCon">
         <div>
           <h1>Pioneering The New Tokenized Economy</h1>
           <section>

@@ -52,3 +52,7 @@
     font-family: Lato-Medium;
     src: url("../fonts/fonts/Lato/Lato-Medium.ttf")
 }
+@font-face {
+    font-family: Lato-Italic;
+    src: url("../fonts/fonts/Lato/Lato-Italic.ttf")
+}

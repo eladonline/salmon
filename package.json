@@ -53,6 +53,7 @@
     "react-drawer": "^1.2.5",
     "react-dropzone-component": "^2.0.0",
     "react-flip-move": "^2.9.2",
+    "react-floating-label-input": "^3.0.5",
     "react-ga": "^2.2.0",
     "react-google-charts": "^1.5.5",
     "react-helmet": "^5.1.3",

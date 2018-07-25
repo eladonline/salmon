@@ -35,11 +35,12 @@ export default class Homepage extends Component {
    * @summary lock the scroll for some time for the parallax scroll to finish
    */
   componentDidMount() {
-    if (ReactDOM.findDOMNode(this.parallax)) {
+    if (window) {
       // eslint-disable-line
       const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
       paralax.onscroll = e => {
         const scrollPos = e.target.scrollTop;
+        // **  if user scroll down
         if (scrollPos > this.lastScrollPos + 5 && !this.ticking) {
           const offset = Math.min(this.state.offset + 1, this.overallPages - 1);
           // reset last page animation
@@ -50,9 +51,28 @@ export default class Homepage extends Component {
           resetAnimation(offset, paralax);
 
           this.parallax.scrollTo(offset);
-          this.setState({ offset: this.state.offset + 1 });
+          this.setState({
+            offset: Math.min(
+              this.state.offset + 1,
+              this.overallPages - this.lastPage
+            )
+          });
           this.scrollLock(scrollPos);
           this.scrollUnlock();
+          // **  if user scroll up and its last page on parallax
+          // then scroll to 1 page up
+        } else if (
+          this.lastScrollPos &&
+          scrollPos < this.lastScrollPos &&
+          !this.ticking &&
+          this.overallPages - this.lastPage < this.state.offset
+        ) {
+          const offset = this.overallPages - this.lastPage;
+          this.parallax.scrollTo(offset);
+          this.this.setState({ canScroll: false });
+          this.ticking = false;
+          // **  if user scroll up
+          // then scroll one page up
         } else if (
           this.lastScrollPos &&
           scrollPos < this.lastScrollPos - 5 &&
@@ -99,6 +119,7 @@ export default class Homepage extends Component {
    * @param {component} children
    * @param {number} offset
    * @param {float, number} speed
+   * @param {number} zIndex
    * @returns [{component}] [component wrapped by parallax layer]
    */
   page(children, offset, speed, zIndex = 0) {
@@ -131,31 +152,19 @@ export default class Homepage extends Component {
           }}
         >
           <React.Fragment>
-            {this.page(<Promo />, 0, 0, 1)}
+            {/* {this.page(<Promo />, 0, 0, 1)}
             {this.page(<FirstSection />, 0, 0.3, 1)}
-
             {this.page(<SecondSection />, 1, 0, 1)}
-
-            <ParallaxLayer
-              offset={2}
-              speed={0}
-              style={{
-                zIndex: 3,
-                display: 'flex',
-                justifyContent: 'flex-end',
-                flexDirection: 'column'
-              }}
-              factor={1}
-            >
-              <ThirdSection />
-            </ParallaxLayer>
+            {this.page(<ThirdSection />, 2, 0, 1)}
             {this.page(<ForthSection />, 3, 0, 1)}
             {this.page(<FifthSection />, 4, 0, 1)}
             {this.page(<SixthSection />, 5, 0, 1)}
-            {this.page(<SeventhSection />, 6, 0, 1)}
-            {this.page(<JoinUs />, 7, 0, 2)}
-            {this.page(<JuLayer />, 7, 0, 1)}
-            {this.page(<JoinUsBackground />, 7, 0.3, 1)}
+            {this.page(<SeventhSection />, 6, 0, 1)} */}
+            {/* join us page*/}
+            {this.page(<JoinUs />, 0, 0, 2)}
+            {this.page(<JuLayer />, 0, 0, 1)}
+            {this.page(<JoinUsBackground />, 0, 0.3, 1)}
+            {/*end*/}
           </React.Fragment>
         </Parallax>
       </React.Fragment>
