@@ -27,45 +27,61 @@ body {
 /////////////////
 .main-container {
   position: relative;
+  overflow: hidden;
   width: 100%;
   max-width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 //////////////////////
 // bullets & labels
 //////////////////////
-.bullestMain {
-  position: fixed;
-  height: 100%;
-  @include flex-column(center, flex-end);
-  right: 50px;
-  z-index: 1111111;
-  list-style-type: none;
-  li {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid $textBlue;
-    margin: 10px;
-    cursor: pointer;
-    &[data-invers='true'] {
-      border: 1px solid white;
-    }
-    &[data-fillinvers='true'] {
-      background: white;
-    }
-    &[data-fill='true'] {
-      background: $textBlue;
+
+  .bulletsMain {
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+    @include flex-column(center, flex-end);
+    right: 50px;
+    list-style-type: none;
+    z-index: 20;
+    li {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid $textBlue;
+      margin: 10px;
+      cursor: pointer;
+      &[data-invers='true'] {
+        border: 1px solid white;
+      }
+      &[data-fillinvers='true'] {
+        background: white;
+      }
+      &[data-fill='true'] {
+        background: $textBlue;
+      }
     }
   }
-}
 
-.popover {
-  color: black;
+
+.popover-bullet {
   z-index: 1111111;
-  position: absolute;
+  right: 7em !important;
+  max-width: 120px;
+  text-align: center;
+  border: none;
+  color: black;
+  .arrow {
+    border-left: white;
+  }
+  &[data-invers='false'] {
+    color: white;
+    background: $pageLabel;
+    .arrow:after {
+      border-left-color: $pageLabel !important;
+    }
+  }
 }
 
 .pageLabel {
@@ -88,8 +104,8 @@ body {
 }
 
 .traderColor {
-    color:$TraderRegistration;
+  color: $TraderRegistration;
 }
 .textBlue {
-    color:$textBlue;
+  color: $textBlue;
 }

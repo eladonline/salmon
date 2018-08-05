@@ -77,12 +77,18 @@ export default class Homepage extends Component {
           resetAnimation(offset, paralax);
           this.handleBulletLabelFocus(offset);
           if (offset < overallPages + 1) this.parallax.scrollTo(offset);
+          if (offset > 5) {
+            const bullets = document.querySelector('.bulletsMain');
+            bullets.style.display = 'flex';
+          }
           this.parallax.scrollTo(offset);
           this.setState({ offset });
           this.scrollLock();
           this.scrollUnlock();
           endRound = true;
         } else if (!endRound && this.state.offset === overallPages - 1 && scrollDirection) {
+          const bullets = document.querySelector('.bulletsMain');
+          bullets.style.display = 'none';
           this.setState({ offset: this.overallPages });
           paralax.style.overflowY = 'scroll';
           endRound = true;
@@ -124,6 +130,25 @@ export default class Homepage extends Component {
     offset = Math.max(offset, 1) - 1;
     resetAnimation(offset, this.parallaxNode);
   }
+  handleBulletClick(offset, element) {
+    if (this.state.offset !== offset) {
+      this.scrollLock();
+      this.setState({ offset });
+      resetAnimation(offset, this.parallaxNode);
+      this.parallax.scrollTo(offset);
+      this.scrollUnlock();
+    }
+  }
+  handleBulletLabelFocus(offset) {
+    const target = document.querySelector(`#bullet_${offset}`);
+
+    if (target !== null) {
+      target.click();
+      setTimeout(() => {
+        target.click();
+      }, 950);
+    }
+  }
   /**
    *
    * @param {component} children
@@ -132,9 +157,15 @@ export default class Homepage extends Component {
    * @param {number} zIndex
    * @returns [{component}] [component wrapped by parallax layer]
    */
-  page(component, offset, speed, zIndex = 0) {
+  page(component, offset, speed, zIndex = 0, style, factor) {
     return (
-      <ParallaxLayer offset={offset} speed={speed} style={{ zIndex: zIndex }}>
+      <ParallaxLayer
+        offset={offset}
+        speed={speed}
+        style={{ zIndex: zIndex, ...style }}
+        factor={factor}
+      >
+        {/*Observer is for tracking if component is in view (mobile mode) */}
         <Observer className="observer-con">
           {({ inView, ref }) => {
             if (inView) this.handleScroll(offset);
@@ -148,24 +179,6 @@ export default class Homepage extends Component {
       </ParallaxLayer>
     );
   }
-  handleBulletClick(offset, element) {
-    if (this.state.offset !== offset) {
-      this.scrollLock();
-      this.setState({ offset });
-      resetAnimation(offset, this.parallaxNode);
-      this.parallax.scrollTo(offset);
-      this.scrollUnlock();
-    }
-  }
-  handleBulletLabelFocus(offset) {
-    const target = document.querySelector(`#bullet_${offset}`);
-    if (target !== null) {
-      target.click();
-      setTimeout(() => {
-        target.click();
-      }, 950);
-    }
-  }
   render() {
     const desktops = this.state.browserWidth < 600;
     return (
@@ -173,6 +186,7 @@ export default class Homepage extends Component {
         <Navbar offset={this.state.offset} />
         {!desktops && (
           <Bullets
+            id="mainBullets"
             pages={this.overallPages - this.lastPage}
             handleBulletClick={this.handleBulletClick}
             offset={this.state.offset}
@@ -192,6 +206,18 @@ export default class Homepage extends Component {
             restDisplacementThreshold: 0.9
           }}
         >
+          {!desktops &&
+            this.page(
+              <Bullets
+                id="customBullets"
+                pages={this.overallPages - this.lastPage}
+                handleBulletClick={this.handleBulletClick}
+                offset={this.state.offset}
+              />,
+              6,
+              0,
+              111
+            )}
           <React.Fragment>
             {this.page(<Promo />, 0, 0, 1)}
             {this.page(<FirstSection />, 0, 0.3, 1)}
