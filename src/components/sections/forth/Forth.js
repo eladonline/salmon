@@ -9,24 +9,24 @@ export default class ForthSection extends Component {
         <section className="text-mainCon">
           <div>
             <header>
-              <h5>
+              <h5 className='sub-headerForth traderColor'>
                 <span>TRADING</span> INDEPENDENTLY?
               </h5>
-              <h1>
+              <h1 className='main-headerForth'>
                 Trade Bigger with <br />Unlimited Opportunities
               </h1>
             </header>
             <div className="text-subCon">
               <div>
-                <div className="box">
-                  <div>1</div>
+                <div className="box boxForthA">
+                  <div className='traderColor'>1</div>
                   <div>
                     <p> Intuitive trading experience </p>
                     <p> throughout the platform </p>
                   </div>
                 </div>
-                <div className="box">
-                  <div>2</div>
+                <div className="box boxForthB">
+                  <div className='traderColor'>2</div>
                   <div>
                     <p>A fully licensed, secure </p>
                     <p>platform for cryptoexchange</p>
@@ -34,15 +34,15 @@ export default class ForthSection extends Component {
                 </div>
               </div>
               <div>
-                <div className="box">
-                  <div>3</div>
+                <div className="box boxForthC">
+                  <div className='traderColor'>3</div>
                   <div>
                     <p> Continuous, uninterrupted </p>
                     <p>trading operationality </p>
                   </div>
                 </div>
-                <div className="box">
-                  <div>4</div>
+                <div className="box boxForthD">
+                  <div className='traderColor'>4</div>
                   <div>
                     <p> Responsive 24/7 trader </p>
                     <p> customer support </p>
@@ -51,7 +51,7 @@ export default class ForthSection extends Component {
               </div>
             </div>
 
-            <button> Trader Registration </button>
+            <button className='forthButton forthButtonBehave'> Trader Registration </button>
           </div>
         </section>
         <img src={background} alt="side" />

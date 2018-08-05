@@ -35,11 +35,7 @@ export default class MainNavbar extends Component {
    */
   isLoggedIn(user) {
     // 'Unsigned' Linked to private Layout
-    return user ? (
-      <LoggedIn user={user} invers={this.state.invers} />
-    ) : (
-      <Login />
-    );
+    return user ? <LoggedIn user={user} invers={this.state.invers} /> : <Login />;
   }
   isinvers(offset) {
     switch (offset) {
@@ -47,11 +43,23 @@ export default class MainNavbar extends Component {
         return true;
       case 1:
         return false;
+      case 2:
+        return 'split';
+      case 3:
+        return 'splitInvers';
+      case 4:
+        return true;
+      case 5:
+        return true;
+      case 6:
+        return false;
       default:
-        true;
+        return false;
     }
   }
   brandStyle(invers, active) {
+    if (invers === 'split') return brandImgWhite;
+    if (invers === 'splitInvers') return active ? brandImgDarkBlue : brandImgBlue;
     if (invers) return brandImgWhite;
     return active ? brandImgDarkBlue : brandImgBlue;
   }
@@ -60,19 +68,17 @@ export default class MainNavbar extends Component {
       <Navbar
         collapseOnSelect
         onMouseOver={() => {
-          this.setState({ brandActive: true })
+          this.setState({ brandActive: true });
         }}
         onMouseOut={() => {
-          this.setState({ brandActive: false })
+          this.setState({ brandActive: false });
         }}
       >
         <Navbar.Header>
           <Brand image={this.brandStyle(this.state.invers, this.state.brandActive)} />
           <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Collapse>
-          {this.isLoggedIn('elad+1@committed.co.il')}
-        </Navbar.Collapse>
+        <Navbar.Collapse>{this.isLoggedIn('elad+1@committed.co.il')}</Navbar.Collapse>
       </Navbar>
     );
   }

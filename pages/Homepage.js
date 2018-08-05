@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import Navbar from 'src/components/fixed/navbar/';
 import { Parallax, ParallaxLayer } from 'react-spring';
 import resetAnimation from 'src/components/helpers/resetAnimation';
-
+import Bullets from 'src/components/bullets/Bullets';
 import FirstSection from 'src/components/sections/first/First';
 import SecondSection from 'src/components/sections/second/Second';
 import ThirdSection from 'src/components/sections/third/Third';
+import SideImgThird from 'src/components/sections/third/SideImg';
 import ForthSection from 'src/components/sections/forth/Forth';
 import FifthSection from 'src/components/sections/fifth/Fifth';
 import SixthSection from 'src/components/sections/sixth/Sixth';
@@ -15,18 +16,24 @@ import JoinUs from 'src/components/sections/joinUs/JoinUs';
 import JoinUsBackground from 'src/components/sections/joinUs/joinUsBackground';
 import JuLayer from 'src/components/sections/joinUs/JuLayer';
 import Promo from 'src/components/sections/first/Promo';
+import Observer from 'react-intersection-observer';
 
 export default class Homepage extends Component {
   constructor(props) {
     super(props);
-    this.state = { offset: 0, canScroll: true };
+    this.state = {
+      offset: 0,
+      canScroll: true,
+      browserWidth: window.screen.width
+    };
     this.lastPage = 0.7;
     this.overallPages = 7 + this.lastPage;
     this.lastScrollPos = 0;
-    this.ticking = false;
-    this.scrollLockTime = 2500; // 3s
+    this.scrollLockTime = 1000; // 1s
     this.scrollUnlock = this.scrollUnlock.bind(this);
     this.scrollLock = this.scrollLock.bind(this);
+    this.handleBulletClick = this.handleBulletClick.bind(this);
+    this.handleBulletLabelFocus = this.handleBulletLabelFocus.bind(this);
   }
   /**
    * @callback componentDidMount
@@ -36,60 +43,62 @@ export default class Homepage extends Component {
    */
   componentDidMount() {
     if (window) {
+      const overallPages = this.overallPages - this.lastPage;
       // eslint-disable-line
       const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
-      paralax.onscroll = e => {
-        const scrollPos = e.target.scrollTop;
-        // **  if user scroll down
-        if (scrollPos > this.lastScrollPos + 5 && !this.ticking) {
-          const offset = Math.min(this.state.offset + 1, this.overallPages - 1);
-          // reset last page animation
-          setTimeout(() => {
-            resetAnimation(this.state.offset - 1, paralax);
-          }, 1500);
-          // display next page animation
-          resetAnimation(offset, paralax);
+      this.parallaxNode = paralax;
+      this.setState({ parallax: paralax });
 
-          this.parallax.scrollTo(offset);
-          this.setState({
-            offset: Math.min(
-              this.state.offset + 1,
-              this.overallPages - this.lastPage
-            )
-          });
-          this.scrollLock(scrollPos);
-          this.scrollUnlock();
-          // **  if user scroll up and its last page on parallax
-          // then scroll to 1 page up
-        } else if (
-          this.lastScrollPos &&
-          scrollPos < this.lastScrollPos &&
-          !this.ticking &&
-          this.overallPages - this.lastPage < this.state.offset
+      paralax.addEventListener('wheel', e => {
+        const scrollDirection = e.deltaY > 0; // true down false up
+        let endRound = false;
+
+        if (
+          !endRound &&
+          scrollDirection &&
+          this.state.canScroll &&
+          this.state.offset < overallPages - 1
         ) {
-          const offset = this.overallPages - this.lastPage;
-          this.parallax.scrollTo(offset);
-          this.this.setState({ canScroll: false });
-          this.ticking = false;
-          // **  if user scroll up
-          // then scroll one page up
+          const offset = Math.min(this.state.offset + 1, overallPages);
+          resetAnimation(offset, paralax);
+          this.handleBulletLabelFocus(offset);
+          if (offset < overallPages) this.parallax.scrollTo(offset);
+          this.setState({ offset });
+          this.scrollLock();
+          this.scrollUnlock();
+          endRound = true;
         } else if (
-          this.lastScrollPos &&
-          scrollPos < this.lastScrollPos - 5 &&
-          !this.ticking
+          !endRound &&
+          !scrollDirection &&
+          this.state.canScroll &&
+          this.state.offset !== this.overallPages
         ) {
           const offset = Math.max(this.state.offset - 1, 0);
-          this.parallax.scrollTo(offset);
-          // reset next page animation
           resetAnimation(offset, paralax);
-          // reset last page animation
-          resetAnimation(offset + 1, paralax);
-          this.setState({ offset: this.state.offset - 1 });
-          this.scrollLock(scrollPos);
+          this.handleBulletLabelFocus(offset);
+          if (offset < overallPages + 1) this.parallax.scrollTo(offset);
+          this.parallax.scrollTo(offset);
+          this.setState({ offset });
+          this.scrollLock();
           this.scrollUnlock();
+          endRound = true;
+        } else if (!endRound && this.state.offset === overallPages - 1 && scrollDirection) {
+          this.setState({ offset: this.overallPages });
+          paralax.style.overflowY = 'scroll';
+          endRound = true;
+        } else if (!endRound && this.state.offset === this.overallPages && !scrollDirection) {
+          this.setState({ offset: overallPages });
+          this.handleBulletLabelFocus(overallPages);
+          this.parallax.scrollTo(overallPages - 1);
+          paralax.style.overflowY = 'hidden';
+          endRound = true;
         }
-        this.lastScrollPos = scrollPos;
-      };
+      });
+    }
+    if (window && !this.browserSize) {
+      window.addEventListener('resize', e => {
+        this.setState({ browserWidth: e.target.window.innerWidth });
+      });
     }
   }
 
@@ -99,20 +108,21 @@ export default class Homepage extends Component {
    * @summary disable scrolling by setting state to false
    *  remember last scroll from top number
    */
-  scrollLock(scrollPos) {
-    this.ticking = true;
+  scrollLock() {
     this.setState({ canScroll: false });
-    this.lastScrollPos = scrollPos;
   }
   /**
    * @function scrollUnlock
    * @summary setTimeout to enable scroll
    */
-  scrollUnlock() {
+  scrollUnlock(time = 0) {
     setTimeout(() => {
       this.setState({ canScroll: true });
-      this.ticking = false;
-    }, this.scrollLockTime);
+    }, time || this.scrollLockTime);
+  }
+  handleScroll(offset) {
+    offset = Math.max(offset, 1) - 1;
+    resetAnimation(offset, this.parallaxNode);
   }
   /**
    *
@@ -122,48 +132,91 @@ export default class Homepage extends Component {
    * @param {number} zIndex
    * @returns [{component}] [component wrapped by parallax layer]
    */
-  page(children, offset, speed, zIndex = 0) {
+  page(component, offset, speed, zIndex = 0) {
     return (
       <ParallaxLayer offset={offset} speed={speed} style={{ zIndex: zIndex }}>
-        {children}
+        <Observer className="observer-con">
+          {({ inView, ref }) => {
+            if (inView) this.handleScroll(offset);
+            return (
+              <div className="observer-con-child" ref={ref}>
+                {component}
+              </div>
+            );
+          }}
+        </Observer>
       </ParallaxLayer>
     );
   }
-
+  handleBulletClick(offset, element) {
+    if (this.state.offset !== offset) {
+      this.scrollLock();
+      this.setState({ offset });
+      resetAnimation(offset, this.parallaxNode);
+      this.parallax.scrollTo(offset);
+      this.scrollUnlock();
+    }
+  }
+  handleBulletLabelFocus(offset) {
+    const target = document.querySelector(`#bullet_${offset}`);
+    if (target !== null) {
+      target.click();
+      setTimeout(() => {
+        target.click();
+      }, 950);
+    }
+  }
   render() {
+    const desktops = this.state.browserWidth < 600;
     return (
       <React.Fragment>
         <Navbar offset={this.state.offset} />
+        {!desktops && (
+          <Bullets
+            pages={this.overallPages - this.lastPage}
+            handleBulletClick={this.handleBulletClick}
+            offset={this.state.offset}
+          />
+        )}
         <Parallax
           className="container-parallax"
           ref={ref => (this.parallax = ref)}
           pages={this.overallPages}
-          scrolling={
-            this.state.canScroll ||
-            this.state.offset === this.overallPages - this.lastPage
-          }
+          scrolling={desktops}
           config={{
-            tension: 79,
-            friction: 18,
-            velocity: 0.3,
+            tension: 15,
+            friction: 9,
+            velocity: 0.2,
             overshootClamping: true,
             restSpeedThreshold: 0.9,
             restDisplacementThreshold: 0.9
           }}
         >
           <React.Fragment>
-            {/* {this.page(<Promo />, 0, 0, 1)}
+            {this.page(<Promo />, 0, 0, 1)}
             {this.page(<FirstSection />, 0, 0.3, 1)}
-            {this.page(<SecondSection />, 1, 0, 1)}
+            {this.page(
+              <SecondSection
+                parallax={this.state.parallax}
+                browserWidth={this.state.browserWidth}
+              />,
+              1,
+              0,
+              1
+            )}
+            {/* ThirdSection */}
             {this.page(<ThirdSection />, 2, 0, 1)}
+            {this.page(<SideImgThird />, 2, 0, 0)}
+            {/* {this.page(<SideImgThird />, 2, 0, 0)} */}
+            {/* ThirdSection end */}
             {this.page(<ForthSection />, 3, 0, 1)}
             {this.page(<FifthSection />, 4, 0, 1)}
             {this.page(<SixthSection />, 5, 0, 1)}
-            {this.page(<SeventhSection />, 6, 0, 1)} */}
+            {this.page(<SeventhSection />, 6, 0, 2)}
             {/* join us page*/}
-            {this.page(<JoinUs />, 0, 0, 2)}
-            {this.page(<JuLayer />, 0, 0, 1)}
-            {this.page(<JoinUsBackground />, 0, 0.3, 1)}
+            {this.page(<JoinUs />, 7, 0, 2)}
+            {this.page(<JuLayer />, 7, 0, 1)}
+            {this.page(<JoinUsBackground />, 7, 0.3, 1)}
             {/*end*/}
           </React.Fragment>
         </Parallax>

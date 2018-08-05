@@ -10,17 +10,25 @@ export default class JoinUs extends Component {
     super(props, context);
 
     this.state = {
-      value: '',
-      radioActive: 1
+      value: {},
+      formType: 1
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.handleChangeSelect = this.handleChangeSelect.bind(this);
   }
-  handleChange(e) {
-    console.log(e.target.value);
-    this.setState({ value: e.target.value });
+  handleChangeInput(e, id) {
+    const { value } = this.state;
+    value[id] = e.target.value;
+
+    this.setState({ value });
+  }
+  handleChangeSelect(e, id) {
+    const { value } = this.state;
+    value[id] = e.target.value;
+    this.setState({ value });
   }
   handleRadio(num) {
-    this.setState({ radioActive: num });
+    this.setState({ formType: num });
   }
   RadioPoI() {
     return (
@@ -28,7 +36,7 @@ export default class JoinUs extends Component {
         <label
           htmlFor="INSTITUTION"
           className="d-flex"
-          data-active={this.state.radioActive === 1}
+          data-active={this.state.formType === 1}
           onClick={() => this.handleRadio(1)}
         >
           <div className="checkmark">
@@ -41,7 +49,7 @@ export default class JoinUs extends Component {
         <label
           htmlFor="INDEPENDENTLY"
           className="d-flex"
-          data-active={this.state.radioActive === 2}
+          data-active={this.state.formType === 2}
           onClick={() => this.handleRadio(2)}
         >
           <div className="checkmark">
@@ -53,7 +61,9 @@ export default class JoinUs extends Component {
       </div>
     );
   }
-
+  submit() {
+    /** make a call here */
+  }
   render() {
     return (
       <div className="main-container-joinUs" id="joinUs-mainCon">
@@ -67,15 +77,17 @@ export default class JoinUs extends Component {
             </header>
             <div>
               {this.RadioPoI()}
-              {this.state.viewInst ? (
+              {this.state.formType === 1 ? (
                 <FormInstatution
-                  handleInputChange={this.handleChange}
-                  handleSelectChange={this.handleChange}
+                  handleInputChange={this.handleChangeInput}
+                  handleSelectChange={this.handleChangeSelect}
+                  value={this.state.value}
                 />
               ) : (
                 <FormIndependent
-                  handleInputChange={this.handleChange}
-                  handleSelectChange={this.handleChange}
+                  handleInputChange={this.handleChangeInput}
+                  handleSelectChange={this.handleChangeSelect}
+                  value={this.state.value}
                 />
               )}
             </div>
@@ -109,13 +121,13 @@ const FormInstatution = p => (
         onChange={e => p.handleInputChange(e, 'Iname')}
         id="Iname"
         placeholder="Type youe name"
-        value={p.value}
+        value={p.value.Iname || ''}
       />
       <LabeledInput
-        onChange={e => p.handleInputChange(e, 'Iemal')}
+        onChange={e => p.handleInputChange(e, 'Iemail')}
         id="Iemail"
         placeholder="Email"
-        value={p.value}
+        value={p.value.Iemail || ''}
       />
     </div>
     <div>
@@ -123,7 +135,7 @@ const FormInstatution = p => (
         onChange={e => p.handleInputChange(e, 'CompanyName')}
         id="CompanyName"
         label="Company name"
-        value={p.value}
+        value={p.value.CompanyName || ''}
       />
       <LabeledSelect
         id="CompanySize"
@@ -135,7 +147,7 @@ const FormInstatution = p => (
         id="Industry"
         label="Industry"
         list={industry}
-        onChange={e => p.handleSelectChange(e, 'industry')}
+        onChange={e => p.handleSelectChange(e, 'Industry')}
       />
     </div>
     <div>
@@ -158,13 +170,13 @@ const FormIndependent = p => {
           onChange={e => p.handleInputChange(e, 'Pname')}
           id="Pname"
           placeholder="Full Name"
-          value={p.value}
+          value={p.value.Pname || ''}
         />
         <LabeledInput
           onChange={e => p.handleInputChange(e, 'Pemail')}
           id="Pemail"
           placeholder="Your Name"
-          value={p.value}
+          value={p.value.Pemail || ''}
         />
       </div>
       <div>
@@ -177,7 +189,7 @@ const FormIndependent = p => {
           id="Pphone"
           placeholder="Phone Number"
           onChange={e => p.handleInputChange(e, 'phone')}
-          value={p.value}
+          value={p.value.phone || ''}
         />
       </div>
       <div>
@@ -211,24 +223,14 @@ const LabeledInput = ({ id, onChange, value, type, label, placeholder }) => {
 
 const LabeledSelect = ({ id, onChange, list, label, inx }) => {
   return (
-    <div
-      className={
-        (inx && `floatingSelect floatingSelect-inx`) || `floatingSelect`
-      }
-    >
-      <FloatingLabelSelect
-        id={id}
-        onChange={onChange}
-        label={label}
-        shrink={0}
-        list={list}
-      />
+    <div className={(inx && `floatingSelect floatingSelect-inx`) || `floatingSelect`}>
+      <FloatingLabelSelect id={id} onChange={onChange} label={label} shrink={0} list={list} />
     </div>
   );
 };
 
 const employees = [
-  <option key="joineUs456" disabled selected value={false} />,
+  <option key="joineUs456" hidden disabled selected />,
   <option key="joineUs1" value="10">
     10 employees
   </option>,
@@ -243,7 +245,7 @@ const employees = [
   </option>
 ];
 const industry = [
-  <option key="joineUs654" disabled selected value />,
+  <option key="joineUs654" hidden disabled selected />,
   <option key="joineUs5" value="10">
     10 industry
   </option>,
@@ -259,7 +261,7 @@ const industry = [
 ];
 
 const primaryINX = [
-  <option key="joineUs753" disabled selected value />,
+  <option key="joineUs753" hidden disabled selected />,
   <option key="joineUs9" value="10">
     10 PrimaryINX
   </option>,
@@ -275,12 +277,12 @@ const primaryINX = [
 ];
 
 const country = [
-  <option key="joineUscountry753" disabled selected value>
+  <option key="joineUscountry753" hidden disabled selected>
     Country
   </option>
 ];
 const pTradingPreference = [
-  <option key="joineUspTradinfPreference753" disabled selected value>
+  <option key="joineUspTradinfPreference753" hidden disabled selected>
     Trading Preference
   </option>
 ];

@@ -1,40 +1,81 @@
 /**
- * !important 
- * if namesToReAnimate and namesOfAnimation is connected! 
+ * !important
+ * if namesToReAnimate and namesOfAnimation is connected!
  * namesToReAnimate is the key class for the dom to find
- * namesOfAnimation is the animation to fulfil 
+ * namesOfAnimation is the animation to fulfil
  * they both need to be at the same index of the array
  */
 
 const namesToReAnimate = {
-  first: [".firstSectionHeader"],
+  first: ['.firstSectionHeader'],
   second: [
-    ".second-header-first",
-    ".second-header-second",
-    ".second-header-third",
-    ".chartSection",
-    ".iconsSection",
-    "#second-header"
+    '.second-header-first',
+    '.second-header-second',
+    '.second-header-third',
+    '.chartSection',
+    '.iconsSection',
+    '#second-header'
   ],
-  third: [],
-  forth: [],
-  fifth: [],
+  third: [
+    '.sub-headerThird',
+    '.main-headerThird',
+    '.boxThirdA',
+    '.boxThirdB',
+    '.boxThirdC',
+    '.boxThirdD',
+    '.thirdButton'
+  ],
+  forth: [
+    '.sub-headerForth',
+    '.main-headerForth',
+    '.boxForthA',
+    '.boxForthB',
+    '.boxForthC',
+    '.boxForthD',
+    '.forthButton'
+  ],
+  fifth: [
+    '.fifth-header',
+    '.fifth-sub-header',
+    '.boxes',
+    '.fifth-sub-header-icons'
+  ],
   sixth: []
 };
 const namesOfAnimation = {
-  first: [["fadeInUp", "animated"]],
+  first: [['fadeInUp', 'animated']],
   second: [
-    ["animate-second-header-first"],
-    ["animate-second-header-second"],
-    ["animate-second-header-third"],
-    ["animate-chartSection", "fadeInUp", "animated"],
-    ["animate-iconsSection"],
-    ["animate-secondSectiongoToTop"],
-
+    ['animate-second-header-first'],
+    ['animate-second-header-second'],
+    ['animate-second-header-third'],
+    ['animate-chartSection', 'fadeInUp', 'animated'],
+    ['animate-iconsSection'],
+    ['animate-secondSectiongoToTop']
   ],
-  third: [],
-  forth: [],
-  fifth: [],
+  third: [
+    ['animate-sub-headerThirdAforth'],
+    ['animate-main-headerThirdAforth'],
+    ['animate-boxThirdAforth'],
+    ['animate-boxThirdAforth'],
+    ['animate-boxThirdAforth'],
+    ['animate-boxThirdAforth'],
+    ['animate-thirdButtonAforth']
+  ],
+  forth: [
+    ['animate-sub-headerThirdAforth'],
+    ['animate-main-headerThirdAforth'],
+    ['animate-boxThirdAforth'],
+    ['animate-boxThirdAforth'],
+    ['animate-boxThirdAforth'],
+    ['animate-boxThirdAforth'],
+    ['animate-thirdButtonAforth']
+  ],
+  fifth: [
+    ['animate-fifth-header'],
+    ['animate-fifth-sub-header'],
+    ['animate-boxes'],
+    ['animate-fifth-sub-header']
+  ],
   sixth: []
 };
 
@@ -44,7 +85,7 @@ const reset = (aClassAids, animationList, domNode) => {
       let el = domNode.querySelector(`${elementClassOrId}`);
       if (el) {
         animationList[i].map(classname => {
-          el.classList.toggle(classname);
+          el.classList.add(classname);
         });
       }
     }

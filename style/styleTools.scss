@@ -12,13 +12,10 @@ $mainHighlight:#0a5ff2;
 $subHighlight:#86baff;
 $alerts:#ee6f7d;
 $TraderRegistration :#13379c;
-
 $textBlue:#1e5bff;
 $pageLabel: #7fb4ff;
-
 $diagPos:#2cce9f;
 $diagNeg: #ee6f7d;
-
 /////////////////
 // Mixins
 /////////////////
@@ -35,10 +32,18 @@ $diagNeg: #ee6f7d;
     justify-content: $justify;
     align-items: $alignItems;
 }
+
+@mixin animation ($name, $duration, $timing:linear, $delay:0, $direction:forwards) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing;
+    animation-delay: $delay;
+    animation-direction: $direction
+}
+
 //////////////
 // responsive
 //////////////
-
 // lanscape phone
 @mixin xs {
     @media (min-width: 566px) {
@@ -49,7 +54,9 @@ $diagNeg: #ee6f7d;
 // tablets
 @mixin sm {
     @media (min-width: 768px) {
-        @content;
+        @media screen and (min-height:800px) {
+            @content;
+        }
     }
 }
 
@@ -84,11 +91,17 @@ $diagNeg: #ee6f7d;
     line-height: 20px;
     @include xs {
         font: {
-            size: 20px;
+            size: 25px;
         }
         line-height: 25px;
     }
     @include sm {
+        font: {
+            size: 60px;
+        }
+        line-height: 60px;
+    }
+    @include md {
         font: {
             size: 60px;
         }
@@ -100,8 +113,8 @@ $diagNeg: #ee6f7d;
 // selectors
 /////////////////
 %btn-base {
-    padding-left:26px;
-    padding-right:26px;
+    padding-left: 26px;
+    padding-right: 26px;
     border-radius: 23px;
     outline: none;
     font: {
@@ -110,11 +123,9 @@ $diagNeg: #ee6f7d;
         style: normal;
         stretch: normal;
     }
-}
-
- ///////////
- // LATO
- ///////////
+} ///////////
+// LATO
+///////////
 %Lato {
     font-family: Lato-regular, sans-serif;
 }
@@ -130,20 +141,20 @@ $diagNeg: #ee6f7d;
 %Lato-Black {
     font-family: Lato-Black, sans-serif;
 }
+
 %Lato-Light {
     font-family: Lato-Light, sans-serif;
 }
+
 %Lato-Medium {
     font-family: Lato-Medium, sans-serif;
 }
+
 %Lato-Italic {
     font-family: Lato-Italic, sans-serif;
-}
-
-
- ///////////
- // Raleway
- ///////////
+} ///////////
+// Raleway
+///////////
 %Raleway {
     font-family: Raleway-Regular, sans-serif;
 }
@@ -151,6 +162,7 @@ $diagNeg: #ee6f7d;
 %Raleway-Bold {
     font-family: Raleway-Bold, sans-serif;
 }
+
 %Raleway-ExtraBold {
     font-family: Raleway-ExtraBold, sans-serif;
 }
@@ -158,9 +170,11 @@ $diagNeg: #ee6f7d;
 %Raleway-SemiBold {
     font-family: Raleway-SemiBold, sans-serif;
 }
+
 %Raleway-Black {
     font-family: Raleway-Black, sans-serif;
 }
+
 %Raleway-Medium {
     font-family: Raleway-Medium, sans-serif;
 }
@@ -190,4 +204,34 @@ $diagNeg: #ee6f7d;
 .invisible {
     transition: .5s ease-in;
     opacity: 0; // visibility: hidden;
+}
+
+////////////////////
+// Animation
+///////////////////
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes down30 {
+    from {
+        transform: translate3d(0, -30px, 0);
+    }
+    to {
+        transform: translate3d(0, 0px, 0);
+    }
+}
+
+@keyframes up30 {
+    from {
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        transform: translate3d(0, 0px, 0);
+    }
 }

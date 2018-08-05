@@ -9,15 +9,17 @@
     @include sm {
         padding-top: 185px;
     }
-    @include lg {
-        padding-top: 85px;
+    @include md {
+        padding-top: 80px;
     }
-    div {
+    >div {
+        position: relative;
+        left: -20px;
         @include flex-column();
         @include sm {
             @include flex-column(center, center);
         }
-        @include lg {
+        @include md {
             @include flex-column();
         }
         header h1 {
@@ -30,6 +32,10 @@
                 font-size: 32px;
                 margin-bottom: 80px;
             }
+            @include md {
+                font-size: 32px;
+                margin-bottom: 50px;
+            }
             @include xl {
                 margin-bottom: 132px;
                 font-size: 42px;
@@ -40,6 +46,9 @@
             font-weight: 900; // margin-bottom: 10px;
             @extend %Raleway-Black;
             @include sm {
+                font-size: 18px;
+            }
+            @include md {
                 font-size: 18px;
             }
             @include xl {
@@ -56,6 +65,9 @@
                 @include sm {
                     line-height: 1.27;
                 }
+                @include md {
+                    line-height: 1.27;
+                }
             }
             .finra {
                 object-fit: contain;
@@ -70,13 +82,13 @@
             }
         }
         .boxes {
-            width: 100%;
+            opacity:0;
+            width: 110%;
             @include flex-row();
             @include sm {
                 @include flex-row(space-around);
-                width: 120%;
             }
-            @include lg {
+            @include md {
                 @include flex-row(space-between);
             }
             margin-top: 17px;
@@ -97,7 +109,7 @@
                     @include sm {
                         font-size: 12px;
                     }
-                    @include lg {
+                    @include md {
                         font-size: 15px;
                     }
                     @include xl {
@@ -110,4 +122,19 @@
             }
         }
     }
+}
+.fifth-header, .fifth-sub-header, .fifth-sub-header-icons {
+    opacity:0;
+}
+
+.animate-fifth-header {
+    animation: fadeIn 1s ease .1s forwards;
+}
+
+.animate-fifth-sub-header {
+    animation: fadeIn 1s ease .15s forwards;
+}
+
+.animate-boxes{
+    animation: fadeIn 1s ease .2s forwards;
 }

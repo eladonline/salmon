@@ -1,28 +1,29 @@
-import React, { Component } from "react";
-import chart from "../../../../containers/Charts/chart.style";
-import ThreeBlueIcons from "src/components/sections/second/carousle";
+import React, { Component } from 'react';
+import ThreeBlueIcons from 'src/components/sections/second/carousle';
+import resetAnimation from 'src/components/helpers/resetAnimation';
 
-const opportunity = "static/image/opportunity.png";
-const standards = "static/image/standards.png";
-const cryptotrade = "static/image/cryptotrade.png";
-const chartImg = "static/image/chart.png";
+const opportunity = 'static/image/opportunity.png';
+const standards = 'static/image/standards.png';
+const cryptotrade = 'static/image/cryptotrade.png';
+const chartImg = 'static/image/chart.png';
 
 export default class SecondSection extends Component {
   render() {
     return (
-      <div className='main-container' id='second-mainCon'>
-        <h1 id='second-header'>
-          <span className='second-header-first'>Introducing</span>&nbsp;
-          <span className='second-header-second'>
+      <div className="main-container" id="second-mainCon">
+        <h1 id="second-header">
+          <span className="second-header-first">Introducing</span>&nbsp;
+          <span className="second-header-second">
             The New Regulation Standard
           </span>
           <br />
-          <span className='second-header-third'>
+          <span className="second-header-third">
             For Cryptocurrency Exchange
           </span>
         </h1>
-        {window.screen.width > 600 ? (
+        {this.props.browserWidth > 566 ? (
           <React.Fragment>
+            {resetAnimation(1, this.props.parallax)}
             <section className="iconsSection">
               {/*left*/}
               <Opportunity />

@@ -18,15 +18,15 @@ export default class FifthSection extends Component {
         className="main-container"
         id="fifth-mainCon"
       >
-        <div>
+        <div id='fifth-subCon'>
           <header>
-            <h1>
+            <h1 className='fifth-header'>
               Bringing Cryptotrade Into the Light <br /> with a Fully Regulated
               Exchange
             </h1>
           </header>
-          <div className="miniHeader"> INX IS OBTAINING: </div>
-          <section>
+          <div className="miniHeader fifth-sub-header"> INX IS OBTAINING: </div>
+          <section className="fifth-sub-header-icons">
             <p>
               Full SEC compliance and recognition <br /> and 100% Finra
               compliance.
