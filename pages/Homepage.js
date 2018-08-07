@@ -17,6 +17,8 @@ import JoinUsBackground from 'src/components/sections/joinUs/joinUsBackground';
 import JuLayer from 'src/components/sections/joinUs/JuLayer';
 import Promo from 'src/components/sections/first/Promo';
 import Observer from 'react-intersection-observer';
+// import AmazinParallax from 'src/components/helpers/parallax'
+// import AmazingParallax from 'parallax-js';
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -38,6 +40,14 @@ export default class Homepage extends Component {
 
   componentDidMount() {
     if (window) {
+      // const testParallax = new AmazingParallax(ReactDOM.findDOMNode(this.testParallax), {
+      //   relativeInput: true,
+      //   hoverOnly: true,
+      //   scalarX : 5,
+      //   scalarY: 7,
+      //   frictionX: 0.1115,
+      //   frictionY: 0.70
+      // });
       const overallPages = this.overallPages - this.lastPage;
       // eslint-disable-line
       const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
@@ -78,11 +88,13 @@ export default class Homepage extends Component {
           resetAnimation(offset, paralax);
           this.handleBulletLabelFocus(offset);
           if (offset < overallPages + 1) this.parallax.scrollTo(offset);
-          if (offset > 5 || this.state.offset > 5) {
-            const bullets = document.querySelector('.bulletsMain');
-            bullets.style.display = 'flex';
+          if (offset < overallPages - 2 || this.state.offset > overallPages - 2) {
+            this.BulletsANavbarDipslay('flex');
           }
           if (paralax.style.overflow !== 'hidden') paralax.style.overflow = 'hidden';
+          if (this.state.offset === overallPages || offset === overallPages) {
+            this.BulletsANavbarDipslay('none');
+          }
           this.parallax.scrollTo(offset);
           this.setState({ offset });
           this.scrollLock();
@@ -90,14 +102,17 @@ export default class Homepage extends Component {
           endRound = true;
           // if view last full page and scroll down
         } else if (!endRound && this.state.offset === overallPages - 1 && scrollDirection) {
-          const bullets = document.querySelector('.bulletsMain');
-          bullets.style.display = 'none';
+          this.BulletsANavbarDipslay('none');
           this.setState({ offset: this.overallPages });
           setTimeout(() => {
             paralax.style.overflowY = 'scroll';
           }, 950);
           endRound = true;
+          // if view last page and scroll up
         } else if (!endRound && this.state.offset === this.overallPages && !scrollDirection) {
+          if (this.state.offset === overallPages) {
+            this.BulletsANavbarDipslay('none');
+          }
           this.setState({ offset: overallPages });
           this.handleBulletLabelFocus(overallPages);
           this.parallax.scrollTo(overallPages - 1);
@@ -144,29 +159,45 @@ export default class Homepage extends Component {
    * @param {number} offset -the page the browser display in this moment
    * @summary handle the scroll, animation, bullets display, offset state
    */
+  /**
+   * @function hideOShowBulletsAnavbar
+   * @param {string} display - flex/none
+   */
+  BulletsANavbarDipslay(display) {
+    const bullets = document.querySelector('.bulletsMain');
+    const navbar = document.querySelector('#mainNavbar');
+    bullets.style.display = display;
+    navbar.style.display = display;
+  }
   handleBulletClick(offset) {
+    if (this.state.offset >= offset && offset >= this.overallPages - this.lastPage - 1) return '';
     const overallPages = this.overallPages - this.lastPage - 1;
     if (offset < overallPages) {
       this.parallaxNode.style.overflow = 'hidden';
     }
     // bullet pressed and it not the page in view
     if (offset <= overallPages) {
-      const bullets = document.querySelector('.bulletsMain');
       // if bullets are hidden -- because its the last full size page (SeventhSection)
       // then show them.
       if (offset < overallPages) {
-        bullets.style.display = 'flex';
-        // } else if (offset < overallPages) {
-        //   bullets.style.display = 'flex';
+        this.BulletsANavbarDipslay('flex');
         // if the last bullet pressed, hide the bullets
       } else if (offset + 1 === this.overallPages - this.lastPage) {
-        bullets.style.display = 'none';
+        this.BulletsANavbarDipslay('none');
       }
       this.scrollLock();
       this.setState({ offset });
       resetAnimation(offset, this.parallaxNode);
       this.parallax.scrollTo(offset);
+
       this.scrollUnlock();
+    }
+    if (offset === overallPages) {
+      setTimeout(() => {
+        if (this.parallaxNode.style.overflowY !== 'scroll') {
+          this.parallaxNode.style.overflowY = 'scroll';
+        }
+      }, 980);
     }
   }
   /**
@@ -228,6 +259,9 @@ export default class Homepage extends Component {
             offset={this.state.offset}
           />
         )}
+
+        {/* <TestParallax ref={e => (this.testParallax = e)} /> */}
+
         <Parallax
           className="container-parallax"
           ref={ref => (this.parallax = ref)}
@@ -242,6 +276,7 @@ export default class Homepage extends Component {
             restDisplacementThreshold: 0.9
           }}
         >
+          {this.page(<Navbar offset={this.state.offset} />, 6, 0, 111)}
           {!desktops &&
             this.page(
               <Bullets
@@ -286,6 +321,17 @@ export default class Homepage extends Component {
     );
   }
 }
+
+// class TestParallax extends Component {
+//   render() {
+//     return (
+//       <div id="testParallax">
+//         <div className="test1" data-depth="0.5" />
+//         <div className="test2" data-depth="0.9" />
+//       </div>
+//     );
+//   }
+// }
 
 /* <ParallaxLayer
               // onScroll={(e)=>{e.stopPropagation()}}

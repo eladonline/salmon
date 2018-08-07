@@ -67,6 +67,7 @@ export default class MainNavbar extends Component {
     return (
       <Navbar
         collapseOnSelect
+        id='mainNavbar'
         onMouseOver={() => {
           this.setState({ brandActive: true });
         }}

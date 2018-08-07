@@ -11,6 +11,7 @@
 body {
   line-height: 17px;
   color: $mainTextBright;
+  overflow: hidden;
 }
 
 ////////////////////
@@ -101,6 +102,7 @@ body {
 .observer-con-child {
   height: 100vh;
   z-index: 0;
+
 }
 
 .traderColor {
@@ -109,3 +111,14 @@ body {
 .textBlue {
   color: $textBlue;
 }
+
+
+.test1, .test2 {
+  height: 100px;
+  width: 100px;;
+}
+#testParallax {
+  width: 100%;
+}
+.test1 {background:green;}
+.test2 {background:red;}
