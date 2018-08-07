@@ -269,7 +269,7 @@ export default class Homepage extends Component {
           scrolling={desktops}
           config={{
             tension: 15,
-            friction: 9,
+            friction: 7,
             velocity: 0.2,
             overshootClamping: true,
             restSpeedThreshold: 0.9,
