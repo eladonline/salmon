@@ -38,7 +38,7 @@ body {
 //////////////////////
 
   .bulletsMain {
-    position: fixed;
+    position: absolute;
     height: 100%;
     overflow: hidden;
     @include flex-column(center, flex-end);

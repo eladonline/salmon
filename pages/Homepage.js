@@ -35,12 +35,7 @@ export default class Homepage extends Component {
     this.handleBulletClick = this.handleBulletClick.bind(this);
     this.handleBulletLabelFocus = this.handleBulletLabelFocus.bind(this);
   }
-  /**
-   * @callback componentDidMount
-   * @listens scroll - if you find parallax within the DOM add listener -
-   * @param e - the element scrolled -- parallax
-   * @summary lock the scroll for some time for the parallax scroll to finish
-   */
+
   componentDidMount() {
     if (window) {
       const overallPages = this.overallPages - this.lastPage;
@@ -48,7 +43,13 @@ export default class Homepage extends Component {
       const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
       this.parallaxNode = paralax;
       this.setState({ parallax: paralax });
-
+      /**
+       * @event addEventListener
+       * @listens wheel
+       * @callback ()=>
+       * @param {object} e
+       * @summary detect scrolling direction of the wheel and auto scroll this direction
+       */
       paralax.addEventListener('wheel', e => {
         const scrollDirection = e.deltaY > 0; // true down false up
         let endRound = false;
@@ -77,20 +78,24 @@ export default class Homepage extends Component {
           resetAnimation(offset, paralax);
           this.handleBulletLabelFocus(offset);
           if (offset < overallPages + 1) this.parallax.scrollTo(offset);
-          if (offset > 5) {
+          if (offset > 5 || this.state.offset > 5) {
             const bullets = document.querySelector('.bulletsMain');
             bullets.style.display = 'flex';
           }
+          if (paralax.style.overflow !== 'hidden') paralax.style.overflow = 'hidden';
           this.parallax.scrollTo(offset);
           this.setState({ offset });
           this.scrollLock();
           this.scrollUnlock();
           endRound = true;
+          // if view last full page and scroll down
         } else if (!endRound && this.state.offset === overallPages - 1 && scrollDirection) {
           const bullets = document.querySelector('.bulletsMain');
           bullets.style.display = 'none';
           this.setState({ offset: this.overallPages });
-          paralax.style.overflowY = 'scroll';
+          setTimeout(() => {
+            paralax.style.overflowY = 'scroll';
+          }, 950);
           endRound = true;
         } else if (!endRound && this.state.offset === this.overallPages && !scrollDirection) {
           this.setState({ offset: overallPages });
@@ -109,16 +114,15 @@ export default class Homepage extends Component {
   }
 
   /**
-   *
-   * @param {number} scrollPos - scroll from top
+   * @function scrollLock
    * @summary disable scrolling by setting state to false
-   *  remember last scroll from top number
    */
   scrollLock() {
     this.setState({ canScroll: false });
   }
   /**
    * @function scrollUnlock
+   * @param {number} time -- optional
    * @summary setTimeout to enable scroll
    */
   scrollUnlock(time = 0) {
@@ -126,12 +130,38 @@ export default class Homepage extends Component {
       this.setState({ canScroll: true });
     }, time || this.scrollLockTime);
   }
-  handleScroll(offset) {
+  /**
+   * @function handleScrollAnimation
+   * @param {number} offset -the page the browser display in this moment
+   * @summary start animation on the page that is in view
+   */
+  handleScrollAnimation(offset) {
     offset = Math.max(offset, 1) - 1;
     resetAnimation(offset, this.parallaxNode);
   }
-  handleBulletClick(offset, element) {
-    if (this.state.offset !== offset) {
+  /**
+   * @function handleBulletClick
+   * @param {number} offset -the page the browser display in this moment
+   * @summary handle the scroll, animation, bullets display, offset state
+   */
+  handleBulletClick(offset) {
+    const overallPages = this.overallPages - this.lastPage - 1;
+    if (offset < overallPages) {
+      this.parallaxNode.style.overflow = 'hidden';
+    }
+    // bullet pressed and it not the page in view
+    if (offset <= overallPages) {
+      const bullets = document.querySelector('.bulletsMain');
+      // if bullets are hidden -- because its the last full size page (SeventhSection)
+      // then show them.
+      if (offset < overallPages) {
+        bullets.style.display = 'flex';
+        // } else if (offset < overallPages) {
+        //   bullets.style.display = 'flex';
+        // if the last bullet pressed, hide the bullets
+      } else if (offset + 1 === this.overallPages - this.lastPage) {
+        bullets.style.display = 'none';
+      }
       this.scrollLock();
       this.setState({ offset });
       resetAnimation(offset, this.parallaxNode);
@@ -139,9 +169,15 @@ export default class Homepage extends Component {
       this.scrollUnlock();
     }
   }
+  /**
+   * @function handleBulletLabelFocus
+   * @param {number} offset -the page the browser display in this moment
+   * @summary display the label of the page (linked to the bullet)
+   * @fires click - display the label
+   * @fires setTimeout -hide the label
+   */
   handleBulletLabelFocus(offset) {
     const target = document.querySelector(`#bullet_${offset}`);
-
     if (target !== null) {
       target.click();
       setTimeout(() => {
@@ -168,7 +204,7 @@ export default class Homepage extends Component {
         {/*Observer is for tracking if component is in view (mobile mode) */}
         <Observer className="observer-con">
           {({ inView, ref }) => {
-            if (inView) this.handleScroll(offset);
+            if (inView) this.handleScrollAnimation(offset);
             return (
               <div className="observer-con-child" ref={ref}>
                 {component}
