@@ -34,13 +34,8 @@ const namesToReAnimate = {
     '.boxForthD',
     '.forthButton'
   ],
-  fifth: [
-    '.fifth-header',
-    '.fifth-sub-header',
-    '.boxes',
-    '.fifth-sub-header-icons'
-  ],
-  sixth: []
+  fifth: ['.fifth-header', '.fifth-sub-header', '.boxes', '.fifth-sub-header-icons'],
+  sixth: ['.sixth-header', '.sixth-section', '.sixth-btn']
 };
 const namesOfAnimation = {
   first: [['fadeInUp', 'animated']],
@@ -76,7 +71,7 @@ const namesOfAnimation = {
     ['animate-boxes'],
     ['animate-fifth-sub-header']
   ],
-  sixth: []
+  sixth: [['animate-sixth-header'], ['animate-boxes'], ['animate-sixth-button']]
 };
 
 const reset = (aClassAids, animationList, domNode) => {
@@ -108,6 +103,9 @@ const resetAnimation = (section, Node) => {
       break;
     case 4: // Fifth section
       reset(namesToReAnimate.fifth, namesOfAnimation.fifth, Node);
+      break;
+    case 5: // sixth section
+      reset(namesToReAnimate.sixth, namesOfAnimation.sixth, Node);
       break;
     default:
       break;

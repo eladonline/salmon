@@ -42,8 +42,7 @@
           color: white;
           border-color: white;
           &:hover {
-            color: $textBlue;
-            background: white;
+            @extend %btn-whiteInversion
           }
         }
         &[data-invers='splitInvers'] {

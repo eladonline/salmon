@@ -7,7 +7,7 @@ import Bullets from 'src/components/bullets/Bullets';
 import FirstSection from 'src/components/sections/first/First';
 import SecondSection from 'src/components/sections/second/Second';
 import ThirdSection from 'src/components/sections/third/Third';
-import SideImgThird from 'src/components/sections/third/SideImg';
+import { SideImgThird } from 'src/components/sections/third/SideImg';
 import ForthSection from 'src/components/sections/forth/Forth';
 import FifthSection from 'src/components/sections/fifth/Fifth';
 import SixthSection from 'src/components/sections/sixth/Sixth';
@@ -17,8 +17,6 @@ import JoinUsBackground from 'src/components/sections/joinUs/joinUsBackground';
 import JuLayer from 'src/components/sections/joinUs/JuLayer';
 import Promo from 'src/components/sections/first/Promo';
 import Observer from 'react-intersection-observer';
-// import AmazinParallax from 'src/components/helpers/parallax'
-// import AmazingParallax from 'parallax-js';
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -31,7 +29,7 @@ export default class Homepage extends Component {
     this.lastPage = 0.7;
     this.overallPages = 7 + this.lastPage;
     this.lastScrollPos = 0;
-    this.scrollLockTime = 1000; // 1s
+    this.scrollLockTime = 1100; // 1s
     this.scrollUnlock = this.scrollUnlock.bind(this);
     this.scrollLock = this.scrollLock.bind(this);
     this.handleBulletClick = this.handleBulletClick.bind(this);
@@ -40,14 +38,6 @@ export default class Homepage extends Component {
 
   componentDidMount() {
     if (window) {
-      // const testParallax = new AmazingParallax(ReactDOM.findDOMNode(this.testParallax), {
-      //   relativeInput: true,
-      //   hoverOnly: true,
-      //   scalarX : 5,
-      //   scalarY: 7,
-      //   frictionX: 0.1115,
-      //   frictionY: 0.70
-      // });
       const overallPages = this.overallPages - this.lastPage;
       // eslint-disable-line
       const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
@@ -74,6 +64,9 @@ export default class Homepage extends Component {
           resetAnimation(offset, paralax);
           this.handleBulletLabelFocus(offset);
           if (offset < overallPages) this.parallax.scrollTo(offset);
+          if (offset === overallPages - 1 || this.state.offset === overallPages - 1) {
+            this.BulletsANavbarDipslay('none');
+          }
           this.setState({ offset });
           this.scrollLock();
           this.scrollUnlock();
@@ -166,18 +159,21 @@ export default class Homepage extends Component {
   BulletsANavbarDipslay(display) {
     const bullets = document.querySelector('.bulletsMain');
     const navbar = document.querySelector('#mainNavbar');
+
     bullets.style.display = display;
     navbar.style.display = display;
   }
   handleBulletClick(offset) {
+    // if page *in view, big or equeal to the page *to view
     if (this.state.offset >= offset && offset >= this.overallPages - this.lastPage - 1) return '';
     const overallPages = this.overallPages - this.lastPage - 1;
+    // hide scroll if page to view < last full page to view
     if (offset < overallPages) {
       this.parallaxNode.style.overflow = 'hidden';
     }
-    // bullet pressed and it not the page in view
+    // bullet pressed
     if (offset <= overallPages) {
-      // if bullets are hidden -- because its the last full size page (SeventhSection)
+      // if static bullets are hidden -- because its the last full size page (SeventhSection)
       // then show them.
       if (offset < overallPages) {
         this.BulletsANavbarDipslay('flex');
@@ -192,6 +188,7 @@ export default class Homepage extends Component {
 
       this.scrollUnlock();
     }
+    // activate scroll if its last full size page
     if (offset === overallPages) {
       setTimeout(() => {
         if (this.parallaxNode.style.overflowY !== 'scroll') {
@@ -260,8 +257,6 @@ export default class Homepage extends Component {
           />
         )}
 
-        {/* <TestParallax ref={e => (this.testParallax = e)} /> */}
-
         <Parallax
           className="container-parallax"
           ref={ref => (this.parallax = ref)}
@@ -276,19 +271,6 @@ export default class Homepage extends Component {
             restDisplacementThreshold: 0.9
           }}
         >
-          {this.page(<Navbar offset={this.state.offset} />, 6, 0, 111)}
-          {!desktops &&
-            this.page(
-              <Bullets
-                id="customBullets"
-                pages={this.overallPages - this.lastPage}
-                handleBulletClick={this.handleBulletClick}
-                offset={this.state.offset}
-              />,
-              6,
-              0,
-              111
-            )}
           <React.Fragment>
             {this.page(<Promo />, 0, 0, 1)}
             {this.page(<FirstSection />, 0, 0.3, 1)}
@@ -304,12 +286,29 @@ export default class Homepage extends Component {
             {/* ThirdSection */}
             {this.page(<ThirdSection />, 2, 0, 1)}
             {this.page(<SideImgThird />, 2, 0, 0)}
-            {/* {this.page(<SideImgThird />, 2, 0, 0)} */}
             {/* ThirdSection end */}
             {this.page(<ForthSection />, 3, 0, 1)}
             {this.page(<FifthSection />, 4, 0, 1)}
             {this.page(<SixthSection />, 5, 0, 1)}
-            {this.page(<SeventhSection />, 6, 0, 2)}
+            {/*seventh section*/}
+            {this.page(<Navbar offset={this.state.offset} />, 6, 0, 2, { height: '70px' })}
+
+            {!desktops &&
+              this.page(
+                <Bullets
+                  id="customBullets"
+                  pages={this.overallPages - this.lastPage}
+                  handleBulletClick={this.handleBulletClick}
+                  offset={this.state.offset}
+                />,
+                6,
+                0,
+                2,
+                { width: '10px', right: '0' }
+              )}
+            {this.page(<SeventhSection />, 6, 0, 1)}
+            {/*seventhSection end*/}
+
             {/* join us page*/}
             {this.page(<JoinUs />, 7, 0, 2)}
             {this.page(<JuLayer />, 7, 0, 1)}
@@ -321,17 +320,6 @@ export default class Homepage extends Component {
     );
   }
 }
-
-// class TestParallax extends Component {
-//   render() {
-//     return (
-//       <div id="testParallax">
-//         <div className="test1" data-depth="0.5" />
-//         <div className="test2" data-depth="0.9" />
-//       </div>
-//     );
-//   }
-// }
 
 /* <ParallaxLayer
               // onScroll={(e)=>{e.stopPropagation()}}

@@ -33,14 +33,6 @@ $diagNeg: #ee6f7d;
     align-items: $alignItems;
 }
 
-@mixin animation ($name, $duration, $timing:linear, $delay:0, $direction:forwards) {
-    animation-name: $name;
-    animation-duration: $duration;
-    animation-timing-function: $timing;
-    animation-delay: $delay;
-    animation-direction: $direction
-}
-
 //////////////
 // responsive
 //////////////
@@ -123,7 +115,12 @@ $diagNeg: #ee6f7d;
         style: normal;
         stretch: normal;
     }
-} ///////////
+}
+%btn-whiteInversion {
+    color:$textBlue;
+    background:white;
+}
+///////////
 // LATO
 ///////////
 %Lato {

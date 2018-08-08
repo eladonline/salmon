@@ -6,12 +6,13 @@ export default class SixthSection extends Component {
     return (
       <div className="main-container" id="sixth-mainCon">
         <div>
-          <h1>Pioneering The New Tokenized Economy</h1>
-          <section>
+          <h1 className='sixth-header'>Pioneering The New Tokenized Economy</h1>
+          <section className='sixth-section'>
             <Financing />
             <Security />
             <Paving />
           </section>
+          <button type="button" className='sixth-btn'>More about tokenized offerings</button>
         </div>
       </div>
     );
