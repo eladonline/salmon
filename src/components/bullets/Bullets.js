@@ -51,7 +51,7 @@ export default class Bullets extends Component {
               data-invers={this.isInvers(this.props.offset)}
               id={`popover-trigger-${this.pageNames[i]}-${i}`}
             >
-              {this.pageNames[i]}
+              {this.pageNames[i] === 'AboutUs' ? 'About Us' : this.pageNames[i]}
             </Popover>
           }
           rootClose

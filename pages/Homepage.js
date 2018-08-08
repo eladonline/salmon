@@ -91,7 +91,7 @@ export default class Homepage extends Component {
           this.parallax.scrollTo(offset);
           this.setState({ offset });
           this.scrollLock();
-          this.scrollUnlock();
+          this.scrollUnlock(1000);
           endRound = true;
           // if view last full page and scroll down
         } else if (!endRound && this.state.offset === overallPages - 1 && scrollDirection) {
