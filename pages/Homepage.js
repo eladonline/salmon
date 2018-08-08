@@ -39,6 +39,7 @@ export default class Homepage extends Component {
   componentDidMount() {
     if (window) {
       const overallPages = this.overallPages - this.lastPage;
+      const LastFullPage = overallPages - 1;
       // eslint-disable-line
       const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
       this.parallaxNode = paralax;
@@ -58,13 +59,16 @@ export default class Homepage extends Component {
           !endRound &&
           scrollDirection &&
           this.state.canScroll &&
-          this.state.offset < overallPages - 1
+          this.state.offset < LastFullPage
         ) {
-          const offset = Math.min(this.state.offset + 1, overallPages);
+          const offset = Math.min(this.state.offset + 1, LastFullPage);
           resetAnimation(offset, paralax);
           this.handleBulletLabelFocus(offset);
-          if (offset < overallPages) this.parallax.scrollTo(offset);
-          if (offset === overallPages - 1 || this.state.offset === overallPages - 1) {
+          this.parallax.scrollTo(offset);
+          if (offset === LastFullPage) {
+            setTimeout(() => {
+              paralax.style.overflowY = 'scroll';
+            }, 950);
             this.BulletsANavbarDipslay('none');
           }
           this.setState({ offset });
@@ -79,11 +83,16 @@ export default class Homepage extends Component {
         ) {
           const offset = Math.max(this.state.offset - 1, 0);
           resetAnimation(offset, paralax);
-          this.handleBulletLabelFocus(offset);
+
           if (offset < overallPages + 1) this.parallax.scrollTo(offset);
           if (offset < overallPages - 2 || this.state.offset > overallPages - 2) {
             this.BulletsANavbarDipslay('flex');
           }
+          this.state.offset === LastFullPage
+            ? setTimeout(() => {
+              this.handleBulletLabelFocus(overallPages - 2);
+            }, 30)
+            : this.handleBulletLabelFocus(offset);
           if (paralax.style.overflow !== 'hidden') paralax.style.overflow = 'hidden';
           if (this.state.offset === overallPages || offset === overallPages) {
             this.BulletsANavbarDipslay('none');
@@ -91,10 +100,10 @@ export default class Homepage extends Component {
           this.parallax.scrollTo(offset);
           this.setState({ offset });
           this.scrollLock();
-          this.scrollUnlock(1000);
+          this.scrollUnlock();
           endRound = true;
           // if view last full page and scroll down
-        } else if (!endRound && this.state.offset === overallPages - 1 && scrollDirection) {
+        } else if (!endRound && this.state.offset === LastFullPage && scrollDirection) {
           this.BulletsANavbarDipslay('none');
           this.setState({ offset: this.overallPages });
           setTimeout(() => {
@@ -106,10 +115,12 @@ export default class Homepage extends Component {
           if (this.state.offset === overallPages) {
             this.BulletsANavbarDipslay('none');
           }
-          this.setState({ offset: overallPages });
-          this.handleBulletLabelFocus(overallPages);
-          this.parallax.scrollTo(overallPages - 1);
           paralax.style.overflowY = 'hidden';
+          this.parallax.scrollTo(LastFullPage);
+          this.setState({ offset: LastFullPage });
+          this.scrollLock();
+          this.scrollUnlock(650);
+
           endRound = true;
         }
       });
@@ -206,8 +217,10 @@ export default class Homepage extends Component {
    */
   handleBulletLabelFocus(offset) {
     const target = document.querySelector(`#bullet_${offset}`);
+
     if (target !== null) {
       target.click();
+
       setTimeout(() => {
         target.click();
       }, 950);
@@ -275,10 +288,7 @@ export default class Homepage extends Component {
             {this.page(<Promo />, 0, 0, 1)}
             {this.page(<FirstSection />, 0, 0.3, 1)}
             {this.page(
-              <SecondSection
-                parallax={this.state.parallax}
-                browserWidth={this.state.browserWidth}
-              />,
+              <SecondSection parallax={this.state.parallax} browserWidth={this.state.browserWidth} />,
               1,
               0,
               1

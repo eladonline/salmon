@@ -73,6 +73,10 @@ body {
   text-align: center;
   border: none;
   color: black;
+  @extend %Lato-Bold;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
   .arrow {
     border-left: white;
   }

@@ -44,9 +44,7 @@
     @include md {
       margin-top: 40px;
     }
-    @include lg {
-      margin-top: 60px;
-    }
+
     h5 {
       font-size: 12px;
       @extend %Lato-Black;
