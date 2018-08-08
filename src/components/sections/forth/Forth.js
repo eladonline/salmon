@@ -8,7 +8,7 @@ const background = 'static/image/slideFourPromo.png';
 export default class ForthSection extends Component {
   componentDidMount() {
     const scene = document.getElementById('forth-mainCon-scene');
-    const parallax = new AmazingParallax(scene, {
+    new AmazingParallax(scene, {
       relativeInput: true,
       // hoverOnly: true,
       scalarX: 5,

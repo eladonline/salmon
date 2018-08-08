@@ -6,7 +6,7 @@ import { SideImgThirdCoin } from 'src/components/sections/third/SideImg';
 export default class ThirdSection extends Component {
   componentDidMount() {
     const scene = document.getElementById('third-mainCon-scene');
-    const parallax = new AmazingParallax(scene, {
+    new AmazingParallax(scene, {
       relativeInput: true,
       // hoverOnly: true,
       scalarX: 5,
