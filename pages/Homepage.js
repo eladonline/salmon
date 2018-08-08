@@ -244,7 +244,7 @@ export default class Homepage extends Component {
     );
   }
   render() {
-    const desktops = this.state.browserWidth < 600;
+    const desktops = this.state.browserWidth < 1000;
     return (
       <React.Fragment>
         <Navbar offset={this.state.offset} />

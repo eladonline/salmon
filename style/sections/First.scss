@@ -17,6 +17,9 @@
         max-width: 155px;
         margin-top: .7em;
     }
+    &:hover {
+        @extend %btn-whiteInversion;
+    }
 }
 
 #sectionFirstHeader {
