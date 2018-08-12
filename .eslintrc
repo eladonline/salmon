@@ -12,7 +12,7 @@
   ],
   "rules": {
     "quotes": [
-      2,
+      1,
       "single"
     ],
     "strict": [

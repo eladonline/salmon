@@ -7,16 +7,16 @@ const iconWhite = 'static/icons/hamburgerWhite.png';
 
 const Items = p => (
   <Nav pullRight>
-    <NavItem className='startTradingNav' data-invers={p.invers}>
+    <NavItem className="startTradingNav" data-invers={p.invers}>
       Start Trading
     </NavItem>{' '}
-    <NavItem className='loginNav' data-invers={p.invers}>
+    <NavItem className="loginNav" data-invers={p.invers}>
       Log-in
     </NavItem>{' '}
     <NavDropdown
       eventKey={3}
-      id='basic-nav-dropdown'
-      title={<img src={p.invers ? iconWhite : iconBlack} alt='icon' />}
+      id="basic-nav-dropdown"
+      title={<img src={p.invers ? iconWhite : iconBlack} alt="icon" />}
       noCaret
     >
       <MenuItem eventKey={3.1}>Action</MenuItem>
@@ -37,5 +37,5 @@ Items.defaultProps = {
 
 Items.propTypes = {
   user: PropTypes.string,
-  invers: PropTypes.bool
+  invers: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };

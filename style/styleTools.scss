@@ -4,164 +4,245 @@
 // general app colors
 //////////////////////
 $mainTextBright: white;
-$mainBtn:#0f64f2;
+$mainBtn: #0f64f2;
 $mainHeaderDark: #36404b;
 $headerTextLessDark: #7f8697;
-$positiveMoney:#6ae1af;
-$mainHighlight:#0a5ff2;
-$subHighlight:#86baff;
-$alerts:#ee6f7d;
-$TraderRegistration :#13379c;
-///////////////////////
-// page indicator (bullets on right side of page)
-/////////////////////
-$bulletsAnavbarItem:#1e5bff;
+$positiveMoney: #6ae1af;
+$mainHighlight: #0a5ff2;
+$subHighlight: #86baff;
+$alerts: #ee6f7d;
+$TraderRegistration: #13379c;
+$textBlue: #1e5bff;
 $pageLabel: #7fb4ff;
-///////////////////
-// diagram colors
-//////////////////
-$diagPos:#2cce9f;
+$diagPos: #2cce9f;
 $diagNeg: #ee6f7d;
-//////////////
-// responsive
-//////////////
 /////////////////
 // Mixins
 /////////////////
-@mixin flex-row($justify:flex-start, $alignItems: flex-start) {
-    display: flex;
-    flex-direction: row;
-    justify-content: $justify;
-    align-items: $alignItems;
+@mixin flex-row($justify: flex-start, $alignItems: flex-start) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: $alignItems;
 }
 
-@mixin flex-column($justify:flex-start, $alignItems: flex-start) {
-    display: flex;
-    flex-direction: column;
-    justify-content: $justify;
-    align-items: $alignItems;
+@mixin flex-column($justify: flex-start, $alignItems: flex-start) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+  align-items: $alignItems;
 }
 
+//////////////
+// responsive
+//////////////
 // lanscape phone
 @mixin xs {
-    @media (min-width: 566px) {
-        @content;
-    }
+  @media (min-width: 566px) {
+    @content;
+  }
 }
 
 // tablets
 @mixin sm {
-    @media (min-width: 768px) {
-        @content;
+  @media (min-width: 768px) {
+    @media screen and (min-height: 800px) {
+      @content;
     }
+  }
+}
+// small desktops
+@mixin smd {
+  @media (min-width: 768px) {
+    @media screen and (max-height: 799px) {
+    @content;
+    }
+  }
 }
 
 // small desktop laptops lanscape tablets
 @mixin md {
-    @media (min-width: 992px) {
-        @content;
-    }
+  @media (min-width: 992px) {
+    @content;
+  }
 }
 
 // wide screens
 @mixin lg {
-    @media (min-width: 1200px) {
-        @content;
-    }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
 
 // medium desktop laptops
 @mixin xl {
-    @media (min-width: 1600px) {
-        @content;
-    }
+  @media (min-width: 1600px) {
+    @content;
+  }
 }
 
 ///////////////
 // common Classes
 /////////////////
 .bigText {
+  font: {
+    size: 40px;
+  }
+  line-height: 20px;
+  @include xs {
     font: {
-        size: 40px;
+      size: 35px;
     }
-    line-height: 20px;
-    @include xs {
-        font: {
-            size: 20px;
-        }
-        line-height: 25px;
+    line-height: 25px;
+  }
+  @include sm {
+    font: {
+      size: 60px;
     }
-    @include sm {
-        font: {
-            size: 60px;
-        }
-        line-height: 60px;
+    line-height: 60px;
+  }
+  @include smd {
+    font: {
+      size: 55px;
     }
+    line-height: 50px;
+  }
+  @include md {
+    font: {
+      size: 60px;
+    }
+    line-height: 60px;
+  }
 }
 
 //////////////////
 // selectors
 /////////////////
 %btn-base {
-    // padding-left:26px;
-    // padding-right:26px;
-    border-radius: 23px;
-    outline: none;
-    font: {
-        size: 16px;
-        weight: bold;
-        style: normal;
-        stretch: normal;
-    }
+  padding-left: 26px;
+  padding-right: 26px;
+  border-radius: 23px;
+  outline: none;
+  font: {
+    size: 16px;
+    weight: bold;
+    style: normal;
+    stretch: normal;
+  }
 }
-
+%btn-whiteInversion {
+  color: $textBlue;
+  background: white;
+}
+///////////
+// LATO
+///////////
 %Lato {
-    font-family: Lato-regular, sans-serif;
+  font-family: Lato-regular, sans-serif;
 }
 
 %Lato-Bold {
-    font-family: Lato-Bold, sans-serif;
+  font-family: Lato-Bold, sans-serif;
 }
 
 %Lato-Heavy {
-    font-family: Lato-Heavy, sans-serif;
+  font-family: Lato-Heavy, sans-serif;
 }
 
+%Lato-Black {
+  font-family: Lato-Black, sans-serif;
+}
+
+%Lato-Light {
+  font-family: Lato-Light, sans-serif;
+}
+
+%Lato-Medium {
+  font-family: Lato-Medium, sans-serif;
+}
+
+%Lato-Italic {
+  font-family: Lato-Italic, sans-serif;
+} ///////////
+// Raleway
+///////////
 %Raleway {
-    font-family: Raleway-Regular, sans-serif;
+  font-family: Raleway-Regular, sans-serif;
 }
 
 %Raleway-Bold {
-    font-family: Raleway-Bold, sans-serif;
+  font-family: Raleway-Bold, sans-serif;
+}
+
+%Raleway-ExtraBold {
+  font-family: Raleway-ExtraBold, sans-serif;
 }
 
 %Raleway-SemiBold {
-    font-family: Raleway-SemiBold, sans-serif;
+  font-family: Raleway-SemiBold, sans-serif;
+}
+
+%Raleway-Black {
+  font-family: Raleway-Black, sans-serif;
+}
+
+%Raleway-Medium {
+  font-family: Raleway-Medium, sans-serif;
 }
 
 //////////////////
 // common classes
 /////////////////
 .d-flex {
-    display: flex;
+  display: flex;
 }
 
 .flex-wrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .m-t-7 {
-    margin-top: 7px;
+  margin-top: 7px;
 }
 
 .modal {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .invisible {
-    transition: .5s ease-in;
-    opacity: 0; // visibility: hidden;
+  transition: 0.5s ease-in;
+  opacity: 0; // visibility: hidden;
+}
+
+////////////////////
+// Animation
+///////////////////
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes down30 {
+  from {
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
+@keyframes up30 {
+  from {
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    transform: translate3d(0, 0px, 0);
+  }
 }
