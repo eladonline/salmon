@@ -1,9 +1,10 @@
 #seventh-mainCon {
   @include flex-column(flex-start, center);
+  background: rgb(247, 247, 247);
   > #seventh-mainCon-scene {
     display: flex !important;
-    top:auto;
-    left:auto;
+    top: auto;
+    left: auto;
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -16,29 +17,39 @@
       width: auto;
       padding: 0px;
     }
-    @include md {
-      @include flex-column(center,center);
+
+    @include xs {
+      @include flex-column(center, center);
       width: 100%;
-      padding: 0px;
+      padding: 1em;
     }
 
     .seventh-background {
       width: 100%;
-      height: 100%;
+      height: 105%;
       object-fit: cover;
     }
     > div {
-      z-index:50;
+      z-index: 50;
       top: auto !important;
-      left: auto  !important;
+      left: auto !important;
       position: absolute;
       display: flex !important;
       @include flex-column(flex-start);
+      @include xs {
+        padding: 2em;;
+      }
+      @include smd {
+        padding: 0em;;
+      }
     }
   }
   header {
     margin-top: 40px;
     @include sm {
+      margin-top: 0;
+    }
+    @include smd {
       margin-top: 120px;
     }
     @include md {
@@ -99,7 +110,7 @@
     color: $headerTextLessDark;
     @include xs {
       font-size: 16px;
-      margin: 2% 0 2% 0;
+      margin: 5% 0 5% 0;
       line-height: 1.67;
     }
     @include sm {
@@ -108,24 +119,31 @@
     }
     @include md {
       font-size: 18px;
-      margin: 30px 0 30px 0;
+      margin: 25px 0 25px 0;
     }
     @include xl {
-      margin: 40px 0 60px 0;
+      margin: 40px 0 90px 0;
       font-size: 18px;
+      line-height: 1.67;
     }
   }
   .seventh-card {
     max-height: 40%;
+    position: relative;
+    transition: .15s ease;
     width: 100%;
+    top:0;
     overflow: hidden;
     padding: 0;
-    background:white;
-    @include flex-row();
+    background: white;
+    @include flex-row(center,center);
     box-shadow: 0 0 15px 1px rgb(202, 202, 202);
+    &:hover {
+      top:-5px;;
+    }
     @include xs {
-      height: 100%;
-      width: 95%;
+      width: 90%;
+      height: 200px;
     }
     @include sm {
       height: 270px;
@@ -136,7 +154,8 @@
       width: 860px;
     }
     @include xl {
-      height: 330px;
+      height: 350px;
+      width: 1079px;
     }
     img {
       object-fit: cover;
@@ -145,15 +164,21 @@
     }
     section {
       overflow: auto;
-
+      // height: 100%;
+      margin: auto;
+      padding: 0.5em;
+      @include xs {
+        // padding: 10px;
+      }
       @include sm {
-        padding: 15px;
+        // padding: 15px;
       }
       @include md {
-        padding: 30px 25px 30px 25px;
+        overflow: hidden;
+        // padding: 20px 0 0 25px;
       }
       @include xl {
-        padding: 35px 30px 35px 30px;
+        // padding: 36px 0 0 54px;
       }
       header {
         margin: 0 0 5px 0;
@@ -174,15 +199,19 @@
             @extend %Raleway-ExtraBold;
           }
           @include xs {
-            font-size: 18px;
+            font-size: 15px;
             line-height: 2;
           }
           @include sm {
             font-size: 15px;
             line-height: 2;
           }
+          @include smd {
+            font-size: 18px;
+            line-height: 2;
+          }
           @include md {
-            font-size: 15px;
+            font-size: 20px;
             line-height: 2;
           }
           @include lg {
@@ -197,13 +226,13 @@
           line-height: 1;
           margin: 0;
           @include xs {
-            font-size: 14px;
-          }
-          @include sm {
             font-size: 12px;
+          }
+          @include smd {
+            font-size: 13px;
           }
           @include md {
-            font-size: 12px;
+            font-size: 15px;
           }
           @include lg {
             font-size: 20px;
@@ -218,19 +247,24 @@
         @extend %Lato-Italic;
         @include xs {
           margin-bottom: 15px;
-          font-size: 15px;
+          font-size: 12px;
         }
         @include sm {
           margin-bottom: 15px;
           font-size: 14px;
         }
-        @include md {
-          margin-bottom: 15px;
+        @include smd {
+          margin-bottom: 12px;
           font-size: 14px;
+        }
+        @include md {
+          margin-bottom: 13px;
+          font-size: 16px;
         }
         @include xl {
           margin-bottom: 30px;
           line-height: 1.67;
+          font-size: 18px;
         }
       }
       button {
@@ -247,8 +281,8 @@
         }
         @include xs {
           font-size: 14px;
-          padding-top: 10px;
-          padding-bottom: 10px;
+          padding-top: 8px;
+          padding-bottom: 8px;
         }
         @include sm {
           font-size: 12px;
@@ -268,4 +302,25 @@
       }
     }
   }
+}
+
+////////////////////
+// Animation
+///////////////////
+.seventh-header,
+.seventh-text,
+.seventh-card {
+  opacity: 0;
+}
+.animate-seventh-header {
+  animation: fadeIn 1s ease 0.4s forwards;
+}
+
+.animate-seventh-text {
+  animation: fadeIn 1s ease 0.7s forwards;
+}
+
+.animate-seventh-card {
+  animation: fadeIn 1.2s ease 0.97s forwards,
+             up30 .8s ease-in-out 0.97s forwards;
 }

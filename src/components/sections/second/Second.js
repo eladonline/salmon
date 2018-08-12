@@ -13,15 +13,11 @@ export default class SecondSection extends Component {
       <div className="main-container" id="second-mainCon">
         <h1 id="second-header">
           <span className="second-header-first">Introducing</span>&nbsp;
-          <span className="second-header-second">
-            The New Regulation Standard
-          </span>
+          <span className="second-header-second">The New Regulation Standard</span>
           <br />
-          <span className="second-header-third">
-            For Cryptocurrency Exchange
-          </span>
+          <span className="second-header-third">For Cryptocurrency Exchange</span>
         </h1>
-        {this.props.browserWidth > 566 ? (
+        {this.props.browserWidth > 600 ? (
           <React.Fragment>
             {resetAnimation(1, this.props.parallax)}
             <section className="iconsSection">
@@ -33,13 +29,11 @@ export default class SecondSection extends Component {
               <Cryptotrade />
             </section>
             {/*chart*/}
-            <section
-              className="chartSection"
-              style={{ backgroundImage: `url(${chartImg})` }}
-            />
+            <section className="chartSection" style={{ backgroundImage: `url(${chartImg})` }} />
           </React.Fragment>
         ) : (
           // responsive mode
+
           <ThreeBlueIcons />
         )}
       </div>

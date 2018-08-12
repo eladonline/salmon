@@ -8,15 +8,18 @@ const background = 'static/image/slideFourPromo.png';
 export default class ForthSection extends Component {
   componentDidMount() {
     const scene = document.getElementById('forth-mainCon-scene');
-    new AmazingParallax(scene, {
+    const parallax = new AmazingParallax(scene, {
       relativeInput: true,
-      // hoverOnly: true,
       scalarX: 5,
       scalarY: 5,
       frictionX: 0.015,
       frictionY: 0.015,
       pointerEvents: true
     });
+    parallax.disable();
+    setTimeout(() => {
+      parallax.enable();
+    }, 1000);
   }
 
   render() {

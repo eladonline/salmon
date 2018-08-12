@@ -6,8 +6,8 @@ import LoggedIn from './Collapse/loggedIn';
 // import { setLastUserInStorage } from 'src/logic/redux/auth/workers/persist';
 import PropTypes from 'prop-types';
 
-const brandImgWhite = 'static/icons/logoWhite.png';
-const brandImgBlue = 'static/icons/logoBlue.png';
+const brandImgWhite = 'static/icons/inxStyledWhite.png';
+const brandImgBlue = 'static/icons/inxStyledBlue.png';
 const brandImgDarkBlue = 'static/icons/logoDarkBlue.png';
 
 export default class MainNavbar extends Component {

@@ -1,4 +1,4 @@
-$slideHeight: 70%;
+$slideHeight: 90%;
 $inputTextColor: #dce1e8;
 //////////////
 // 2 buildings background
@@ -29,7 +29,7 @@ $inputTextColor: #dce1e8;
 #joinUs-mainCon {
   height: $slideHeight;
   @include flex-row(center, flex-end);
-  min-width: 80%;
+  min-width: 90%;
   > div {
     min-height: 80%;
     width: 80%;
@@ -37,7 +37,7 @@ $inputTextColor: #dce1e8;
       width: 80%;
     }
     @include xl {
-      width: 60%;
+      width: 70%;
     }
     @include flex-column(space-between);
     section {
@@ -151,7 +151,7 @@ $inputTextColor: #dce1e8;
             color: $textBlue;
             width: 30%;
             height: 38px;
-            margin-top: 8px;
+            margin-top: 12px;
             font-size: 16px;
             @extend %Lato-Bold;
             background: white;
@@ -169,6 +169,11 @@ $inputTextColor: #dce1e8;
             }
             @include md {
               margin-top: 8px;
+              width: 100%;
+              height: 48px;
+            }
+            @include xl {
+              margin-top: 22px;
               width: 100%;
               height: 48px;
             }
@@ -243,11 +248,15 @@ $inputTextColor: #dce1e8;
   margin: 0.7em 0.7em 0.7em 0;
   width: 100%;
   @include sm {
-    margin: 2em 2em 2em 0;
+    margin: 3em 3em 3em 0;
     width: 100%;
   }
   @include md {
     margin: 2em 2em 2em 0;
+    width: 100%;
+  }
+  @include xl {
+    margin: 3em 3em 3em 0;
     width: 100%;
   }
   .react-floating-label-input {
@@ -316,11 +325,15 @@ $inputTextColor: #dce1e8;
   margin: 0.7em 0.7em 0.7em 0;
   width: 100%;
   @include sm {
-    margin: 2em 2em 2em 0;
+    margin: 3em 3em 3em 0;
     width: 100%;
   }
   @include md {
     margin: 2em 2em 2em 0;
+    width: 100%;
+  }
+  @include xl {
+    margin: 3em 3em 3em 0;
     width: 100%;
   }
   .react-floating-label-select {

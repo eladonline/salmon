@@ -10,7 +10,7 @@ export default class SeventhSection extends Component {
     new AmazingParallax(scene, {
       relativeInput: true,
       // hoverOnly: true,
-      scalarX: 3,
+      scalarX: 4,
       scalarY: 1.5,
       frictionX: 0.015,
       frictionY: 0.015,
@@ -22,7 +22,7 @@ export default class SeventhSection extends Component {
       <div className="main-container" id="seventh-mainCon">
         <Paralax>
           <div>
-            <header>
+            <header className='seventh-header'>
               <h5>AN EXEPTIONAL TEAM</h5>
               <h1>
                 Bringing Cryptotrade Into the Light <br /> with a Fully Regulated Exchange
@@ -68,7 +68,7 @@ const Card = p => (
 
 export const Paralax = p => (
   <div id="seventh-mainCon-scene">
-    <img src={background} alt="hoops-background" data-depth="-0.3" className="seventh-background" />
+    <img src={background} alt="hoops-background" data-depth="0.3" className="seventh-background" />
     {p.children}
   </div>
 );

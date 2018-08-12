@@ -9,6 +9,9 @@ const TradeBiggerBack = 'static/image/TradeBiggerBack.png';
 
 export const SideImgForthRect = p => (
   <div id="forth-mainCon-scene">
+    <section>
+
+    </section>
     <img
       src={TradeBiggerBack}
       alt="scene"

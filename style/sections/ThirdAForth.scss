@@ -12,7 +12,8 @@ $fadeUp30AnimationDuration: 500ms;
     height: 100vh;
   }
 }
-#third-mainCon-scene,#forth-mainCon-scene  {
+#third-mainCon-scene,
+#forth-mainCon-scene {
   right: 0;
   width: 100%;
   height: 100%;
@@ -30,12 +31,15 @@ $fadeUp30AnimationDuration: 500ms;
     right: 0;
     width: 100%;
     height: 100%;
+    transform: translate3d(115px, 0, 0);
   }
 }
 
-
 #third-mainCon {
-  @include flex-row(flex-end);
+  @include flex-row(center);
+  @include md {
+    @include flex-row(flex-end);
+  }
 }
 .text-mainCon {
   position: relative;
@@ -198,12 +202,15 @@ $fadeUp30AnimationDuration: 500ms;
 ////////////////////
 
 #forth-mainCon {
-  @include flex-row(flex-start);
+  @include flex-row(center);
+  @include md {
+    @include flex-row(flex-start);
+  }
   > img {
     object-fit: cover;
     object-position: 10% 35%;
     width: 0;
-    z-index:15;
+    z-index: 15;
     @include md {
       width: 50vw;
       height: 100vh;
