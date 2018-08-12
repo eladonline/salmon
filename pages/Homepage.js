@@ -97,11 +97,12 @@ export default class Homepage extends Component {
             offset < overallPages && this.parallax.scrollTo(offset);
             this.state.offset > overallPages - 2 && this.BulletsANavbarDipslay('flex');
 
+            // solve problem of executing bullet click(), before the bullet changes style from none to flex
+            // and being aborted
             this.state.offset === LastFullPage
-              ? // solve problem of executing bullet click(), before the bullet changes style from none to flex
-                setTimeout(() => {
-                  this.handleBulletLabelFocus(overallPages - 2);
-                }, 30)
+              ? setTimeout(() => {
+                this.handleBulletLabelFocus(overallPages - 2);
+              }, 30)
               : this.handleBulletLabelFocus(offset);
             if (paralax.style.overflow !== 'hidden') paralax.style.overflow = 'hidden';
             if (this.state.offset === overallPages || offset === overallPages) {
