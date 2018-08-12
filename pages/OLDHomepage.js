@@ -16,15 +16,8 @@ import JoinUs from 'src/components/sections/joinUs/JoinUs';
 import JoinUsBackground from 'src/components/sections/joinUs/joinUsBackground';
 import JuLayer from 'src/components/sections/joinUs/JuLayer';
 import Promo from 'src/components/sections/first/Promo';
-import Observer from 'react-intersection-observer';
-import { isMobile } from 'react-device-detect';
-
-/**
- * @summary good to know
- * when document says "full page"
- * it means every page that linked to a bullet
- * means every page thats in the limit of the auto scroll
- */
+import Observer from 'src/components/base_react-intersection-observer';
+import 'intersection-observer'
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -34,7 +27,7 @@ export default class Homepage extends Component {
       canScroll: true,
       browserWidth: window.screen.width
     };
-    this.lastPage = 0.9;
+    this.lastPage = 0.7;
     this.overallPages = 7 + this.lastPage;
     this.lastScrollPos = 0;
     this.scrollLockTime = 1100; // 1s
@@ -47,95 +40,80 @@ export default class Homepage extends Component {
   componentDidMount() {
     if (window) {
       const overallPages = this.overallPages - this.lastPage;
-      const LastFullPage = overallPages - 1;
       // eslint-disable-line
       const paralax = ReactDOM.findDOMNode(this.parallax); // eslint-disable-line
       this.parallaxNode = paralax;
       this.setState({ parallax: paralax });
-      if (!isMobile) {
-        /**
-         * @event addEventListener
-         * @listens wheel
-         * @callback ()=>
-         * @param {object} e
-         * @summary detect scrolling direction of the wheel and auto scroll this direction
-         */
-        paralax.addEventListener('wheel', e => {
-          const scrollDirection = e.deltaY > 0; // true down false up
-          let endRound = false;
-          // scroll down and its in the limit of full pages
-          if (
-            !endRound &&
-            scrollDirection &&
-            this.state.canScroll &&
-            this.state.offset < LastFullPage
-          ) {
-            const offset = Math.min(this.state.offset + 1, LastFullPage);
-            resetAnimation(offset, paralax);
-            this.handleBulletLabelFocus(offset);
-            this.parallax.scrollTo(offset);
-            if (offset === LastFullPage) {
-              setTimeout(() => {
-                paralax.style.overflowY = 'scroll';
-              }, 950);
-              this.BulletsANavbarDipslay('none');
-            }
-            this.setState({ offset });
-            this.scrollLock();
-            this.scrollUnlock();
-            endRound = true;
-            // scroll up and its in the limit of full pages
-          } else if (
-            !endRound &&
-            !scrollDirection &&
-            this.state.canScroll &&
-            this.state.offset !== this.overallPages
-          ) {
-            const offset = Math.max(this.state.offset - 1, 0);
-            resetAnimation(offset, paralax);
+      /**
+       * @event addEventListener
+       * @listens wheel
+       * @callback ()=>
+       * @param {object} e
+       * @summary detect scrolling direction of the wheel and auto scroll this direction
+       */
+      paralax.addEventListener('wheel', e => {
+        const scrollDirection = e.deltaY > 0; // true down false up
+        let endRound = false;
 
-            offset < overallPages && this.parallax.scrollTo(offset);
-            this.state.offset > overallPages - 2 && this.BulletsANavbarDipslay('flex');
-
-            // solve problem of executing bullet click(), before the bullet changes style from none to flex
-            // and being aborted
-            this.state.offset === LastFullPage
-              ? setTimeout(() => {
-                this.handleBulletLabelFocus(overallPages - 2);
-              }, 30)
-              : this.handleBulletLabelFocus(offset);
-            if (paralax.style.overflow !== 'hidden') paralax.style.overflow = 'hidden';
-            if (this.state.offset === overallPages || offset === overallPages) {
-              this.BulletsANavbarDipslay('none');
-            }
-            this.parallax.scrollTo(offset);
-            this.setState({ offset });
-            this.scrollLock();
-            this.scrollUnlock();
-            endRound = true;
-            // if view last full page and scroll down
-          } else if (!endRound && this.state.offset === LastFullPage && scrollDirection) {
+        if (
+          !endRound &&
+          scrollDirection &&
+          this.state.canScroll &&
+          this.state.offset < overallPages - 1
+        ) {
+          const offset = Math.min(this.state.offset + 1, overallPages);
+          resetAnimation(offset, paralax);
+          this.handleBulletLabelFocus(offset);
+          if (offset < overallPages) this.parallax.scrollTo(offset);
+          if (offset === overallPages - 1 || this.state.offset === overallPages - 1) {
             this.BulletsANavbarDipslay('none');
-            this.setState({ offset: this.overallPages });
-            setTimeout(() => {
-              paralax.style.overflowY = 'scroll';
-            }, 450);
-            endRound = true;
-            // if view last page and scroll up
-          } else if (!endRound && this.state.offset === this.overallPages && !scrollDirection) {
-            if (this.state.offset === overallPages) {
-              this.BulletsANavbarDipslay('none');
-            }
-            paralax.style.overflowY = 'hidden';
-            this.parallax.scrollTo(LastFullPage);
-            this.setState({ offset: LastFullPage });
-            this.scrollLock();
-            this.scrollUnlock(650);
-
-            endRound = true;
           }
-        });
-      }
+          this.setState({ offset });
+          this.scrollLock();
+          this.scrollUnlock();
+          endRound = true;
+        } else if (
+          !endRound &&
+          !scrollDirection &&
+          this.state.canScroll &&
+          this.state.offset !== this.overallPages
+        ) {
+          const offset = Math.max(this.state.offset - 1, 0);
+          resetAnimation(offset, paralax);
+          this.handleBulletLabelFocus(offset);
+          if (offset < overallPages + 1) this.parallax.scrollTo(offset);
+          if (offset < overallPages - 2 || this.state.offset > overallPages - 2) {
+            this.BulletsANavbarDipslay('flex');
+          }
+          if (paralax.style.overflow !== 'hidden') paralax.style.overflow = 'hidden';
+          if (this.state.offset === overallPages || offset === overallPages) {
+            this.BulletsANavbarDipslay('none');
+          }
+          this.parallax.scrollTo(offset);
+          this.setState({ offset });
+          this.scrollLock();
+          this.scrollUnlock(1000);
+          endRound = true;
+          // if view last full page and scroll down
+        } else if (!endRound && this.state.offset === overallPages - 1 && scrollDirection) {
+          this.BulletsANavbarDipslay('none');
+          this.setState({ offset: this.overallPages });
+          setTimeout(() => {
+            paralax.style.overflowY = 'scroll';
+          }, 950);
+          endRound = true;
+          // if view last page and scroll up
+        } else if (!endRound && this.state.offset === this.overallPages && !scrollDirection) {
+          if (this.state.offset === overallPages) {
+            this.BulletsANavbarDipslay('none');
+          }
+          this.setState({ offset: overallPages });
+          this.handleBulletLabelFocus(overallPages);
+          this.parallax.scrollTo(overallPages - 1);
+          paralax.style.overflowY = 'hidden';
+          endRound = true;
+        }
+      });
     }
     if (window && !this.browserSize) {
       window.addEventListener('resize', e => {
@@ -176,7 +154,7 @@ export default class Homepage extends Component {
    * @summary handle the scroll, animation, bullets display, offset state
    */
   /**
-   * @function BulletsANavbarDipslay
+   * @function hideOShowBulletsAnavbar
    * @param {string} display - flex/none
    */
   BulletsANavbarDipslay(display) {
@@ -229,10 +207,8 @@ export default class Homepage extends Component {
    */
   handleBulletLabelFocus(offset) {
     const target = document.querySelector(`#bullet_${offset}`);
-
     if (target !== null) {
       target.click();
-
       setTimeout(() => {
         target.click();
       }, 950);
@@ -269,11 +245,11 @@ export default class Homepage extends Component {
     );
   }
   render() {
-    const mobile = isMobile;
+    const desktops = this.state.browserWidth < 1000;
     return (
       <React.Fragment>
         <Navbar offset={this.state.offset} />
-        {!mobile && (
+        {!desktops && (
           <Bullets
             id="mainBullets"
             pages={this.overallPages - this.lastPage}
@@ -286,7 +262,7 @@ export default class Homepage extends Component {
           className="container-parallax"
           ref={ref => (this.parallax = ref)}
           pages={this.overallPages}
-          scrolling={mobile}
+          scrolling={desktops}
           config={{
             tension: 15,
             friction: 7,
@@ -312,15 +288,13 @@ export default class Homepage extends Component {
             {this.page(<ThirdSection />, 2, 0, 1)}
             {this.page(<SideImgThird />, 2, 0, 0)}
             {/* ThirdSection end */}
-
             {this.page(<ForthSection />, 3, 0, 1)}
             {this.page(<FifthSection />, 4, 0, 1)}
             {this.page(<SixthSection />, 5, 0, 1)}
-
             {/*seventh section*/}
             {this.page(<Navbar offset={this.state.offset} />, 6, 0, 2, { height: '70px' })}
 
-            {!mobile &&
+            {!desktops &&
               this.page(
                 <Bullets
                   id="customBullets"
