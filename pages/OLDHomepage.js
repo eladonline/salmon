@@ -16,7 +16,8 @@ import JoinUs from 'src/components/sections/joinUs/JoinUs';
 import JoinUsBackground from 'src/components/sections/joinUs/joinUsBackground';
 import JuLayer from 'src/components/sections/joinUs/JuLayer';
 import Promo from 'src/components/sections/first/Promo';
-import Observer from 'react-intersection-observer';
+import Observer from 'src/components/base_react-intersection-observer';
+import 'intersection-observer'
 
 export default class Homepage extends Component {
   constructor(props) {
