@@ -1,17 +1,18 @@
-$slideHeight: 90%;
+$slideHeight: 70%;
 $inputTextColor: #dce1e8;
 //////////////
 // 2 buildings background
 //////////////
 .background-container-joinUs {
-  height: $slideHeight;
   width: 100%;
   @include flex-column(flex-end);
+  height: 100%;
   img {
     height: 90%;
-    width: 100%;
+    width: 50%;
     object-fit: contain;
     object-position: -50px 0;
+    z-index: 55;
   }
 }
 
@@ -32,12 +33,13 @@ $inputTextColor: #dce1e8;
   min-width: 90%;
   > div {
     min-height: 80%;
+    // width of the form container
     width: 80%;
     @include md {
       width: 80%;
     }
     @include xl {
-      width: 70%;
+      width: 60%;
     }
     @include flex-column(space-between);
     section {

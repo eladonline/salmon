@@ -35,7 +35,7 @@ export default class Homepage extends Component {
       canScroll: true,
       browserWidth: window.screen.width
     };
-    this.lastPage = 0.9;
+    this.lastPage = 0.7;
     this.overallPages = 7 + this.lastPage;
     this.lastScrollPos = 0;
     this.scrollLockTime = 1100; // 1s
@@ -319,7 +319,7 @@ export default class Homepage extends Component {
             {this.page(<SixthSection />, 5, 0, 1)}
 
             {/*seventh section*/}
-            {this.page(<Navbar offset={this.state.offset} />, 6, 0, 2, { height: '70px' })}
+            {this.page(<Navbar offset={this.state.offset} />, 6, 0, 3, { height: '70px' })}
 
             {!mobile &&
               this.page(

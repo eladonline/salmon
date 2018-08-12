@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const background = 'static/image/inx_building.png';
+const background = 'static/image/Inx_building.png';
 
 export default class JoinUsBackground extends Component {
   render() {
