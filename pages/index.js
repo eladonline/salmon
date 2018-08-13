@@ -1,7 +1,8 @@
 import React from 'react';
 // import Link from 'next/link'
 import Page from '../hocs/publicPage';
-import HomePage from './Homepage'
+// !important AT production change path to "./Homepage"
+import HomePage from './Homepage/homepage'
 
 export default Page(() => <HomePage />, true);
 

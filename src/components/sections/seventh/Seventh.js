@@ -11,7 +11,9 @@ export default class SeventhSection extends Component {
       relativeInput: true,
       // hoverOnly: true,
       scalarX: 4,
-      scalarY: 1.5,
+      scalarY: 8.5,
+      limitX:5,
+      limitY:5,
       frictionX: 0.015,
       frictionY: 0.015,
       pointerEvents: true
@@ -68,7 +70,7 @@ const Card = p => (
 
 export const Paralax = p => (
   <div id="seventh-mainCon-scene">
-    <img src={background} alt="hoops-background" data-depth="0.3" className="seventh-background" />
+    <img src={background} alt="hoops-background" data-depth="1" className="seventh-background" />
     {p.children}
   </div>
 );

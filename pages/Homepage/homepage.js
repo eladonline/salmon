@@ -8,6 +8,7 @@ import FirstSection from 'src/components/sections/first/First';
 import SecondSection from 'src/components/sections/second/Second';
 import ThirdSection from 'src/components/sections/third/Third';
 import { SideImgThird } from 'src/components/sections/third/SideImg';
+import { SideImgForth } from 'src/components/sections/forth/SideImg';
 import ForthSection from 'src/components/sections/forth/Forth';
 import FifthSection from 'src/components/sections/fifth/Fifth';
 import SixthSection from 'src/components/sections/sixth/Sixth';
@@ -18,7 +19,7 @@ import JuLayer from 'src/components/sections/joinUs/JuLayer';
 import Promo from 'src/components/sections/first/Promo';
 import Observer from 'react-intersection-observer';
 import { isMobile } from 'react-device-detect';
-
+import handleScrollTransition from './scrollTransition';
 
 /**
  * @summary good to know
@@ -43,9 +44,18 @@ export default class Homepage extends Component {
     this.scrollLock = this.scrollLock.bind(this);
     this.handleBulletClick = this.handleBulletClick.bind(this);
     this.handleBulletLabelFocus = this.handleBulletLabelFocus.bind(this);
+    this.handleScrollAnimation = this.handleScrollAnimation.bind(this);
   }
 
   componentDidMount() {
+    const aSections = [
+      ['firstSection-a', 'firstSection-b'],
+      ['secondSection'],
+      ['thirdSection-a', 'thirdSection-b'],
+      ['forthSection-a', 'forthSection-b'],
+      ['FifthSection'],
+      ['sixthSection']
+    ];
     if (window) {
       const overallPages = this.overallPages - this.lastPage;
       const LastFullPage = overallPages - 1;
@@ -71,7 +81,26 @@ export default class Homepage extends Component {
             this.state.canScroll &&
             this.state.offset < LastFullPage
           ) {
-            const offset = Math.min(this.state.offset + 1, LastFullPage);
+            let offset = Math.min(
+              // !this.state.offset
+              //   ? this.state.offset + 0.5
+              //   : this.state.offset + this.state.offset / 2,
+              this.state.offset + 1,
+              LastFullPage
+            );
+            // const roundedOffset = this.state.offset * 2;
+            // const section = aSections[roundedOffset];
+
+            // handleScrollTransition(roundedOffset, section, paralax);
+
+            ////////////////////////
+            const id = 'thirdImg';
+            const test1 = paralax.querySelector('#thirdSection-a-homepage');
+            const test2 = paralax.querySelector('#thirdImg');
+            const aId = [test2];
+            if (offset === 2) handleScrollTransition(paralax, id);
+
+            ////////////////////////////
             resetAnimation(offset, paralax);
             this.handleBulletLabelFocus(offset);
             this.parallax.scrollTo(offset);
@@ -94,16 +123,24 @@ export default class Homepage extends Component {
           ) {
             const offset = Math.max(this.state.offset - 1, 0);
             resetAnimation(offset, paralax);
-
+            ///////////////
+            const test1 = paralax.querySelector('#thirdSection-a-homepage');
+            const test2 = paralax.querySelector('#thirdImg');
+            const aId = [test2];
+            if (offset === 1) {
+              aId.map(component => {
+                component.style.transform = `translate3d(0,-50vh,0)`;
+              });
+            }
             offset < overallPages && this.parallax.scrollTo(offset);
             this.state.offset > overallPages - 2 && this.BulletsANavbarDipslay('flex');
-
+            ///////////////////////////////////////
             // solve problem of executing bullet click(), before the bullet changes style from none to flex
             // and being aborted
             this.state.offset === LastFullPage
               ? setTimeout(() => {
-                this.handleBulletLabelFocus(overallPages - 2);
-              }, 30)
+                  this.handleBulletLabelFocus(overallPages - 2);
+                }, 30)
               : this.handleBulletLabelFocus(offset);
             if (paralax.style.overflow !== 'hidden') paralax.style.overflow = 'hidden';
             if (this.state.offset === overallPages || offset === overallPages) {
@@ -172,11 +209,6 @@ export default class Homepage extends Component {
     resetAnimation(offset, this.parallaxNode);
   }
   /**
-   * @function handleBulletClick
-   * @param {number} offset -the page the browser display in this moment
-   * @summary handle the scroll, animation, bullets display, offset state
-   */
-  /**
    * @function BulletsANavbarDipslay
    * @param {string} display - flex/none
    */
@@ -187,6 +219,11 @@ export default class Homepage extends Component {
     bullets.style.display = display;
     navbar.style.display = display;
   }
+  /**
+   * @function handleBulletClick
+   * @param {number} offset -the page the browser display in this moment
+   * @summary handle the scroll, animation, bullets display, offset state
+   */
   handleBulletClick(offset) {
     // if page *in view, big or equeal to the page *to view
     if (this.state.offset >= offset && offset >= this.overallPages - this.lastPage - 1) return '';
@@ -247,14 +284,9 @@ export default class Homepage extends Component {
    * @param {number} zIndex
    * @returns [{component}] [component wrapped by parallax layer]
    */
-  page(component, offset, speed, zIndex = 0, style, factor) {
+  page(component, offset, id, speed = 0, zIndex = 1, oStyle) {
     return (
-      <ParallaxLayer
-        offset={offset}
-        speed={speed}
-        style={{ zIndex: zIndex, ...style }}
-        factor={factor}
-      >
+      <ParallaxLayer offset={offset} id={id} speed={speed} style={{ zIndex: zIndex, ...oStyle }}>
         {/*Observer is for tracking if component is in view (mobile mode) */}
         <Observer className="observer-con">
           {({ inView, ref }) => {
@@ -289,37 +321,58 @@ export default class Homepage extends Component {
           pages={this.overallPages}
           scrolling={mobile}
           config={{
-            tension: 15,
-            friction: 7,
-            velocity: 0.2,
-            overshootClamping: true,
+            tension: 3,
+            friction: 6,
+            velocity: 0,
+            overshootClamping: false,
             restSpeedThreshold: 0.9,
             restDisplacementThreshold: 0.9
           }}
         >
           <React.Fragment>
-            {this.page(<Promo />, 0, 0, 1)}
-            {this.page(<FirstSection />, 0, 0.3, 1)}
+            {/*first section*/}
+            {this.page(<Promo />, 0, 'firstSection-a-homepage', 0, 5)}
+            {this.page(<FirstSection />, 0, 'firstSection-b-homepage', 0, 5)}
+            {/*first section end*/}
+
+            {/*second section*/}
             {this.page(
               <SecondSection
                 parallax={this.state.parallax}
                 browserWidth={this.state.browserWidth}
               />,
               1,
+              'secondSection-homepage',
               0,
-              1
+              6
             )}
-            {/* ThirdSection */}
-            {this.page(<ThirdSection />, 2, 0, 1)}
-            {this.page(<SideImgThird />, 2, 0, 0)}
-            {/* ThirdSection end */}
+            {/*second section end*/}
 
-            {this.page(<ForthSection />, 3, 0, 1)}
-            {this.page(<FifthSection />, 4, 0, 1)}
-            {this.page(<SixthSection />, 5, 0, 1)}
+            {/* third section */}
+            {this.page(<ThirdSection />, 2, 'thirdSection-a-homepage', 0, 5)}
+            {this.page(<SideImgThird />, 2, 'thirdSection-b-homepage', 0, 5)}
+            {/* third section end */}
+
+            {/* forth section */}
+            {this.page(<ForthSection />, 3, 'forthSection-a-homepage', 0, 4)}
+            {this.page(<SideImgForth />, 3, 'forthSection-b-homepage', 0, 4, {
+              width: '50%',
+              left: '50%'
+            })}
+            {/* forth section end */}
+
+            {/* fifth section  */}
+            {this.page(<FifthSection />, 4)}
+            {/* fifth section end */}
+
+            {/* sixth section  */}
+            {this.page(<SixthSection />, 5)}
+            {/* sixth section end */}
 
             {/*seventh section*/}
-            {this.page(<Navbar offset={this.state.offset} />, 6, 0, 3, { height: '70px' })}
+            {this.page(<Navbar offset={this.state.offset} />, 6, 'seventhNavbar-homepage', 0, 7, {
+              height: '70px'
+            })}
 
             {!mobile &&
               this.page(
@@ -330,17 +383,18 @@ export default class Homepage extends Component {
                   offset={this.state.offset}
                 />,
                 6,
+                'seventhBullets-homepage',
                 0,
-                2,
+                6,
                 { width: '10px', right: '0' }
               )}
-            {this.page(<SeventhSection />, 6, 0, 1)}
-            {/*seventhSection end*/}
+            {this.page(<SeventhSection />, 6, 'seventh-homepage', 0)}
+            {/*seventh section end*/}
 
             {/* join us page*/}
-            {this.page(<JoinUs />, 7, 0, 2)}
-            {this.page(<JuLayer />, 7, 0, 1)}
-            {this.page(<JoinUsBackground />, 7, 0.3, 1)}
+            {this.page(<JoinUs />, 7, 'JoinUs-homepage', 0, 2)}
+            {this.page(<JuLayer />, 7, 'JoinUs-homepage')}
+            {this.page(<JoinUsBackground />, 7, 'JoinUs-homepage', 0.3)}
             {/*end*/}
           </React.Fragment>
         </Parallax>
@@ -348,12 +402,3 @@ export default class Homepage extends Component {
     );
   }
 }
-
-/* <ParallaxLayer
-              // onScroll={(e)=>{e.stopPropagation()}}
-              offset={1}
-              speed={0}
-              style={{ zIndex: 2, display:'flex', justifyContent:'flex-end', flexDirection:'column' }}
-              factor={1}
-            > <SecondSection />
-             </ParallaxLayer> */

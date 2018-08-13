@@ -75,7 +75,7 @@ export default class ForthSection extends Component {
             </div>
           </SideImgForthRect>
         </section>
-        <img src={background} alt="side" />
+        {/* <img src={background} alt="side" /> */}
       </div>
     );
   }

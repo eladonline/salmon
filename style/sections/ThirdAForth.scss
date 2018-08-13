@@ -1,7 +1,24 @@
 $fadeUp30AnimationDuration: 500ms;
 .third-mainCon-sideImg {
   object-fit: cover;
+  position: relative;
   object-position: 10% 0;
+  width: 0;
+  will-change: transform;
+  transform: translate3d(0,-50vh,0);
+  @include md {
+    width: 50vw;
+    height: 100vh;
+  }
+  @include xl {
+    width: 960px;
+    height: 100vh;
+  }
+}
+.forth-mainCon-sideImg {
+  object-fit: cover;
+  position: relative;
+  object-position: 10% 40%;
   width: 0;
   @include md {
     width: 50vw;

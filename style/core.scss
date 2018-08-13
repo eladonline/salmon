@@ -42,7 +42,7 @@ body {
     height: 100%;
     overflow: hidden;
     @include flex-column(center, flex-end);
-    right: 50px;
+    right: 25px;
     list-style-type: none;
     z-index: 20;
     li {
@@ -115,13 +115,3 @@ body {
   color: $textBlue;
 }
 
-
-.test1, .test2 {
-  height: 100px;
-  width: 100px;;
-}
-#testParallax {
-  width: 100%;
-}
-.test1 {background:green;}
-.test2 {background:red;}
