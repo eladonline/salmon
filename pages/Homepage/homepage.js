@@ -48,14 +48,6 @@ export default class Homepage extends Component {
   }
 
   componentDidMount() {
-    const aSections = [
-      ['firstSection-a', 'firstSection-b'],
-      ['secondSection'],
-      ['thirdSection-a', 'thirdSection-b'],
-      ['forthSection-a', 'forthSection-b'],
-      ['FifthSection'],
-      ['sixthSection']
-    ];
     if (window) {
       const overallPages = this.overallPages - this.lastPage;
       const LastFullPage = overallPages - 1;
@@ -81,24 +73,16 @@ export default class Homepage extends Component {
             this.state.canScroll &&
             this.state.offset < LastFullPage
           ) {
-            let offset = Math.min(
-              // !this.state.offset
-              //   ? this.state.offset + 0.5
-              //   : this.state.offset + this.state.offset / 2,
-              this.state.offset + 1,
-              LastFullPage
-            );
-            // const roundedOffset = this.state.offset * 2;
-            // const section = aSections[roundedOffset];
+            let offset = Math.min(this.state.offset + 1, LastFullPage);
 
-            // handleScrollTransition(roundedOffset, section, paralax);
-
+            /*
+              this section handles the layer under layer scrolling
+              example: at third section, the image comes under the exiting section
+              you can see that on scroll the exiting layer is over the incoming inmage
+            */
             ////////////////////////
-            const id = 'thirdImg';
-            const test1 = paralax.querySelector('#thirdSection-a-homepage');
-            const test2 = paralax.querySelector('#thirdImg');
-            const aId = [test2];
-            if (offset === 2) handleScrollTransition(paralax, id);
+
+            handleScrollTransition(paralax, offset);
 
             ////////////////////////////
             resetAnimation(offset, paralax);
@@ -124,23 +108,18 @@ export default class Homepage extends Component {
             const offset = Math.max(this.state.offset - 1, 0);
             resetAnimation(offset, paralax);
             ///////////////
-            const test1 = paralax.querySelector('#thirdSection-a-homepage');
-            const test2 = paralax.querySelector('#thirdImg');
-            const aId = [test2];
-            if (offset === 1) {
-              aId.map(component => {
-                component.style.transform = `translate3d(0,-50vh,0)`;
-              });
-            }
+
+            handleScrollTransition(paralax, offset, 'up');
+
+            ///////////////////////////////////////
             offset < overallPages && this.parallax.scrollTo(offset);
             this.state.offset > overallPages - 2 && this.BulletsANavbarDipslay('flex');
-            ///////////////////////////////////////
             // solve problem of executing bullet click(), before the bullet changes style from none to flex
             // and being aborted
             this.state.offset === LastFullPage
               ? setTimeout(() => {
-                  this.handleBulletLabelFocus(overallPages - 2);
-                }, 30)
+                this.handleBulletLabelFocus(overallPages - 2);
+              }, 30)
               : this.handleBulletLabelFocus(offset);
             if (paralax.style.overflow !== 'hidden') paralax.style.overflow = 'hidden';
             if (this.state.offset === overallPages || offset === overallPages) {
@@ -331,8 +310,8 @@ export default class Homepage extends Component {
         >
           <React.Fragment>
             {/*first section*/}
-            {this.page(<Promo />, 0, 'firstSection-a-homepage', 0, 5)}
-            {this.page(<FirstSection />, 0, 'firstSection-b-homepage', 0, 5)}
+            {this.page(<Promo />, 0, 'firstSection-a-homepage', 0, 10)}
+            {this.page(<FirstSection />, 0, 'firstSection-b-homepage', 0, 10)}
             {/*first section end*/}
 
             {/*second section*/}
@@ -344,18 +323,18 @@ export default class Homepage extends Component {
               1,
               'secondSection-homepage',
               0,
-              6
+              11
             )}
             {/*second section end*/}
 
             {/* third section */}
-            {this.page(<ThirdSection />, 2, 'thirdSection-a-homepage', 0, 5)}
-            {this.page(<SideImgThird />, 2, 'thirdSection-b-homepage', 0, 5)}
+            {this.page(<ThirdSection />, 2, 'thirdSection-a-homepage', 0, 8)}
+            {this.page(<SideImgThird />, 2, 'thirdSection-b-homepage', 0, 7)}
             {/* third section end */}
 
             {/* forth section */}
-            {this.page(<ForthSection />, 3, 'forthSection-a-homepage', 0, 4)}
-            {this.page(<SideImgForth />, 3, 'forthSection-b-homepage', 0, 4, {
+            {this.page(<ForthSection />, 3, 'forthSection-a-homepage', 0, 6)}
+            {this.page(<SideImgForth />, 3, 'forthSection-b-homepage', 0, 7, {
               width: '50%',
               left: '50%'
             })}

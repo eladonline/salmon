@@ -1,18 +1,34 @@
 #fifth-mainCon {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: 0 90%;
-  background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: 0 90%;
+  // background-repeat: no-repeat;
   @include flex-column(flex-start, center);
-  padding: 45px 1em 1em 1em;
+  // padding: 45px 1em 1em 1em;
   @include sm {
-    padding-top: 185px;
+    // padding-top: 185px;
   }
   @include md {
-    padding-top: 80px;
+    // padding-top: 80px;
   }
-  > div {
+  #fifthBackground {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-position: 0 90%;
+    will-change: transform;
+    transform: translate3d(0, -50vh, 0);
+  }
+  #fifth-subCon {
+    margin: 45px 1em 1em 1em;
+    @include sm {
+      margin-top: 185px;
+    }
+    @include md {
+      margin-top: 80px;
+    }
     position: relative;
     max-width: 80%;
     @include flex-column();
@@ -80,7 +96,6 @@
           font-size: 22px;
           line-height: 1.27;
         }
-
       }
       .finra {
         object-fit: contain;

@@ -4,7 +4,7 @@ const background = 'static/image/slideFourPromo.png';
 const TradeBiggerBack = 'static/image/TradeBiggerBack.png';
 
 export const SideImgForth = () => (
-  <img src={background} alt="side" className="forth-mainCon-sideImg" />
+  <img id='forthImg' src={background} alt="side" className="forth-mainCon-sideImg" />
 );
 
 export const SideImgForthRect = p => (

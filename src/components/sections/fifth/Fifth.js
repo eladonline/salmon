@@ -18,6 +18,7 @@ export default class FifthSection extends Component {
         className="main-container"
         id="fifth-mainCon"
       >
+        <img id='fifthBackground' src={background} alt="vina" />
         <div id="fifth-subCon">
           <header>
             <h1 className="fifth-header">

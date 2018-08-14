@@ -4,8 +4,7 @@ $fadeUp30AnimationDuration: 500ms;
   position: relative;
   object-position: 10% 0;
   width: 0;
-  will-change: transform;
-  transform: translate3d(0,-50vh,0);
+  transform: translate3d(0, -50vh, 0);
   @include md {
     width: 50vw;
     height: 100vh;
@@ -20,6 +19,8 @@ $fadeUp30AnimationDuration: 500ms;
   position: relative;
   object-position: 10% 40%;
   width: 0;
+  transform: translate3d(0, -50vh, 0);
+
   @include md {
     width: 50vw;
     height: 100vh;
@@ -28,6 +29,10 @@ $fadeUp30AnimationDuration: 500ms;
     width: 960px;
     height: 100vh;
   }
+}
+#thirdImg,
+#forthImg {
+  will-change: transform;
 }
 #third-mainCon-scene,
 #forth-mainCon-scene {
@@ -62,6 +67,7 @@ $fadeUp30AnimationDuration: 500ms;
   position: relative;
   width: 80%;
   height: 100%;
+  background: white;
   @include flex-column(center, center);
   padding: 0em 1em 1em 1em;
   @include md {
