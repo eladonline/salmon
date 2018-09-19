@@ -26,34 +26,6 @@
     } // the title of the dropdown
     > ul {
       padding-top: 0.8em;
-      .startTradingNav a {
-        height: 38px;
-        width: 135px;
-        border: 2px solid $textBlue;
-        border-radius: 23px;
-        color: $textBlue;
-        @extend %Lato-Bold;
-        @include flex-row(center, center);
-        &:hover {
-          background: $textBlue;
-          color: white;
-        }
-        &[data-invers='true'] {
-          color: white;
-          border-color: white;
-          &:hover {
-            @extend %btn-whiteInversion
-          }
-        }
-        &[data-invers='splitInvers'] {
-          color: white;
-          border-color: white;
-          &:hover {
-            color: $textBlue;
-            background: white;
-          }
-        }
-      }
       .loginNav a {
         color: $mainHeaderDark;
         width: 80px;
@@ -64,12 +36,7 @@
         &:hover {
           font-weight: 900;
         }
-        &[data-invers='true'] {
-          color: white;
-        }
-        &[data-invers='splitInvers'] {
-          color: white;
-        }
+     
       }
       li {
         #basic-nav-dropdown {

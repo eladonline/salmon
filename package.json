@@ -99,7 +99,6 @@
     "vanilla-tilt": "^1.4.1"
   },
   "scripts": {
-    "precommit": "bash scripts/pre-commit.sh",
     "start": "node server.js -p $PORT",
     "build": "next build",
     "test": "npm run lint-validate",

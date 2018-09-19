@@ -3,7 +3,6 @@ import { Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const iconBlack = 'static/icons/hamburgerBlack.png';
-const iconWhite = 'static/icons/hamburgerWhite.png';
 
 const Items = p => (
   <Nav pullRight>
@@ -16,7 +15,7 @@ const Items = p => (
     <NavDropdown
       eventKey={3}
       id="basic-nav-dropdown"
-      title={<img src={p.invers ? iconWhite : iconBlack} alt="icon" />}
+      title={<img src={iconBlack} alt="icon" />}
       noCaret
     >
       <MenuItem eventKey={3.1}>Action</MenuItem>
