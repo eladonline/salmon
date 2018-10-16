@@ -7,7 +7,6 @@ import {setUserFromCookies} from 'src/logic/redux/auth/actions'
 import {getCookie} from '../helpers/session'
 import {api, envConfig, appConfig} from 'src/logic'
 import {config as reactParseConfig, setReactParseDispatch} from 'react-parse'
-import 'style/core.scss'
 
 const apiConfig = { baseURL: envConfig.SERVER_URL, appId: envConfig.PARSE_ID }
 api.init(apiConfig);
@@ -31,7 +30,7 @@ class MyApp extends App {
   render () {
     const { Component, pageProps, store, userCookie } = this.props
     setReactParseDispatch(store.dispatch)
-    console.log('userFromCookies', userCookie)
+    // console.log('userFromCookies', userCookie)
     return (
       <Container>
         <Provider store={store}>

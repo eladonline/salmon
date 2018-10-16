@@ -3,6 +3,7 @@ import React from 'react';
 import Page from '../hocs/publicPage';
 // !important AT production change path to "./Homepage"
 import HomePage from './Homepage/homepage'
+import 'style/core.scss'
 
 export default Page(() => <HomePage />, true);
 
