@@ -10,6 +10,8 @@ import themes from '../config/themes';
 import authAction from 'src/logic/redux/isomorphic/auth/actions';
 import appActions from 'src/logic/redux/isomorphic/app/actions';
 // import AppLocale from '../languageProvider';
+import Navbar from 'src/components/fixed/navbar/index';
+import { Grid } from 'react-bootstrap';
 
 const { logout } = authAction;
 const { toggleAll } = appActions;
@@ -48,9 +50,11 @@ class Header extends PureComponent {
             this.props.toggleAll(windowSize.windowWidth, windowSize.windowHeight)
           }
         >
-          <header>
+          <header className="navbarBackground" />
+          <Grid>
+            <Navbar />
             <ThemeProvider theme={themes[selectedTheme]}>{this.props.children}</ThemeProvider>
-          </header>
+          </Grid>
         </WindowResizeListener>
       </Fragment>
     );

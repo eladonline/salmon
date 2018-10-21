@@ -30,7 +30,7 @@ export default class MyDocument extends Document {
     return (
       <Helmet
         htmlAttributes={{ lang: 'en' }}
-        title="Isomorphic"
+        title="SalmonCoin"
         meta={[{ name: 'viewport', content: 'width=device-width, initial-scale=1' }]}
       />
     );

@@ -1,24 +1,30 @@
 // @import './fonts/fonts.scss';
 //App
 //////////////////////
-// general app colors
+// general app declaration
 //////////////////////
-$mainTextBright: white;
-$mainBtn: #0f64f2;
-$mainHeaderDark: #36404b;
-$headerTextLessDark: #7f8697;
-$positiveMoney: #6ae1af;
-$mainHighlight: #0a5ff2;
-$subHighlight: #86baff;
-$alerts: #ee6f7d;
-$TraderRegistration: #13379c;
-$textBlue: #1e5bff;
-$pageLabel: #7fb4ff;
-$diagPos: #2cce9f;
-$diagNeg: #ee6f7d;
+
+$salmonRed: #f05344;
+$headersBlack: #333845;
+$textGrey: #a8aaad;
+$topBorder: #ebebeb;
+
+$navbarTextNormal: 16px;
+
+$headerText-size: 107px;
+$sub-headerText-size: 50px;
+$text-size: 20px;
+$roboto-text-size: 24px;
+
+$buttonSmall-text: 16px;
+$buttonBig-text: 20px;
+
 /////////////////
 // Mixins
 /////////////////
+////////////////////
+// flex-system
+////////////////////
 @mixin flex-row($justify: flex-start, $alignItems: flex-start) {
   display: flex;
   flex-direction: row;
@@ -32,217 +38,232 @@ $diagNeg: #ee6f7d;
   justify-content: $justify;
   align-items: $alignItems;
 }
-
-//////////////
+////////////////////
+// grid-system
+////////////////////
+@mixin grid(
+  $gap: 10px,
+  $justify: initial,
+  $alignItems: initial,
+  $template-cols: initial,
+  $template-rows: initial,
+  $areas: initial
+) {
+  display: grid;
+  grid-gap: $gap;
+  justify-content: $justify;
+  align-items: $alignItems;
+  grid-template-columns: $template-cols;
+  grid-template-rows: $template-rows;
+  grid-template-areas: $areas;
+}
+// ////////////
 // responsive
-//////////////
+// ////////////
 // lanscape phone
 @mixin xs {
   @media (min-width: 566px) {
     @content;
   }
 }
-
 // tablets
 @mixin sm {
   @media (min-width: 768px) {
-    @media screen and (min-height: 800px) {
-      @content;
-    }
-  }
-}
-// small desktops
-@mixin smd {
-  @media (min-width: 768px) {
-    @media screen and (max-height: 799px) {
     @content;
-    }
   }
 }
-
 // small desktop laptops lanscape tablets
 @mixin md {
   @media (min-width: 992px) {
     @content;
   }
 }
-
 // wide screens
 @mixin lg {
   @media (min-width: 1200px) {
     @content;
   }
 }
-
 // medium desktop laptops
 @mixin xl {
   @media (min-width: 1600px) {
     @content;
   }
 }
-
-///////////////
+// /////////////
 // common Classes
-/////////////////
-.bigText {
-  font: {
-    size: 40px;
-  }
-  line-height: 20px;
-  @include xs {
-    font: {
-      size: 35px;
-    }
-    line-height: 25px;
-  }
-  @include sm {
-    font: {
-      size: 60px;
-    }
-    line-height: 60px;
-  }
-  @include smd {
-    font: {
-      size: 55px;
-    }
-    line-height: 50px;
-  }
-  @include md {
-    font: {
-      size: 60px;
-    }
-    line-height: 60px;
-  }
-}
-
-//////////////////
+// ///////////////
+// ////////////////
 // selectors
-/////////////////
-%btn-base {
-  padding-left: 26px;
-  padding-right: 26px;
+// /////////////
+%btnBase {
   border-radius: 23px;
   outline: none;
-  font: {
-    size: 16px;
-    weight: bold;
-    style: normal;
-    stretch: normal;
+  color: white;
+  background: $salmonRed;
+  border: 2px solid $salmonRed;
+  @extend %Gilroy-ExtraBold;
+  font-weight: bold;
+  text-align: center;
+  margin: 1em 0;
+  cursor: pointer;
+  @include md {
+    margin: 0;
   }
 }
-%btn-whiteInversion {
-  color: $textBlue;
+%btn-big {
+  @extend %btnBase;
+  font-size: 12px;
+  padding: 4px 40px;
+  @include sm {
+    font-size: 15px;
+    padding: 8px 35px;
+  }
+  @include lg {
+    font-size: $buttonBig-text;
+    padding: 10px 40px;
+  }
+  @include xl {
+    padding: 10px 55px;
+  }
+}
+%btnSmall {
+  @extend %btnBase;
+  padding: 5px 10px;
+  font-size: 10px;
+  @include md {
+    font-size: 10px;
+  }
+  @include lg {
+    font-size: 12px;
+    padding: 12px 30px;
+    font-size: $buttonSmall-text;
+  }
+  @include xl {
+    padding: 12px 35px;
+  }
+}
+%btn-invers {
   background: white;
+  color: $salmonRed;
 }
-///////////
-// LATO
-///////////
-%Lato {
-  font-family: Lato-regular, sans-serif;
+%btn-uninvers {
+  background: $salmonRed;
+  color: white;
 }
-
-%Lato-Bold {
-  font-family: Lato-Bold, sans-serif;
+// //////////////////
+// headers
+// //////////////////
+%headerBase {
+  color: $headersBlack;
+  @extend %Gilroy-ExtraBold;
+  line-height: 1;
 }
-
-%Lato-Heavy {
-  font-family: Lato-Heavy, sans-serif;
+%header {
+  @extend %headerBase;
+  font-size: calc(#{$headerText-size} - 70px);
+  @include sm {
+    font-size: calc(#{$headerText-size} - 50px);
+  }
+  @include lg {
+    font-size: calc(#{$headerText-size} - 20px);
+  }
+  @include xl {
+    font-size: $headerText-size;
+  }
 }
-
-%Lato-Black {
-  font-family: Lato-Black, sans-serif;
+%subHeader {
+  @extend %headerBase;
+  font-size: calc(#{$sub-headerText-size} - 22px);
+  @include sm {
+    font-size: calc(#{$sub-headerText-size} - 10px);
+  }
+  @include lg {
+    font-size: calc(#{$sub-headerText-size} - 5px);
+  }
+  @include xl {
+    font-size: $sub-headerText-size;
+  }
 }
-
-%Lato-Light {
-  font-family: Lato-Light, sans-serif;
+%text {
+  @extend %Roboto;
+  color: $textGrey;
+  line-height: 2;
+  font-size: calc(#{$text-size} - 5px);
+  @include sm {
+    font-size: calc(#{$text-size} - 10px);
+  }
+  @include md {
+    font-size: calc(#{$text-size} - 5px);
+  }
+  @include lg {
+    font-size: calc(#{$text-size} - 5px);
+  }
+  @include xl {
+    font-size: $text-size;
+  }
 }
-
-%Lato-Medium {
-  font-family: Lato-Medium, sans-serif;
+%robotoBlack-text {
+  @extend %Roboto-Black;
+  font-size: calc(#{$roboto-text-size} - 5px);
+  @include sm {
+    font-size: calc(#{$roboto-text-size} - 5px);
+  }
+  @include md {
+    font-size: $roboto-text-size;
+  }
+  // @include lg {
+  // font-size: calc(#{$roboto-text-size} - 5px);
+  // }
+  // @include xl {
+  // font-size: $roboto-text-size;
+  // }
 }
-
-%Lato-Italic {
-  font-family: Lato-Italic, sans-serif;
-} ///////////
-// Raleway
-///////////
-%Raleway {
-  font-family: Raleway-Regular, sans-serif;
+// /////////
+// Roboto
+// /////////
+%Roboto {
+  font-family: Roboto-Regular, sans-serif;
 }
-
-%Raleway-Bold {
-  font-family: Raleway-Bold, sans-serif;
+%Roboto-Bold {
+  font-family: Roboto-Bold, sans-serif;
 }
-
-%Raleway-ExtraBold {
-  font-family: Raleway-ExtraBold, sans-serif;
+%Roboto-ExtraBold {
+  font-family: Roboto-ExtraBold, sans-serif;
 }
-
-%Raleway-SemiBold {
-  font-family: Raleway-SemiBold, sans-serif;
+%Roboto-SemiBold {
+  font-family: Roboto-SemiBold, sans-serif;
 }
-
-%Raleway-Black {
-  font-family: Raleway-Black, sans-serif;
+%Roboto-Black {
+  font-family: Roboto-Black, sans-serif;
 }
-
-%Raleway-Medium {
-  font-family: Raleway-Medium, sans-serif;
+%Roboto-Medium {
+  font-family: Roboto-Medium, sans-serif;
 }
-
-//////////////////
+%Gilroy-ExtraBold {
+  font-family: Gilroy-ExtraBold, sans-serif;
+}
+%Gilroy-Light {
+  font-family: Gilroy-Light, sans-serif;
+}
+// ////////////////
 // common classes
-/////////////////
+// ///////////////
 .d-flex {
   display: flex;
 }
-
 .flex-wrap {
   flex-wrap: wrap;
 }
-
 .m-t-7 {
   margin-top: 7px;
 }
-
 .modal {
   position: absolute;
   width: 100%;
   height: 100vh;
   background: rgba(255, 255, 255, 0.3);
 }
-
-.invisible {
-  transition: 0.5s ease-in;
-  opacity: 0; // visibility: hidden;
-}
-
-////////////////////
-// Animation
-///////////////////
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes down30 {
-  from {
-    transform: translate3d(0, -30px, 0);
-  }
-  to {
-    transform: translate3d(0, 0px, 0);
-  }
-}
-
-@keyframes up30 {
-  from {
-    transform: translate3d(0, 30px, 0);
-  }
-  to {
-    transform: translate3d(0, 0px, 0);
-  }
+.salmonRed {
+  color: $salmonRed;
 }

@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 
-// import Navbar from 'src/components/fixed/navbar/';
+import MarketRevolution from 'src/components/sections/marketRevolution';
+import WhatsSalmon from 'src/components/sections/whatsSalmon';
+import HowItWorks from 'src/components/sections/howItWorks';
+import WhySalmon from 'src/components/sections/whySalmon';
+import OurVision from 'src/components/sections/ourVision';
+import MeetOurTeam from 'src/components/sections/meetOurTeam';
 
-
+const swimSalmon = 'static/image/swim_salmon.png';
 export default class Homepage extends Component {
   render() {
     return (
       <div>
-        <div>asdasdasd</div>
+        <img className="swimSalmon" src={swimSalmon} alt="swimSalmon" />
+        <MarketRevolution />
+        <WhatsSalmon />
+        <HowItWorks />
+        <WhySalmon />
+        <OurVision />
+        <MeetOurTeam />
       </div>
     );
   }

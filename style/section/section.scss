@@ -1,0 +1,418 @@
+///////////////////
+// section 1 MarketRevolution
+//////////////////
+.MarketRevolution {
+  z-index: 1;
+  position: relative;
+  height: 500px;
+  max-width: 75vw;
+  @include sm {
+    height: 640px;
+    max-width: 580px;
+  }
+  @include lg {
+    height: 920px;
+  }
+  @include flex-column(center, flex-start);
+  header {
+    @extend %header;
+  }
+  p {
+    @extend %text;
+  }
+  button {
+    @extend %btn-big;
+    &:hover {
+      @extend %btn-invers;
+    }
+  }
+  div {
+    margin-top: 20px;
+    @extend %Roboto-Bold;
+  }
+}
+
+///////////////////
+// section 2 WhatsSalmon
+//////////////////
+
+.WhatsSalmon {
+  width: 100%;
+  @include grid(1em, initial, start, auto, auto auto, '...' 'coins');
+  @include sm {
+    @include grid(1em, initial, start, 50% 50%, auto, 'coins ...');
+  }
+  .coins {
+    grid-area: coins;
+    position: relative;
+    @include flex-row(center);
+    img {
+      object-fit: contain;
+      width: 300px;
+      margin: auto;
+
+      @include sm {
+        position: absolute;
+        top: -60px;
+        margin: 0;
+        width: 100%;
+      }
+      @include lg {
+        left: -60px;
+      }
+    }
+    .overlay {
+      position: absolute;
+      width: 300px;
+      @include sm {
+        width: 100%;
+      }
+      @include flex-row();
+      @extend %robotoBlack-text;
+      .light {
+        @extend %text;
+      }
+
+      .bitCoin {
+        position: relative;
+        left: 50px;
+        top: 80px;
+        p {
+          position: relative;
+          top: 140px;
+          left: -5px;
+        }
+        @include sm {
+          left: 60px;
+          top: 45px;
+          p {
+            position: relative;
+            top: 160px;
+            left: -5px;
+          }
+        }
+        @include md {
+          left: 80px;
+          top: 90px;
+          p {
+            position: relative;
+            top: 200px;
+            left: -15px;
+          }
+        }
+        @include lg {
+          left: 30px;
+          top: 110px;
+          p {
+            position: relative;
+            top: 290px;
+            left: -15px;
+          }
+        }
+      }
+      .salmonCoin {
+        position: relative;
+        left: 140px;
+        top: 40px;
+        p {
+          position: relative;
+          top: 140px;
+          left: -15px;
+        }
+        @include sm {
+          left: 190px;
+          top: 0;
+          p {
+            position: relative;
+            top: 160px;
+            left: -15px;
+          }
+        }
+        @include md {
+          left: 250px;
+          top: 20px;
+          p {
+            position: relative;
+            top: 210px;
+            left: -15px;
+          }
+        }
+        @include lg {
+          left: 270px;
+          top: 55px;
+          p {
+            position: relative;
+            top: 270px;
+            left: -15px;
+          }
+        }
+      }
+    }
+  }
+  .text {
+    header {
+      @include flex-column();
+      @include sm {
+        @include flex-column(flex-start, flex-start);
+      }
+      h2 {
+        @extend %subHeader;
+      }
+      h1 {
+        @extend %header;
+      }
+    }
+    p {
+      max-width: 90%;
+
+      @extend %text;
+    }
+    button {
+      margin-top: 1em;
+      @extend %btnSmall;
+      @extend %btn-invers;
+      &:hover {
+        @extend %btn-uninvers;
+      }
+    }
+  }
+}
+
+///////////////////
+// section 3 How it works
+//////////////////
+
+.HowItWorks {
+  margin-top: 70px;
+  // @include sm {
+  //   margin-top: 70px;
+  // }
+  @include lg {
+    margin-top: 190px;
+  }
+  @include xl {
+    margin-top: 100px;
+  }
+  border-top: 1px solid $topBorder;
+
+  .sectionA {
+    padding: 75px 0;
+    @include grid(1em, space-between, start, auto, auto auto);
+    @include sm {
+      @include grid(1em, space-between, start, 50% 45%, auto);
+    }
+    header {
+      @include flex-column();
+      @extend %subHeader;
+      button {
+        @extend %btnSmall;
+        @extend %btn-invers;
+        margin-top: 2em;
+        &:hover {
+          @extend %btn-uninvers;
+        }
+      }
+    }
+    > p {
+      @extend %text;
+    }
+  }
+  .sectionB {
+    @include grid(1em, center, initial, minmax(auto, 80%), '...');
+    @include sm {
+      @include grid(1em, space-between, initial, 30% 30% 30%, auto);
+    }
+    .block {
+      width: 100%;
+      background: #fff;
+      @include flex-column();
+      padding: 2em;
+      border-radius: 15px;
+      > section {
+        width: 100%;
+      }
+      .blockHeader {
+        @include flex-row(space-between);
+        :nth-child(1) {
+          @extend %subHeader;
+          margin-bottom: 1em;
+        }
+        :nth-child(2) {
+          @extend %text;
+        }
+      }
+      p {
+        @extend %text;
+      }
+      .blockCoinSection {
+        @include flex-row(space-between);
+        > div {
+          margin-right: 1em;
+          .blockPriceBlack {
+            @extend %robotoBlack-text;
+            padding-bottom: 1em;
+            @include flex-row(safe);
+            .infoIcon {
+              margin-left: 0.5em;
+              height: 16px;
+              height: 100%;
+              cursor: pointer;
+            }
+          }
+          .Blockcoin {
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
+
+///////////////////
+// section 4 why salmon
+//////////////////
+
+.WhySalmon {
+  margin-top: 6em;
+  header {
+    margin-bottom: 3em;
+    text-align: center;
+    h2 {
+      @extend %subHeader;
+    }
+    h1 {
+      @extend %header;
+    }
+  }
+  p {
+    @extend %text;
+  }
+  h3 {
+    margin-top: 3em;
+    @extend %Gilroy-ExtraBold;
+    color: $salmonRed;
+  }
+  img {
+    position: relative;
+    width: 100%;
+    top: -20px;
+    margin-bottom: 20px;
+  }
+  .border {
+    margin-top: 4em;
+    height: 1px;
+    width: 100%;
+    background: $topBorder;
+  }
+}
+
+///////////////////
+// section 5 our vision
+//////////////////
+
+.OurVision {
+  margin-top: 5em;
+  @include grid(1em, space-between, initial, auto, auto auto);
+  @include sm {
+    @include grid(3em, space-between, initial, 50% 50%, auto);
+  }
+  .OurVisionSectionA {
+    @include flex-column(flex-start, center);
+    h2 {
+      @extend %subHeader;
+    }
+    img {
+      object-fit: contain;
+      width: 50%;
+    }
+    button {
+      margin-top: 2em;
+      @extend %btnSmall;
+      background: #71cde1;
+      border: none;
+    }
+  }
+  .OurVisionSectionB {
+    padding-top: 2em;
+    > div {
+      width: 66px;
+      height: 5px;
+      background: $salmonRed;
+    }
+    h3 {
+      color: $salmonRed;
+      @extend %Gilroy-ExtraBold;
+      margin-bottom: 1em;
+    }
+    p {
+      @extend %text;
+    }
+  }
+}
+
+///////////////////////////
+// section 5 meet our team
+///////////////////////////
+
+.MeetOurTeam {
+  border-top: 1px solid $topBorder;
+  margin-top: 7em;
+  padding-top: 5em;
+  h1 {
+    @extend %subHeader;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  .teamProfiles {
+    @include grid(2em, initial, initial, auto, auto auto auto);
+    @include sm {
+      @include grid(2em, space-between, initial, auto auto auto, auto);
+    }
+  }
+  .profileBlock {
+    h3,
+    h4 {
+      text-align: center;
+    }
+    h3 {
+      @extend %robotoBlack-text;
+    }
+    h4 {
+      @extend %Roboto-Bold;
+    }
+    $radius: 14px;
+    .hexagon {
+      position: relative;
+      width: 130px;
+      height: 173.21px;
+      background-color: #64c7cc;
+      margin: 86.6px 0;
+      border-radius: $radius;
+      transform: rotate(90deg);
+    }
+
+    .hexagon:before,
+    .hexagon:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      border-left: 68px solid transparent;
+      border-right: 68px solid transparent;
+      border-radius: $radius;
+    }
+
+    .hexagon:before {
+      bottom: 97%;
+      border-bottom: 86.6px solid #64c7cc;
+      border-radius: $radius;
+    }
+
+    .hexagon:after {
+      top: 97%;
+      width: 0;
+      border-top: 86.6px solid #64c7cc;
+      border-radius: $radius;
+    }
+  }
+}

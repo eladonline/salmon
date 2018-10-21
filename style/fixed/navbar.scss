@@ -1,57 +1,163 @@
 ////////////
 // bar
 ///////////
+$navbarHeight: 85px;
+.navbarBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15549;
+  width: 100%;
+  height: $navbarHeight;
+  box-shadow: 0 0.1px 15px rgb(219, 219, 219);
+  background: white;
+}
 .navbar {
   z-index: 15550;
   margin-bottom: 0;
   top: 0;
-  position: fixed;
+  left: 0;
   width: 100%;
-  background: transparent;
+  height: $navbarHeight;
   border: none;
+  background: white;
+  font-size: calc(#{$navbarTextNormal} - 2px);
+  position: sticky;
+  @include sm {
+    font-size: calc(#{$navbarTextNormal} - 4px);
+  }
+  @include md {
+    font-size: calc(#{$navbarTextNormal} - 3px);
+  }
+  @include lg {
+    font-size: calc(#{$navbarTextNormal} - 2px);
+  }
+  @include xl {
+    font-size: $navbarTextNormal;
+  }
+
+  @extend %Roboto;
   .container {
     margin: 0;
     width: 100%;
+    height: 100%;
   }
   .navbar-brand {
-    width: 100;
-    height: 50px;
+    width: 110px;
+    height: 100%;
+    @include sm {
+      width: 100px;
+      height: 100%;
+    }
+    @include md {
+      width: 120px;
+      height: 85px;
+    }
   }
+  .navbar-toggle {
+    margin-top: 23px;
+  }
+
   .navbar-collapse {
-    width: 100%; // the dropdown open box menu
-    .dropdown-menu {
-      li a {
-        color: $mainHeaderDark;
+    width: 100vw; // the dropdown open box menu
+    @include sm {
+      width: 100%; // the dropdown open box menu
+    }
+    min-height: 100%;
+    padding: 0;
+    // padding-top: 20px;
+    .navbar-nav {
+      // width: 100vh;
+      margin: 0;
+      background: white;
+      min-height: $navbarHeight;
+      @include sm {
+        @include flex-row(flex-start, center);
       }
-    } // the title of the dropdown
-    > ul {
-      padding-top: 0.8em;
-      .loginNav a {
-        color: $mainHeaderDark;
-        width: 80px;
-        height: 38px;
-        font-size: 14px;
-        @extend %Lato;
-        @include flex-row(center, center);
-        &:hover {
-          font-weight: 900;
+      .navItem {
+        padding-left: 1em;
+        @include sm {
+          padding-left: 0;
         }
-     
-      }
-      li {
-        #basic-nav-dropdown {
-          position: relative;
-          bottom: 2px;
-          width: 50px;
-          height: 45px;
-          @include flex-row(center, flex-end);
-          background: transparent !important;
-          img {
-            width: 100%;
-            height: 100%;
+        // margin-right: 35px;
+
+        > a {
+          padding: 5px;
+          color: $textGrey;
+          @include md {
+            padding: 15px;
+          }
+        }
+        .navbarHighlight {
+          transition: 0.4s ease;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          left: 0;
+          visibility: hidden;
+          @include sm {
+            visibility: visible;
+            top: 58px;
+          }
+          @include md {
+            top: 67px;
+          }
+          &[data-highlight='true'] {
+            background: $salmonRed;
+            color: $headersBlack;
           }
         }
       }
+      .navItem-last {
+        margin-right: 1em;
+      }
+      .navButton-login,
+      .navButton-register {
+        max-width: 20%;
+        margin-left: 1.85em;
+        @include sm {
+          margin-left: 0;
+        }
+        @extend %btnSmall;
+        > a {
+          padding: 0;
+          line-height: 0;
+        }
+      }
+      .navButton-login {
+        @extend %btn-invers;
+        > a {
+          color: $salmonRed;
+        }
+        // &:hover {
+        //   > a {
+        //     color: white;
+        //   }
+        //   background: $salmonRed;
+        // }
+        margin-right: 0.8em;
+      }
+      .navButton-register {
+        background: $salmonRed;
+        > a {
+          color: white;
+        }
+        // &:hover {
+        //   @extend %btn-invers;
+        //   > a {
+        //     color: $salmonRed;
+        //   }
+        // }
+      }
     }
+    // .dropdown-menu {
+    //   li a {
+    //     color: $mainHeaderDark;
+    //   }
+    // } // the title of the dropdown
+    // li {
+    //   #basic-nav-dropdown {
+    //   }
+    // }
   }
 }

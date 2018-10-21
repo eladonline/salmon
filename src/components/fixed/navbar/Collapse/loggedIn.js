@@ -2,27 +2,28 @@ import React from 'react';
 import { Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-const iconBlack = 'static/icons/hamburgerBlack.png';
-
 const Items = p => (
   <Nav pullRight>
-    <NavItem className="startTradingNav" data-invers={p.invers}>
-      Start Trading
-    </NavItem>{' '}
-    <NavItem className="loginNav" data-invers={p.invers}>
-      Log-in
-    </NavItem>{' '}
-    <NavDropdown
-      eventKey={3}
-      id="basic-nav-dropdown"
-      title={<img src={iconBlack} alt="icon" />}
-      noCaret
-    >
-      <MenuItem eventKey={3.1}>Action</MenuItem>
-      <MenuItem eventKey={3.2}>Another action</MenuItem>
-      <MenuItem eventKey={3.3}>Something else here</MenuItem>
-      <MenuItem divider />
-      <MenuItem eventKey={3.3}>Separated link</MenuItem>
+    <NavItem className="navItem">
+      About <span className="navbarHighlight" />
+    </NavItem>
+    <NavItem className="navItem">
+      Investors Protection System <span className="navbarHighlight" />
+    </NavItem>
+    <NavItem className="navItem">
+      White Paper <span className="navbarHighlight" />
+    </NavItem>
+    <NavItem className="navItem">
+      FAQ <span className="navbarHighlight" />
+    </NavItem>
+    <NavItem className="navItem navItem-last">
+      Token sale <span className="navbarHighlight" />
+    </NavItem>
+    <NavDropdown eventKey={3} id="basic-nav-dropdown" title={'EN'}>
+      <MenuItem eventKey={3.1}>lang</MenuItem>
+      <MenuItem eventKey={3.2}>lang</MenuItem>
+      <MenuItem eventKey={3.3}>lang</MenuItem>
+      <MenuItem eventKey={3.4}>lang</MenuItem>
     </NavDropdown>
   </Nav>
 );
