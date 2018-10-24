@@ -290,8 +290,7 @@
   }
   h3 {
     margin-top: 3em;
-    @extend %Gilroy-ExtraBold;
-    color: $salmonRed;
+    @extend %salmonHeader;
   }
   img {
     position: relative;
@@ -341,8 +340,7 @@
       background: $salmonRed;
     }
     h3 {
-      color: $salmonRed;
-      @extend %Gilroy-ExtraBold;
+      @extend %salmonHeader;
       margin-bottom: 1em;
     }
     p {
@@ -365,9 +363,9 @@
     margin-bottom: 2em;
   }
   .teamProfiles {
-    @include grid(2em, initial, initial, auto, auto auto auto);
+    @include grid(3em, initial, initial, auto, auto auto auto);
     @include sm {
-      @include grid(2em, space-between, initial, auto auto auto, auto);
+      @include grid(3em, space-between, initial, auto auto auto, auto);
     }
   }
   .profileBlock {
@@ -380,39 +378,210 @@
     }
     h4 {
       @extend %Roboto-Bold;
+      color: $salmonRed;
     }
-    $radius: 14px;
-    .hexagon {
+    p {
+      @extend %text;
+      border-top: 1px solid $topBorder;
+      padding-top: 2em;
+      margin-top: 2em;
+    }
+    .profilePicOuter {
       position: relative;
-      width: 130px;
-      height: 173.21px;
-      background-color: #64c7cc;
-      margin: 86.6px 0;
-      border-radius: $radius;
-      transform: rotate(90deg);
+      @include flex-row(center, center);
+      // margin-bottom: 8em;
+      .dotted {
+        position: absolute;
+      }
+      .float-hexagon {
+        position: relative;
+        z-index: 1;
+        height: 125px;
+        width: 140px;
+      }
+    }
+  }
+}
+
+///////////////////////////
+// section 6 InvestrosProtection
+///////////////////////////
+.InvestrosProtection {
+  margin-top: 5em;
+  @include grid(1em, initial, initial, auto, auto);
+  .investrosProtection-sectionA {
+    @include grid(1em, initial, initial, auto, auto);
+    @include sm {
+      @include grid(1em, space-between, initial, 40% 50%, auto);
+    }
+    div {
+      h1 {
+        @extend %header;
+      }
+      h3 {
+        @extend %salmonHeader;
+        margin: 2em 0;
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+  p {
+    @extend %text;
+  }
+  .investrosProtection-sectionB {
+    @include grid(1em, initial, initial, auto, auto);
+    @include sm {
+      @include grid(1em, space-between, initial, 40% 50%, auto);
+    }
+    > img {
+      object-fit: contain;
+      width: 100%;
+      padding: 3em 0;
+    }
+    .money-tickets {
+      padding: 3em 0;
+      @include grid(3em, initial, initial, auto auto, auto auto);
+      > section {
+        border-radius: 13px;
+        background: #fff;
+        box-shadow: 0 0 114px 3px rgba(0, 0, 0, 0.1);
+        padding: 1em;
+        > header {
+          @include flex-row(space-between, center);
+          border-bottom: 1px solid $topBorder;
+          > h3 {
+            @extend %Roboto-Black;
+            font-size: 36px;
+            color: $salmonRed;
+          }
+          > img {
+            width: 30px;
+            object-fit: contain;
+          }
+        }
+        > div {
+          p {
+            padding-top: 0.5em;
+          }
+          div {
+            @extend %robotoBlack-text;
+          }
+        }
+      }
+    }
+  }
+}
+
+///////////////////////////
+// section 6 TokenSale   //
+//////////////////////////
+
+.TokenSale {
+  margin-top: 8em;
+  > section {
+    @include grid(1em, space-between, initial, auto, auto);
+    @include sm {
+      @include grid(1em, space-between, initial, auto 50%, auto);
+    }
+    margin-bottom: 3em;
+    .line {
+      height: 5px;
+      width: 66px;
+      background: $salmonRed;
+    }
+    h2 {
+      @extend %subHeader;
+    }
+    p {
+      @extend %text;
+    }
+  }
+  .timeline-mainCon {
+    @include flex-column(flex-start, center);
+    @include sm {
+      @include flex-row();
+    }
+  }
+  .tokenSale-timeline {
+    @include flex-row(space-between);
+    height: 25%;
+    width: 60%;
+    @include sm {
+      width: 25%;
+      @include flex-column();
+    }
+    .timeline-year {
+      @extend %Roboto-Black;
+      padding-bottom: 2em;
+    }
+    .timeline-holder {
+      @include flex-column(center, center);
+      height: 190px;
+      // width: 240px;
+      @include sm {
+        height: 0;
+        width: 100%;
+        @include flex-row(center, center);
+      }
+      .Timeline-bullet-out {
+        border: 1px solid $salmonRed;
+        width: 23px;
+        height: 26px;
+        @include sm {
+          width: 26px;
+          height: 23px;
+        }
+        border-radius: 100%;
+        @include flex-column(center, center);
+      }
+      .Timeline-bullet-inner {
+        background: $salmonRed;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+      }
+      .dotted-border {
+        height: 100%;
+        border-left: 1px dashed $salmonRed;
+        @include sm {
+          width: 100%;
+          border-top: 1px dashed $salmonRed;
+        }
+      }
     }
 
-    .hexagon:before,
-    .hexagon:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      border-left: 68px solid transparent;
-      border-right: 68px solid transparent;
-      border-radius: $radius;
-    }
-
-    .hexagon:before {
-      bottom: 97%;
-      border-bottom: 86.6px solid #64c7cc;
-      border-radius: $radius;
-    }
-
-    .hexagon:after {
-      top: 97%;
-      width: 0;
-      border-top: 86.6px solid #64c7cc;
-      border-radius: $radius;
+    .Timeline-text {
+      max-width: 60%;
+      @include sm {
+        max-width: 80%;
+      }
+      h3 {
+        @extend %salmonHeader;
+        font-size: 25px;
+        margin-top: 0;
+        @include sm {
+          margin-top: 1em;
+        }
+        @include md {
+          font-size: 30px;
+        }
+      }
+      h5 {
+        @extend %Gilroy-ExtraBold;
+        font-size: 16px;
+        @include md {
+          font-size: 20px;
+        }
+      }
+      p {
+        @extend %text;
+        font-size: 14px;
+        @include md {
+          font-size: 18px;
+        }
+      }
     }
   }
 }

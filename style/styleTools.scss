@@ -8,9 +8,10 @@ $salmonRed: #f05344;
 $headersBlack: #333845;
 $textGrey: #a8aaad;
 $topBorder: #ebebeb;
-
+$websiteMainBackground: #fefefe;
 $navbarTextNormal: 16px;
-
+$footerBackground: #f8f8f8;
+$footerHeight: 210px;
 $headerText-size: 107px;
 $sub-headerText-size: 50px;
 $text-size: 20px;
@@ -184,6 +185,11 @@ $buttonBig-text: 20px;
   @include xl {
     font-size: $sub-headerText-size;
   }
+}
+%salmonHeader {
+  color: $salmonRed;
+  @extend %Gilroy-ExtraBold;
+  font-size: 30px;
 }
 %text {
   @extend %Roboto;

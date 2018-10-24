@@ -6,6 +6,8 @@ import HowItWorks from 'src/components/sections/howItWorks';
 import WhySalmon from 'src/components/sections/whySalmon';
 import OurVision from 'src/components/sections/ourVision';
 import MeetOurTeam from 'src/components/sections/meetOurTeam';
+import InvestorsProtection from 'src/components/sections/investorsProtection';
+import TokenSale from 'src/components/sections/tokenSale';
 
 const swimSalmon = 'static/image/swim_salmon.png';
 export default class Homepage extends Component {
@@ -19,6 +21,8 @@ export default class Homepage extends Component {
         <WhySalmon />
         <OurVision />
         <MeetOurTeam />
+        <InvestorsProtection />
+        <TokenSale />
       </div>
     );
   }

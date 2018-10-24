@@ -1,0 +1,77 @@
+.footer-outer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: $footerHeight;
+  width: 100%;
+  background: $footerBackground;
+  padding: 1em;
+}
+
+.footer {
+  height: calc(#{$footerHeight} - 20px);
+  .footer-links-cont {
+    height: 50%;
+    @include flex-row(flex-start, center);
+    border-bottom: 1px solid $topBorder;
+    .footerNavlinks-outer {
+      @include flex-row(space-between);
+      flex-wrap: wrap;
+
+      width: 100%;
+    }
+    .navbar-brand {
+      display: none;
+      @include sm {
+        display: block;
+        width: 120px;
+        height: 100%;
+      }
+      @include md {
+        width: 120px;
+        height: 85px;
+      }
+    }
+    .footerNavlinks {
+      list-style: none;
+      @include flex-row(space-evenly);
+      flex-wrap: nowrap;
+
+      padding: 0px;
+      width: 100%;
+      @include sm {
+        width: 80%;
+      }
+      li {
+        a {
+          @extend %text;
+
+          font-size: 10px;
+          @include sm {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .sharing {
+      list-style: none;
+      @extend %text;
+      font-size: 10px;
+      @include sm {
+        font-size: 14px;
+      }
+    }
+  }
+  .copyrights {
+    @include flex-column(center, flex-start);
+    height: 50%;
+    @extend %text;
+    font-size: 10px;
+    @include sm {
+      font-size: 14px;
+    }
+  }
+  .Copyright-stamp {
+    align-self: flex-end;
+  }
+}

@@ -1,12 +1,14 @@
 @import './styleTools.scss';
 @import './fixed/navbar.scss';
-@import './section//section.scss';
+@import './fixed/footer.scss';
+@import './section/section.scss';
 
 body {
   line-height: 17px;
   overflow-x: hidden;
   position: relative;
-  background: #fefefe;
+  background: $websiteMainBackground;
+  padding-bottom:$footerHeight + 50px;
 }
 .swimSalmon {
   position: absolute;

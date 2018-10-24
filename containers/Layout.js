@@ -12,6 +12,7 @@ import appActions from 'src/logic/redux/isomorphic/app/actions';
 // import AppLocale from '../languageProvider';
 import Navbar from 'src/components/fixed/navbar/index';
 import { Grid } from 'react-bootstrap';
+import Footer from 'src/components/fixed/footer/footer';
 
 const { logout } = authAction;
 const { toggleAll } = appActions;
@@ -55,6 +56,7 @@ class Header extends PureComponent {
             <Navbar />
             <ThemeProvider theme={themes[selectedTheme]}>{this.props.children}</ThemeProvider>
           </Grid>
+            <Footer />
         </WindowResizeListener>
       </Fragment>
     );
